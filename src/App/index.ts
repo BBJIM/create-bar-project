@@ -12,9 +12,10 @@ const run = async () => {
 	const { projectName } = await inquirerFunction.projectName();
 	await createFolder(projectName);
 	const result = await inquirerFunction.projectSetup();
-	Object.values(result).forEach((value: string) => {
-		functions[value](projectName);
-	});
+	const keys: string[] = Object.values(result);
+	for (const key of keys) {
+		await functions[key](projectName);
+	}
 };
 
 run();

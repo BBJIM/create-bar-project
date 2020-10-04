@@ -30,16 +30,16 @@ const inquirerFunction = {
 			},
 			{
 				type: 'list',
-				name: 'structure',
-				message: 'Select the project structure:',
-				choices: [NORMAL_STRUCTURE, NORMAL_AND_SERVER, MONOREPO],
+				name: 'globalState',
+				message: 'Select state managment to work with:',
+				choices: [MOBX, APOLLO],
 				default: 0,
 			},
 			{
 				type: 'list',
-				name: 'globalState',
-				message: 'Select state managment to work with:',
-				choices: [MOBX, APOLLO],
+				name: 'structure',
+				message: 'Select the project structure:',
+				choices: [NORMAL_STRUCTURE, NORMAL_AND_SERVER, MONOREPO],
 				default: 0,
 			},
 		];
