@@ -12,6 +12,7 @@
 		"lint-ts": "tslint -c tslint.json src/**/*.{ts} --fix --format verbose"
 	},
 	"dependencies": {
+		"@types/node": "^14.11.1",
 		"@types/yargs": "^15.0.7",
 		"husky": "^4.2.5",
 		"lint-staged": "^8.1.7",
