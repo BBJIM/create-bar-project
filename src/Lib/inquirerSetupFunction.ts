@@ -16,14 +16,14 @@ const inquirerFunction = {
 				},
 			},
 			{
-				type: 'checkbox',
+				type: 'list',
 				name: 'framework',
 				message: 'Select the "framework" you want to work with:',
 				choices: ['normal react', 'next.js'],
-				default: ['normal react'],
+				default: 0,
 			},
 			{
-				type: 'checkbox',
+				type: 'list',
 				name: 'structure',
 				message: 'Select the project structure:',
 				choices: [
@@ -31,14 +31,14 @@ const inquirerFunction = {
 					'normal + another server folder project',
 					'monorepo with the server and the client',
 				],
-				default: ['normal'],
+				default: 0,
 			},
 			{
-				type: 'checkbox',
+				type: 'list',
 				name: 'globalState',
 				message: 'Select state managment to work with:',
 				choices: ['mobx', 'apollo js with graphQL'],
-				default: ['mobx'],
+				default: 0,
 			},
 		];
 		return inquirer.prompt(questions);
