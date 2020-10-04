@@ -1,5 +1,5 @@
-import ncp from 'ncp';
 import mkdirp from 'mkdirp';
+import ncp from 'ncp';
 
 const baseUrl = './src';
 
