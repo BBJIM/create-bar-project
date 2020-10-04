@@ -1,0 +1,39 @@
+{
+	"name": "cli-test",
+	"version": "1.0.0",
+	"main": "src/App/index.ts",
+	"repository": "https://github.com/BBJIM/cli-test.git",
+	"author": "Bar <baryed55gmail.com>",
+	"license": "MIT",
+	"scripts": {
+		"start-node": "ts-node -r tsconfig-paths/register ./src/App",
+		"start": "nodemon",
+		"build": "tsc",
+		"lint-ts": "tslint -c tslint.json src/**/*.{ts} --fix --format verbose"
+	},
+	"dependencies": {
+		"@types/yargs": "^15.0.7",
+		"husky": "^4.2.5",
+		"lint-staged": "^8.1.7",
+		"nodemon": "^2.0.4",
+		"prettier": "^2.0.5",
+		"ts-node": "^9.0.0",
+		"tslint": "^6.1.2",
+		"tslint-config-prettier": "^1.18.0",
+		"typescript": "^3.9.5",
+		"yargs": "^16.0.3"
+	},
+	"nodemonConfig": {
+		"ignore": [
+			"**/*.test.ts",
+			"**/*.spec.ts",
+			".git",
+			"node_modules"
+		],
+		"watch": [
+			"src"
+		],
+		"exec": "yarn start-node",
+		"ext": "ts"
+	}
+}
