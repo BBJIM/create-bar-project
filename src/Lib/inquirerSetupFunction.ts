@@ -1,7 +1,8 @@
+import { APOLLO, MOBX, MONOREPO, NEXT_JS, NORAML_REACT, NORMAL_AND_SERVER, NORMAL_STRUCTURE } from 'Common';
 import inquirer from 'inquirer';
 
 const inquirerFunction = {
-	projectSetup: () => {
+	projectName: () => {
 		const questions = [
 			{
 				name: 'projectName',
@@ -15,29 +16,30 @@ const inquirerFunction = {
 					}
 				},
 			},
+		];
+		return inquirer.prompt(questions);
+	},
+	projectSetup: () => {
+		const questions = [
 			{
 				type: 'list',
 				name: 'framework',
 				message: 'Select the "framework" you want to work with:',
-				choices: ['normal react', 'next.js'],
+				choices: [NORAML_REACT, NEXT_JS],
 				default: 0,
 			},
 			{
 				type: 'list',
 				name: 'structure',
 				message: 'Select the project structure:',
-				choices: [
-					'normal',
-					'normal + another server folder project',
-					'monorepo with the server and the client',
-				],
+				choices: [NORMAL_STRUCTURE, NORMAL_AND_SERVER, MONOREPO],
 				default: 0,
 			},
 			{
 				type: 'list',
 				name: 'globalState',
 				message: 'Select state managment to work with:',
-				choices: ['mobx', 'apollo js with graphQL'],
+				choices: [MOBX, APOLLO],
 				default: 0,
 			},
 		];
