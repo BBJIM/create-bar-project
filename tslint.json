@@ -5,12 +5,10 @@
 			"node_modules/**/*.ts",
 			"**/*.json",
 			"*.json",
-			"./*.json",
 			"**/.lintstagedrc.json",
 			"**/*.d.ts",
 			"**/*.md",
-			"*.md",
-			"./README.md"
+			"*.md"
 		]
 	},
 	"rules": {
