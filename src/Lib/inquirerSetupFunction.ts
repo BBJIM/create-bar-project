@@ -7,7 +7,7 @@ const inquirerFunction = {
 				name: 'projectName',
 				type: 'input',
 				message: 'Enter your project name:',
-				validate: function (value) {
+				validate: (value: string) => {
 					if (value.length) {
 						return true;
 					} else {
