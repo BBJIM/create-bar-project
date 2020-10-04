@@ -1,0 +1,26 @@
+{
+	"extends": ["tslint:recommended", "tslint-react", "tslint-config-prettier"],
+	"linterOptions": {
+		"exclude": [
+			"node_modules/**/*.ts",
+			"**/*.json",
+			"*.json",
+			"**/*.md",
+			"*.md",
+			"src/react-app-env.d.ts",
+			"src/font.d.ts",
+			"./README.md"
+		]
+	},
+	"rules": {
+		"interface-name": false,
+		"strictPropertyInitialization": false,
+		"jsx-boolean-value": false,
+		"object-literal-sort-keys": false,
+		"variable-name": false,
+		"jsx-no-lambda": false,
+		"no-console": false,
+		"max-classes-per-file": false,
+		"ordered-imports": true
+	}
+}

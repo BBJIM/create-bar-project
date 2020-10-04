@@ -1,3 +1,7 @@
+const sharedFolders = () => {
+	console.log('sharedFolders');
+};
+
 export const normalReact = () => {
 	console.log('normalReact');
 };

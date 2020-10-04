@@ -1,7 +1,17 @@
 {
 	"extends": ["tslint:recommended", "tslint-config-prettier"],
 	"linterOptions": {
-		"exclude": ["node_modules/**/*.ts", "**/*.json", "./.lintstagedrc.json", ".json", "./README.md", "dist"]
+		"exclude": [
+			"node_modules/**/*.ts",
+			"**/*.json",
+			"*.json",
+			"./*.json",
+			"**/.lintstagedrc.json",
+			"**/*.d.ts",
+			"**/*.md",
+			"*.md",
+			"./README.md"
+		]
 	},
 	"rules": {
 		"no-console": false,

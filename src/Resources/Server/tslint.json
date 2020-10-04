@@ -1,0 +1,10 @@
+{
+	"extends": ["tslint:recommended", "tslint-config-prettier"],
+	"linterOptions": {
+		"exclude": ["node_modules/**/*.ts", "**/*.json", ".json", "./README.md", "dist"]
+	},
+	"rules": {
+		"no-console": false,
+		"ordered-imports": true
+	}
+}
