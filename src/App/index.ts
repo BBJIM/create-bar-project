@@ -1,11 +1,14 @@
-import yargs from 'yargs';
+import chalk from 'chalk';
+import { clear } from 'console';
+import figlet from 'figlet';
+import inquirerFunction from 'Lib/inquirerSetupFunction';
 
-const argv = yargs.options({
-	next: {
-		type: 'boolean',
-		default: false,
-		describe: 'true to use next.js instead on the normal react',
-	},
-});
+clear();
 
-console.log(argv);
+console.log(chalk.yellow(figlet.textSync('Bar Base Project', { horizontalLayout: 'full' })));
+const run = async () => {
+	const result = await inquirerFunction.projectSetup();
+	console.log(result);
+};
+
+run();
