@@ -21,6 +21,7 @@
 		"ts-node": "^9.0.0",
 		"tslint": "^6.1.2",
 		"tslint-config-prettier": "^1.18.0",
+		"tsconfig-paths": "^3.9.0",
 		"typescript": "^3.9.5",
 		"yargs": "^16.0.3"
 	},
