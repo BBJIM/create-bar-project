@@ -1,4 +1,5 @@
 import { alertMessage, alertStrings } from 'Common/AlertMessage';
+import { ADMIN } from 'Common/GeneralConsts';
 import { ROUTES } from 'Common/RoutesNames';
 import { AUTH_STORE, UI_STORE } from 'Common/StoreNames';
 import { AuthStore, UiStore } from 'Logic/Stores';
@@ -13,8 +14,7 @@ const AdminRoute = inject(
 	UI_STORE,
 )(
 	observer(({ authStore, uiStore, ...rest }: Props) => {
-		// TODO: change the hardcoded string 'admin' according to your site structure
-		const isAdmin = uiStore?.getBlockedUi || authStore?.getCurrentUser?.role?.name === 'admin';
+		const isAdmin = uiStore?.getBlockedUi || authStore?.getCurrentUser?.role?.name === ADMIN;
 		useEffect(() => {
 			if (!isAdmin) {
 				alertMessage.error(alertStrings.noAccess);

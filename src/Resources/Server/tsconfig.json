@@ -6,11 +6,6 @@
 		"moduleResolution": "node",
 		"sourceMap": true,
 		"outDir": "dist",
-		"plugins": [
-			{
-				"name": "typescript-tslint-plugin"
-			}
-		],
 		"baseUrl": "./src",
 		"resolveJsonModule": true
 	},

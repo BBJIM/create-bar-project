@@ -54,6 +54,33 @@ const InputAllWrapperCSS = css`
 	margin: auto;
 `;
 
+const RowSelectHeaderCheckbox = ({ getToggleAllRowsSelectedProps }: { getToggleAllRowsSelectedProps: any }) => (
+	<Checkbox allInputWrapperCSS={InputAllWrapperCSS} {...getToggleAllRowsSelectedProps()} displayName='Header' />
+);
+
+const RowSelectCellCheckbox = ({ row }: { row: any }) => (
+	<Checkbox
+		allInputWrapperCSS={InputAllWrapperCSS}
+		{...row.getToggleRowSelectedProps()}
+		onDoubleClick={(e) => e.preventDefault()}
+		displayName='Cell'
+	/>
+);
+
+const rowSelectArr = [
+	useRowSelect,
+	(hooks: any) => {
+		hooks.visibleColumns.push((tableColumns: any) => [
+			{
+				id: 'selection',
+				Header: RowSelectHeaderCheckbox,
+				Cell: RowSelectCellCheckbox,
+			},
+			...tableColumns,
+		]);
+	},
+];
+
 const Table = ({
 	columns,
 	data,
@@ -63,42 +90,12 @@ const Table = ({
 	CheckboxSubmitComponent,
 	...rest
 }: Props) => {
-	const useRowSelectArr = withCheckbox
-		? [
-				useRowSelect,
-				(hooks: any) => {
-					hooks.visibleColumns.push((tableColumns: any) => [
-						{
-							id: 'selection',
-							Header: ({ getToggleAllRowsSelectedProps }: { getToggleAllRowsSelectedProps: any }) => (
-								<Checkbox
-									allInputWrapperCSS={InputAllWrapperCSS}
-									{...getToggleAllRowsSelectedProps()}
-								/>
-							),
-							Cell: ({ row }: { row: any }) => (
-								<Checkbox
-									allInputWrapperCSS={InputAllWrapperCSS}
-									{...row.getToggleRowSelectedProps()}
-									onDoubleClick={(e) => e.preventDefault()}
-								/>
-							),
-						},
-						...tableColumns,
-					]);
-				},
-		  ]
-		: [];
+	const useRowSelectArr = withCheckbox ? rowSelectArr : [];
 
-	const {
-		getTableProps,
-		getTableBodyProps,
-		headerGroups,
-		rows,
-		prepareRow,
-		// @ts-ignore
-		selectedFlatRows,
-	} = useTable({ columns, data, ...rest }, ...useRowSelectArr);
+	const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow, selectedFlatRows } = useTable(
+		{ columns, data, ...rest },
+		...useRowSelectArr,
+	);
 
 	return (
 		<>
@@ -149,9 +146,7 @@ const Table = ({
 			</TableComponent>
 			{rows.length === 0 && <Header>{loading ? 'LOADING...' : 'NO DATA'}</Header>}
 			{CheckboxSubmitComponent &&
-				CheckboxSubmitComponent(
-					selectedFlatRows.map(({ original }: { original: { _id: string } }) => original._id),
-				)}
+				CheckboxSubmitComponent(selectedFlatRows.map(({ original }: any) => original._id))}
 		</>
 	);
 };

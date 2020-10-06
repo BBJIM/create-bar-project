@@ -3,7 +3,7 @@ import models, { ModelName } from 'Common/Models';
 import { FindObject } from 'Common/Utils/Types';
 import { QueryPopulateOptions } from 'mongoose';
 
-export const createModel = async (modelName: ModelName, modelData: any, populate: string = '') => {
+export const createModel = async (modelName: ModelName, modelData: any, populate = '') => {
 	try {
 		const model = models[modelName];
 		const newModel = new model(modelData);

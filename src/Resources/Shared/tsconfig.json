@@ -18,12 +18,7 @@
 		"noUnusedParameters": true,
 		"sourceMap": true,
 		"jsx": "react",
-		"outDir": "./dist/",
-		"plugins": [
-			{
-				"name": "typescript-tslint-plugin"
-			}
-		],
+		"outDir": "./build/",
 		"baseUrl": "./src",
 		"lib": ["dom", "dom.iterable", "esnext"]
 	},

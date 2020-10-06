@@ -9,7 +9,7 @@ interface IModalItem {
 
 export default class ModalStore {
 	@observable
-	private open: boolean = false;
+	private open = false;
 
 	@observable
 	private modalStack: IObservableArray<IModalItem> = observable([]);

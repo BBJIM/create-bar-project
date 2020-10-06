@@ -7,7 +7,7 @@ import ReactDOM from 'react-dom';
 import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
 import { Router } from 'react-router-dom';
 
-const Index = () =>
+const Index = () => {
 	ReactDOM.render(
 		<Provider {...stores}>
 			<Router history={history}>
@@ -16,5 +16,6 @@ const Index = () =>
 		</Provider>,
 		document.getElementById('root'),
 	);
+};
 
 export default Index;

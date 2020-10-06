@@ -1,6 +1,6 @@
 class Role {
-	_id: string = '';
-	name: string = '';
+	_id = '';
+	name = '';
 }
 
 export default Role;

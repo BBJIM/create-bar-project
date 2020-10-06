@@ -30,7 +30,7 @@ const NotFound = () => (
 		<Header size='large' weight='bold'>
 			Ooops!!
 		</Header>
-		<StyledText size='xLarge'>THIS PAGE DOESN'T EXIST OR IS UNAVAILABLE.</StyledText>
+		<StyledText size='xLarge'>THIS PAGE DOESN&apos;T EXIST OR IS UNAVAILABLE.</StyledText>
 		<CenteredButton path={ROUTES.HOME.path}>Go Back to Home</CenteredButton>
 	</Wrapper>
 );

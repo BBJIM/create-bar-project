@@ -4,7 +4,6 @@ import * as Yup from 'yup';
 const FILE_SIZE = 1600 * 1024;
 const SUPPORTED_FORMATS = ['*/image', '/*video', 'text/plain'];
 
-// TODO: fix errors
 const requiredMessage = 'Required';
 const emailMessage = 'Email must be like this a@a.com';
 const phoneMessage = 'Phone not good';
@@ -18,10 +17,6 @@ const passwordMessage = 'min 8 letters, max 14, must contain at least one capita
 const emailRegex = /^[^<>()[\]\\,;:#^\s@$&!@]+@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z0-9]+\.)+[a-zA-Z]{2,})|(([a-zA-Z0-9]+[-]+[a-zA-Z0-9]+\.)+[a-zA-Z]{2,})+((\.{0,1})+[a-zA-Z]{2,}){0,1})+$/;
 
 const requiredYup = Yup.string().required(requiredMessage);
-
-// const phoneYup = Yup.string()
-// 	.nullable()
-// 	.test('phone', phoneMessage, (value) => !value || value.length === 0 || (/^[0-9]+$/i.test(value) && value.length === 10));
 
 const emailYup = Yup.string()
 	.required(requiredMessage)
@@ -38,7 +33,7 @@ const phoneRequiredYup = Yup.string()
 const filesYup = Yup.mixed()
 	.test('fileSize', fileSizeTooLarge, (value) => {
 		if (value) {
-			let finalSize: number = 0;
+			let finalSize = 0;
 			Array.from(value).forEach((v: any) => {
 				finalSize += v.size;
 			});
