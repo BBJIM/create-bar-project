@@ -1,5 +1,5 @@
-export to current folder
 fix common folder creation
 fix pacakge json creation
+finish missing resources
 
-ipdate all resources
+update all resources
