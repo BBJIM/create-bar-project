@@ -1,3 +1,5 @@
 export to current folder
 fix common folder creation
 fix pacakge json creation
+
+ipdate all resources
