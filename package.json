@@ -1,7 +1,7 @@
 {
 	"name": "cli-test",
 	"version": "1.0.0",
-	"main": "src/App/index.ts",
+	"main": "bin/index.js",
 	"repository": "https://github.com/BBJIM/cli-test.git",
 	"author": "Bar <baryed55gmail.com>",
 	"license": "MIT",
@@ -10,6 +10,9 @@
 		"build": "rimraf ./dist && tsc",
 		"serve": "node -r ./tsconfig-paths-bootstrap.js ./dist/App",
 		"lint-ts": "eslint src/**/*.{js,jsx,ts,tsx} --quiet --fix"
+	},
+	"bin": {
+		"create-bar-app": "./bin/index.js"
 	},
 	"dependencies": {
 		"@types/figlet": "^1.2.0",

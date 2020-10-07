@@ -1,4 +1,4 @@
-import { APOLLO, MOBX, MONOREPO, NEXT_JS, NORAML_REACT, NORMAL_AND_SERVER, NORMAL_STRUCTURE } from 'Common';
+import { APOLLO, MOBX, MONOREPO, NEXT_JS, NORAML_REACT, NORMAL_AND_SERVER, NORMAL_STRUCTURE } from '../Common';
 import inquirer from 'inquirer';
 
 const inquirerFunction = {

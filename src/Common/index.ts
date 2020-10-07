@@ -1,4 +1,4 @@
-import { apollo, mobx, monorepo, nextJs, normalReact, normalStructure, withServer } from 'Functions';
+import { apollo, mobx, monorepo, nextJs, normalReact, normalStructure, withServer } from '../Functions';
 
 export const NORAML_REACT = 'normal react';
 export const NEXT_JS = 'next.js';

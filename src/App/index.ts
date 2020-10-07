@@ -1,9 +1,9 @@
 import chalk from 'chalk';
-import { functions } from 'Common';
+import { functions } from '../Common';
 import { clear } from 'console';
 import figlet from 'figlet';
-import { createFolder, exportProject } from 'Functions';
-import inquirerFunction from 'Lib/inquirerSetupFunction';
+import { createFolder, exportProject } from '../Functions';
+import inquirerFunction from '../Lib/inquirerSetupFunction';
 
 clear();
 
