@@ -6,7 +6,7 @@
 	"author": "Bar <baryed55gmail.com>",
 	"license": "MIT",
 	"scripts": {
-		"start": "ts-node -r tsconfig-paths/register ./src/App",
+		"start": "yarn build && ts-node -r tsconfig-paths/register ./src/App",
 		"copy-resources": "ts-node ./copy-resources.ts",
 		"build": "rimraf ./dist && tsc && yarn copy-resources",
 		"serve": "node -r ./tsconfig-paths-bootstrap.js ./dist/App",

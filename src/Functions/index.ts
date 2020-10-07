@@ -5,7 +5,7 @@ import util from 'util';
 
 const baseUrl = './src';
 const uiKit = 'UI-KIT';
-const resources = `${baseUrl}/Resources`;
+const resources = `./dist/Resources`;
 
 const promiseNcp = util.promisify(ncp);
 const promiseRimraf = util.promisify(rimraf);
