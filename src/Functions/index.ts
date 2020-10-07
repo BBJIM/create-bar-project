@@ -5,6 +5,7 @@ import util from 'util';
 
 const baseUrl = './src';
 const uiKit = 'UI-KIT';
+const resources = './Resources';
 
 const promiseNcp = util.promisify(ncp);
 const promiseRimraf = util.promisify(rimraf);
@@ -36,7 +37,7 @@ const deleteFolder = async (source: string, callingFunctionName: string) => {
 
 const sharedFolders = async (projectName: string) => {
 	try {
-		copyFolders(`${baseUrl}/Resources/Shared`, `${baseUrl}/Export/${projectName}`, 'sharedFolders');
+		copyFolders(`${resources}/Shared`, `${baseUrl}/Export/${projectName}`, 'sharedFolders');
 	} catch (err) {
 		throw new Error(`sharedFolders - ${err.message || err}`);
 	}
@@ -45,7 +46,7 @@ const sharedFolders = async (projectName: string) => {
 export const normalReact = async (projectName: string) => {
 	try {
 		await sharedFolders(projectName);
-		// copyFolders(`${baseUrl}/Resources/Normal React`, `${baseUrl}/Export/${projectName}`, 'normalReact');
+		// copyFolders(`${resources}/Normal React`, `${baseUrl}/Export/${projectName}`, 'normalReact');
 	} catch (err) {
 		throw new Error(`normalReact - ${err.message || err}`);
 	}
@@ -54,7 +55,7 @@ export const normalReact = async (projectName: string) => {
 export const nextJs = async (projectName: string) => {
 	try {
 		await sharedFolders(projectName);
-		await copyFolders(`${baseUrl}/Resources/Next`, `${baseUrl}/Export/${projectName}`, 'nextJs');
+		await copyFolders(`${resources}/Next`, `${baseUrl}/Export/${projectName}`, 'nextJs');
 	} catch (err) {
 		throw new Error(`nextJs - ${err.message || err}`);
 	}
@@ -76,7 +77,7 @@ export const normalStructure = async (projectName: string) => {
 export const withServer = async (projectName: string) => {
 	try {
 		await normalStructure(projectName);
-		await copyFolders(`${baseUrl}/Resources/Server`, `${baseUrl}/Export/${projectName}-server`, 'withServer');
+		await copyFolders(`${resources}/Server`, `${baseUrl}/Export/${projectName}-server`, 'withServer');
 	} catch (err) {
 		throw new Error(`withServer - ${err.message || err}`);
 	}
@@ -84,7 +85,7 @@ export const withServer = async (projectName: string) => {
 
 export const monorepo = async (projectName: string) => {
 	try {
-		await copyFolders(`${baseUrl}/Resources/Monorepo`, `${baseUrl}/Export/${projectName}`, 'monorepo');
+		await copyFolders(`${resources}/Monorepo`, `${baseUrl}/Export/${projectName}`, 'monorepo');
 	} catch (err) {
 		throw new Error(`monorepo - ${err.message || err}`);
 	}
@@ -92,7 +93,7 @@ export const monorepo = async (projectName: string) => {
 
 export const mobx = async (projectName: string) => {
 	try {
-		await copyFolders(`${baseUrl}/Resources/Mobx`, `${baseUrl}/Export/${projectName}/src`, 'mobx');
+		await copyFolders(`${resources}/Mobx`, `${baseUrl}/Export/${projectName}/src`, 'mobx');
 	} catch (err) {
 		throw new Error(`mobx - ${err.message || err}`);
 	}
@@ -100,7 +101,7 @@ export const mobx = async (projectName: string) => {
 
 export const apollo = async (projectName: string) => {
 	try {
-		await copyFolders(`${baseUrl}/Resources/Apollo`, `${baseUrl}/Export/${projectName}/src`, 'apollo');
+		await copyFolders(`${resources}/Apollo`, `${baseUrl}/Export/${projectName}/src`, 'apollo');
 	} catch (err) {
 		throw new Error(`apollo - ${err.message || err}`);
 	}
