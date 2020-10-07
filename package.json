@@ -7,7 +7,8 @@
 	"license": "MIT",
 	"scripts": {
 		"start": "ts-node -r tsconfig-paths/register ./src/App",
-		"build": "rimraf ./dist && tsc",
+		"copy-resources": "ts-node ./copy-resources.ts",
+		"build": "rimraf ./dist && tsc && yarn copy-resources",
 		"serve": "node -r ./tsconfig-paths-bootstrap.js ./dist/App",
 		"lint-ts": "eslint src/**/*.{js,jsx,ts,tsx} --quiet --fix"
 	},
