@@ -2,10 +2,16 @@ import chalk from 'chalk';
 import { functions } from '../Common';
 import { clear } from 'console';
 import figlet from 'figlet';
-import { createFolder, exportProject } from '../Functions';
+import { createFolder } from '../Functions';
 import inquirerFunction from '../Lib/inquirerSetupFunction';
 
 clear();
+
+/**
+ * if you make a change:
+ * need to yarn build, then delete node_modules,update package version
+ * and then 'yarn out-bin'. after all that you can use it with cmd again.
+ */
 
 console.log(chalk.yellow(figlet.textSync('Bar Base Project', { horizontalLayout: 'full' })));
 const run = async () => {
@@ -17,7 +23,6 @@ const run = async () => {
 		for (const key of keys) {
 			await functions[key](projectName);
 		}
-		await exportProject();
 		console.log(chalk.yellow(figlet.textSync('FINSHED!')));
 	} catch (err) {
 		console.error(err);

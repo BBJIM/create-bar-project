@@ -2,4 +2,6 @@ fix common folder creation
 fix pacakge json creation
 finish missing resources
 
+fix the hacks in this
+
 update all resources
