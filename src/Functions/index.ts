@@ -2,17 +2,19 @@ import mkdirp from 'mkdirp';
 import ncp from 'ncp';
 import rimraf from 'rimraf';
 import util from 'util';
+import path from 'path';
 
 const baseUrl = './src';
 const uiKit = 'UI-KIT';
 const resources = `./dist/Resources`;
+const root = path.dirname(require.main.filename);
 
 const promiseNcp = util.promisify(ncp);
 const promiseRimraf = util.promisify(rimraf);
 
 export const createFolder = async (name: string) => {
 	try {
-		await mkdirp(`${baseUrl}/Export/${name}`);
+		await mkdirp(`${root}/Export/${name}`);
 		console.log('created project folder');
 	} catch (err) {
 		throw new Error(`createFolder - ${err.message || err}`);
@@ -37,7 +39,7 @@ const deleteFolder = async (source: string, callingFunctionName: string) => {
 
 const sharedFolders = async (projectName: string) => {
 	try {
-		copyFolders(`${resources}/Shared`, `${baseUrl}/Export/${projectName}`, 'sharedFolders');
+		copyFolders(`${resources}/Shared`, `${root}/Export/${projectName}`, 'sharedFolders');
 	} catch (err) {
 		throw new Error(`sharedFolders - ${err.message || err}`);
 	}
@@ -46,7 +48,7 @@ const sharedFolders = async (projectName: string) => {
 export const normalReact = async (projectName: string) => {
 	try {
 		await sharedFolders(projectName);
-		// copyFolders(`${resources}/Normal React`, `${baseUrl}/Export/${projectName}`, 'normalReact');
+		// copyFolders(`${resources}/Normal React`, `${root}/Export/${projectName}`, 'normalReact');
 	} catch (err) {
 		throw new Error(`normalReact - ${err.message || err}`);
 	}
@@ -55,7 +57,7 @@ export const normalReact = async (projectName: string) => {
 export const nextJs = async (projectName: string) => {
 	try {
 		await sharedFolders(projectName);
-		await copyFolders(`${resources}/Next`, `${baseUrl}/Export/${projectName}`, 'nextJs');
+		await copyFolders(`${resources}/Next`, `${root}/Export/${projectName}`, 'nextJs');
 	} catch (err) {
 		throw new Error(`nextJs - ${err.message || err}`);
 	}
@@ -64,11 +66,11 @@ export const nextJs = async (projectName: string) => {
 export const normalStructure = async (projectName: string) => {
 	try {
 		await copyFolders(
-			`${baseUrl}/Export/${projectName}/src/${uiKit}`,
-			`${baseUrl}/Export/${projectName}/src/Components/${uiKit}`,
+			`${root}/Export/${projectName}/src/${uiKit}`,
+			`${root}/Export/${projectName}/src/Components/${uiKit}`,
 			'normalStructure',
 		);
-		await deleteFolder(`${baseUrl}/Export/${projectName}/src/${uiKit}`, 'normalStructure');
+		await deleteFolder(`${root}/Export/${projectName}/src/${uiKit}`, 'normalStructure');
 	} catch (err) {
 		throw new Error(`normalStructure - ${err.message || err}`);
 	}
@@ -77,7 +79,7 @@ export const normalStructure = async (projectName: string) => {
 export const withServer = async (projectName: string) => {
 	try {
 		await normalStructure(projectName);
-		await copyFolders(`${resources}/Server`, `${baseUrl}/Export/${projectName}-server`, 'withServer');
+		await copyFolders(`${resources}/Server`, `${root}/Export/${projectName}-server`, 'withServer');
 	} catch (err) {
 		throw new Error(`withServer - ${err.message || err}`);
 	}
@@ -85,7 +87,7 @@ export const withServer = async (projectName: string) => {
 
 export const monorepo = async (projectName: string) => {
 	try {
-		await copyFolders(`${resources}/Monorepo`, `${baseUrl}/Export/${projectName}`, 'monorepo');
+		await copyFolders(`${resources}/Monorepo`, `${root}/Export/${projectName}`, 'monorepo');
 	} catch (err) {
 		throw new Error(`monorepo - ${err.message || err}`);
 	}
@@ -93,7 +95,7 @@ export const monorepo = async (projectName: string) => {
 
 export const mobx = async (projectName: string) => {
 	try {
-		await copyFolders(`${resources}/Mobx`, `${baseUrl}/Export/${projectName}/src`, 'mobx');
+		await copyFolders(`${resources}/Mobx`, `${root}/Export/${projectName}/src`, 'mobx');
 	} catch (err) {
 		throw new Error(`mobx - ${err.message || err}`);
 	}
@@ -101,7 +103,7 @@ export const mobx = async (projectName: string) => {
 
 export const apollo = async (projectName: string) => {
 	try {
-		await copyFolders(`${resources}/Apollo`, `${baseUrl}/Export/${projectName}/src`, 'apollo');
+		await copyFolders(`${resources}/Apollo`, `${root}/Export/${projectName}/src`, 'apollo');
 	} catch (err) {
 		throw new Error(`apollo - ${err.message || err}`);
 	}
@@ -109,9 +111,8 @@ export const apollo = async (projectName: string) => {
 
 export const exportProject = async () => {
 	try {
-		console.log('asdasd', __dirname);
-		await copyFolders(`${baseUrl}/Export`, `${__dirname}`, 'exportProject');
-		await deleteFolder(`${baseUrl}/Export`, 'exportProject');
+		// await copyFolders(`${root}/Export`, `${__dirname}`, 'exportProject');
+		// await deleteFolder(`${root}/Export`, 'exportProject');
 	} catch (err) {
 		throw new Error(`exportProject - ${err.message || err}`);
 	}

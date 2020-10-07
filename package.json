@@ -1,6 +1,6 @@
 {
 	"name": "cli-test",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"main": "bin/index.js",
 	"repository": "https://github.com/BBJIM/cli-test.git",
 	"author": "Bar <baryed55gmail.com>",
@@ -10,6 +10,7 @@
 		"copy-resources": "ts-node ./copy-resources.ts",
 		"build": "rimraf ./dist && tsc && yarn copy-resources",
 		"serve": "node -r ./tsconfig-paths-bootstrap.js ./dist/App",
+		"out-bin": "npm install -g .",
 		"lint-ts": "eslint src/**/*.{js,jsx,ts,tsx} --quiet --fix"
 	},
 	"bin": {
