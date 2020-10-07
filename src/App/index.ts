@@ -7,7 +7,7 @@ import inquirerFunction from '../Lib/inquirerSetupFunction';
 
 clear();
 
-console.log(chalk.blue(figlet.textSync('Bar Base Project', { horizontalLayout: 'full' })));
+console.log(chalk.yellow(figlet.textSync('Bar Base Project', { horizontalLayout: 'full' })));
 const run = async () => {
 	try {
 		const { projectName } = await inquirerFunction.projectName();
@@ -18,6 +18,7 @@ const run = async () => {
 			await functions[key](projectName);
 		}
 		await exportProject();
+		console.log(chalk.yellow(figlet.textSync('FINSHED!')));
 	} catch (err) {
 		console.error(err);
 	}
