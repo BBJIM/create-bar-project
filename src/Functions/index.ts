@@ -61,6 +61,22 @@ export const nextJs = async (projectName: string) => {
 	}
 };
 
+export const mobx = async (projectName: string) => {
+	try {
+		await copyFolders(`${resources}/Mobx`, `${root}/${projectName}/src`, 'mobx');
+	} catch (err) {
+		throw new Error(`mobx - ${err.message || err}`);
+	}
+};
+
+export const apollo = async (projectName: string) => {
+	try {
+		await copyFolders(`${resources}/Apollo`, `${root}/${projectName}/src`, 'apollo');
+	} catch (err) {
+		throw new Error(`apollo - ${err.message || err}`);
+	}
+};
+
 export const normalStructure = async (projectName: string) => {
 	try {
 		await copyFolders(
@@ -88,21 +104,5 @@ export const monorepo = async (projectName: string) => {
 		await copyFolders(`${resources}/Monorepo`, `${root}/${projectName}`, 'monorepo');
 	} catch (err) {
 		throw new Error(`monorepo - ${err.message || err}`);
-	}
-};
-
-export const mobx = async (projectName: string) => {
-	try {
-		await copyFolders(`${resources}/Mobx`, `${root}/${projectName}/src`, 'mobx');
-	} catch (err) {
-		throw new Error(`mobx - ${err.message || err}`);
-	}
-};
-
-export const apollo = async (projectName: string) => {
-	try {
-		await copyFolders(`${resources}/Apollo`, `${root}/${projectName}/src`, 'apollo');
-	} catch (err) {
-		throw new Error(`apollo - ${err.message || err}`);
 	}
 };
