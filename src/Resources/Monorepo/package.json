@@ -1,0 +1,39 @@
+{
+	"name": "root",
+	"private": true,
+	"workspaces": [
+		"packages/*"
+	],
+	"scripts": {
+		"client": "npm start --prefix packages/client",
+		"client-build": "npm run-script build --prefix packages/client",
+		"client-serve": "npm run-script serve --prefix packages/client",
+		"server": "npm start --prefix packages/server",
+		"server-build": "npm run-script build --prefix packages/server",
+		"server-serve": "npm run-script serve --prefix packages/server",
+		"storybook": "start-storybook -p 6006 -s public",
+		"bootstrap": "lerna bootstrap",
+		"lint": "eslint packages/**/*.{ts,tsx} --quiet --fix"
+	},
+	"devDependencies": {
+		"@babel/core": "^7.11.6",
+		"@storybook/addon-essentials": "^6.0.22",
+		"@storybook/addon-links": "^6.0.22",
+		"@storybook/cli": "^6.0.22",
+		"@storybook/preset-create-react-app": "^3.1.4",
+		"@storybook/react": "^6.0.22",
+		"@typescript-eslint/eslint-plugin": "^4.4.0",
+		"@typescript-eslint/parser": "^4.4.0",
+		"babel-loader": "^8.1.0",
+		"eslint": "^7.10.0",
+		"eslint-config-prettier": "^6.12.0",
+		"eslint-plugin-md": "^1.0.19",
+		"eslint-plugin-prettier": "^3.1.4",
+		"eslint-plugin-react": "^7.21.3",
+		"husky": "^4.3.0",
+		"lerna": "^3.20.2",
+		"lint-staged": "^10.4.0",
+		"prettier": "^2.1.2",
+		"storybook-addon-styled-component-theme": "^1.3.0"
+	}
+}
