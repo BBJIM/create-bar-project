@@ -1,15 +1,13 @@
 {
 	"name": "normal-server",
 	"version": "1.0.0",
-	"main": "index.js",
-	"repository": "https://github.com/BBJIM/normal-server.git",
-	"author": "Bar <baryed55@gmail.com>",
 	"license": "MIT",
 	"scripts": {
 		"start-node": "ts-node -r tsconfig-paths/register ./src/App",
 		"start": "nodemon",
-		"build": "tsc",
-		"lint-ts": "eslint src/**/*.{js,ts} --quiet --fix"
+		"build": "rimraf ./dist && tsc",
+		"serve": "node -r ./tsconfig-paths-bootstrap.js ./dist/App",
+		"lint": "eslint src/**/*.{js,ts} --quiet --fix"
 	},
 	"dependencies": {
 		"@types/bcrypt": "^3.0.0",
@@ -39,6 +37,7 @@
 		"lint-staged": "^8.1.7",
 		"nodemon": "^2.0.4",
 		"prettier": "^2.0.5",
+		"rimraf": "^3.0.2",
 		"ts-node": "^9.0.0",
 		"tsconfig-paths": "^3.9.0",
 		"typescript": "^3.9.5"

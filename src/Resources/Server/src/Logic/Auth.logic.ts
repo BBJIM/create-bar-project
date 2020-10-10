@@ -1,7 +1,7 @@
 import bcrypt from 'bcrypt';
 import * as config from 'Config/config.json';
 import jwt from 'jsonwebtoken';
-import { createModel, getModel } from './Generic.logic';
+import { createModel, getModel } from 'Logic';
 
 type UserData = { email?: string; password?: string };
 

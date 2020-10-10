@@ -7,7 +7,7 @@
 		"build": "cross-env APP_ENV=production react-scripts build",
 		"serve": "serve -s build",
 		"eject": "react-scripts eject",
-		"lint-ts": "eslint src/**/*.{js,jsx,ts,tsx} --quiet --fix",
+		"lint": "eslint src/**/*.{js,jsx,ts,tsx} --quiet --fix",
 		"storybook": "start-storybook -p 6006 -s public",
 		"build-storybook": "build-storybook -s public"
 	},
@@ -54,6 +54,7 @@
 		"yup": "^0.29.3"
 	},
 	"devDependencies": {
+		"@babel/core": "^7.11.6",
 		"@storybook/addon-essentials": "^6.0.22",
 		"@storybook/addon-links": "^6.0.22",
 		"@storybook/cli": "^6.0.22",
@@ -61,8 +62,10 @@
 		"@storybook/react": "^6.0.22",
 		"@typescript-eslint/eslint-plugin": "^4.4.0",
 		"@typescript-eslint/parser": "^4.4.0",
+		"babel-loader": "^8.1.0",
 		"cross-env": "^7.0.2",
 		"eslint-config-prettier": "^6.12.0",
+		"eslint-plugin-md": "^1.0.19",
 		"eslint-plugin-prettier": "^3.1.4",
 		"eslint-plugin-react": "^7.21.3",
 		"husky": "^4.2.5",
