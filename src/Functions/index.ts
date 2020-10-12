@@ -4,7 +4,7 @@ import rimraf from 'rimraf';
 import util from 'util';
 
 const uiKit = 'UI-KIT';
-const resources = `G://MyProjects/MyProject/cli-test/dist/Resources`; // hack
+let resources = '';
 const root = process.cwd();
 
 const promiseNcp = util.promisify(ncp);
@@ -12,8 +12,9 @@ const promiseRimraf = util.promisify(rimraf);
 
 export const createFolder = async (name: string) => {
 	try {
+		resources = __dirname.replace('Functions', 'Resources');
 		await mkdirp(`${root}/${name}`);
-		console.log('created project folder');
+		console.log(`created folder - ${name}`);
 	} catch (err) {
 		throw new Error(`createFolder - ${err.message || err}`);
 	}
@@ -46,7 +47,6 @@ const sharedFolders = async (projectName: string) => {
 export const normalReact = async (projectName: string) => {
 	try {
 		await sharedFolders(projectName);
-		// copyFolders(`${resources}/Normal React`, `${root}/${projectName}`, 'normalReact');
 	} catch (err) {
 		throw new Error(`normalReact - ${err.message || err}`);
 	}
@@ -79,6 +79,7 @@ export const apollo = async (projectName: string) => {
 
 export const normalStructure = async (projectName: string) => {
 	try {
+		await copyFolders(`${resources}/Normal React`, `${root}/${projectName}`, 'normalReact');
 		await copyFolders(
 			`${root}/${projectName}/src/${uiKit}`,
 			`${root}/${projectName}/src/Components/${uiKit}`,
@@ -102,6 +103,8 @@ export const withServer = async (projectName: string) => {
 export const monorepo = async (projectName: string) => {
 	try {
 		await copyFolders(`${resources}/Monorepo`, `${root}/${projectName}`, 'monorepo');
+		await copyFolders(`${root}/${projectName}/src`, `${root}/${projectName}/packages/client/src`, 'monorepo-mobx');
+		await deleteFolder(`${root}/${projectName}/src`, 'monorepo-delete');
 	} catch (err) {
 		throw new Error(`monorepo - ${err.message || err}`);
 	}
