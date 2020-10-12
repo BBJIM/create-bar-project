@@ -2,6 +2,7 @@ import mkdirp from 'mkdirp';
 import ncp from 'ncp';
 import rimraf from 'rimraf';
 import util from 'util';
+import { replaceInFile } from 'replace-in-file';
 
 const uiKit = 'UI-KIT';
 let resources = '';
@@ -33,6 +34,24 @@ const deleteFolder = async (source: string, callingFunctionName: string) => {
 		return promiseRimraf(source);
 	} catch (err) {
 		throw new Error(`deleteFolder - ${callingFunctionName} ${err.message || err}`);
+	}
+};
+
+// TODO: copy new mono and finish this
+const monorepoReplaceString = async (projectName: string, callingFunctionName: string) => {
+	try {
+		await replaceInFile({
+			files: `${root}/${projectName}/packages/client/src/**/*.tsx`,
+			from: 'Components/UI-KIT',
+			to: '@bar/ui-kit/src',
+		});
+		await replaceInFile({
+			files: `${root}/${projectName}/packages/client/src/**/*.tsx`,
+			from: "'Theme",
+			to: "'@bar/ui-kit/src/Theme",
+		});
+	} catch (err) {
+		throw new Error(`monorepo-replace-string - ${callingFunctionName} ${err.message || err}`);
 	}
 };
 
@@ -105,6 +124,7 @@ export const monorepo = async (projectName: string) => {
 		await copyFolders(`${resources}/Monorepo`, `${root}/${projectName}`, 'monorepo');
 		await copyFolders(`${root}/${projectName}/src`, `${root}/${projectName}/packages/client/src`, 'monorepo-mobx');
 		await deleteFolder(`${root}/${projectName}/src`, 'monorepo-delete');
+		await monorepoReplaceString(projectName, 'monorepo-replace');
 	} catch (err) {
 		throw new Error(`monorepo - ${err.message || err}`);
 	}
