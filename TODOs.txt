@@ -1,4 +1,3 @@
-fix common folder creation
 fix pacakge json creation
 finish missing resources
 
