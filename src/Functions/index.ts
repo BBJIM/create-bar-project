@@ -80,12 +80,6 @@ export const apollo = async (projectName: string) => {
 export const normalStructure = async (projectName: string) => {
 	try {
 		await copyFolders(`${resources}/Normal React`, `${root}/${projectName}`, 'normalReact');
-		await copyFolders(
-			`${root}/${projectName}/src/${uiKit}`,
-			`${root}/${projectName}/src/Components/${uiKit}`,
-			'normalStructure',
-		);
-		await deleteFolder(`${root}/${projectName}/src/${uiKit}`, 'normalStructure');
 	} catch (err) {
 		throw new Error(`normalStructure - ${err.message || err}`);
 	}
