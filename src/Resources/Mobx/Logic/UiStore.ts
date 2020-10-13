@@ -1,7 +1,7 @@
-import { themeKey, themes } from 'Common/Themes';
+import { themeKey, themes } from 'ui-kit/src/Common/Themes';
 import { setStorageItem } from 'Common/Utils/Storage';
 import { action, computed, observable } from 'mobx';
-import { defaultTheme, ITheme } from 'Theme';
+import { defaultTheme, ITheme } from 'ui-kit/src/Theme';
 
 export default class UiStore {
 	@observable

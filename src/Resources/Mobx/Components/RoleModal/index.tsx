@@ -1,9 +1,9 @@
 import { RoleFormValues } from 'Common/FormValuesTypes';
 import { GENERIC_STORE, MODAL_STORE, UI_STORE } from 'Common/StoreNames';
 import { roleSchema } from 'Common/Validations';
-import { FormWrapper } from 'Components/UI-KIT';
-import { Button, Input } from 'Components/UI-KIT/Custom';
-import { getFormError, scrollToFirstError } from 'Components/UI-KIT/FormWrapper';
+import { FormWrapper } from 'ui-kit/src';
+import { Button, Input } from 'ui-kit/src/Custom';
+import { getFormError, scrollToFirstError } from 'ui-kit/src/FormWrapper';
 import { FormikProps } from 'formik';
 import { GenericStore, ModalStore, UiStore } from 'Logic/Stores';
 import { inject, observer } from 'mobx-react';

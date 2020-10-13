@@ -1,5 +1,5 @@
 import { ROUTES } from 'Common/RoutesNames';
-import { Button, Headline, Text } from 'Components/UI-KIT/Custom';
+import { Button, Headline, Text } from 'ui-kit/src/Custom';
 import React from 'react';
 import styled from 'styled-components';
 

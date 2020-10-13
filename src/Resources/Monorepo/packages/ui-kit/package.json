@@ -1,7 +1,7 @@
 {
-	"name": "@bar/ui-kit",
+	"name": "ui-kit",
 	"version": "1.0.1",
-	"main": "index.tsx",
+	"main": "src/index.tsx",
 	"license": "MIT",
 	"dependencies": {
 		"@types/chart.js": "^2.9.24",

@@ -1,8 +1,8 @@
 import Logo from 'Components/Navbar/Logo';
-import { LazyLoader, Text } from 'Components/UI-KIT/Custom';
+import { LazyLoader, Text } from 'ui-kit/src/Custom';
 import React from 'react';
 import styled from 'styled-components';
-import { ITheme } from 'Theme';
+import { ITheme } from 'ui-kit/src/Theme';
 import FooterLinks from './FooterLinks';
 
 const LazyLoadWrapper = styled.footer`

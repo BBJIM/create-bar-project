@@ -1,10 +1,10 @@
 import { directions } from 'Common/GeneralConsts';
-import { Dimmer } from 'Components/UI-KIT/Custom';
+import { Dimmer } from 'ui-kit/src/Custom';
 import React from 'react';
 import { animated, useSpring } from 'react-spring';
 import styled from 'styled-components';
-import { ITheme } from 'Theme';
-import { zIndex } from 'Theme/GlobalStyles';
+import { ITheme } from 'ui-kit/src/Theme';
+import { zIndex } from 'ui-kit/src/Theme/GlobalStyles';
 import NavLinks from './NavLinks';
 
 const CollapseWrapper = styled(animated.div)`

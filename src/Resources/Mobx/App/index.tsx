@@ -1,6 +1,6 @@
 import { alertMessage, alertStrings, hideAfterTimeSec } from 'Common/AlertMessage';
 import { AUTH_STORE, GENERIC_STORE, UI_STORE } from 'Common/StoreNames';
-import { themeKey } from 'Common/Themes';
+import { themeKey } from 'ui-kit/src/Common/Themes';
 import { getStorageItem } from 'Common/Utils/Storage';
 import { AuthStore, GenericStore, UiStore } from 'Logic/Stores';
 import { inject, observer } from 'mobx-react';

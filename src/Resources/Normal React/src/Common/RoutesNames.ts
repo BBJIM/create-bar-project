@@ -3,5 +3,5 @@ export const ROUTES = {
 	FORM: { path: '/form/', name: 'Form' },
 	TABLE: { path: '/table/', name: 'Table' },
 	CHARTS: { path: '/charts/', name: 'Charts' },
-	THEME: { path: '/theme/', name: 'theme' },
+	THEME: { path: '/theme/', name: 'Theme' },
 };

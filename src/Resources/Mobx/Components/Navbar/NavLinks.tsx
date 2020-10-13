@@ -1,10 +1,10 @@
 import { ROUTES } from 'Common/RoutesNames';
 import NavLink from 'Components/NavLink';
-import { Link } from 'Components/UI-KIT/Custom';
+import { Link } from 'ui-kit/src/Custom';
 import React from 'react';
 import { useLocation } from 'react-router-dom';
 import styled from 'styled-components';
-import { ITheme } from 'Theme';
+import { ITheme } from 'ui-kit/src/Theme';
 
 const routesArray = Object.values(ROUTES).filter((r) => r !== ROUTES.HOME);
 

@@ -1,6 +1,6 @@
 import { UI_STORE } from 'Common/StoreNames';
-import { themeKey, themeKeysArr } from 'Common/Themes';
-import { Button, Headline } from 'Components/UI-KIT/Custom';
+import { themeKey, themeKeysArr } from 'ui-kit/src/Common/Themes';
+import { Button, Headline } from 'ui-kit/src/Custom';
 import { UiStore } from 'Logic/Stores';
 import { inject, observer } from 'mobx-react';
 import React from 'react';

@@ -1,11 +1,11 @@
 import { GenericFormValues } from 'Common/FormValuesTypes';
 import { simpleFormSchema } from 'Common/Validations';
-import { Button, Checkbox, Input, Radio, Range, Select, Textarea } from 'Components/UI-KIT/Custom';
-import FormWrapper, { getFormError, scrollToFirstError } from 'Components/UI-KIT/FormWrapper';
+import { Button, Checkbox, Input, Radio, Range, Select, Textarea } from 'ui-kit/src/Custom';
+import FormWrapper, { getFormError, scrollToFirstError } from 'ui-kit/src/FormWrapper';
 import { FormikProps } from 'formik';
 import React from 'react';
 import styled from 'styled-components';
-import { ITheme } from 'Theme';
+import { ITheme } from 'ui-kit/src/Theme';
 
 const Wrapper = styled.form`
 	min-width: 300px;

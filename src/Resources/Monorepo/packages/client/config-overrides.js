@@ -1,16 +1,17 @@
-var path = require('path');
+const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 
-const { override, babelInclude } = require('customize-cra');
+module.exports = (config) => {
+	// Remove the ModuleScopePlugin which throws when we try
+	// to import something outside of src/.
+	config.resolve.plugins.pop();
 
-module.exports = function (config, env) {
-	return Object.assign(
-		config,
-		override(
-			babelInclude([
-				/* transpile (converting to es5) code in src/ and shared ui-kiy library */
-				path.resolve('src'),
-				path.resolve('../ui-kit'),
-			]),
-		)(config, env),
-	);
+	// Resolve the path aliases.
+	config.resolve.plugins.push(new TsconfigPathsPlugin());
+
+	// Let Babel compile outside of src/.
+	const tsRule = config.module.rules[2].oneOf[1];
+	tsRule.include = undefined;
+	tsRule.exclude = /node_modules/;
+
+	return config;
 };

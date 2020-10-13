@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { ITheme } from 'Theme';
+import { ITheme } from 'ui-kit/src/Theme';
 
 type ComponentProps = {
 	theme: ITheme;

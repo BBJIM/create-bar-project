@@ -1,12 +1,12 @@
 import { LoginFormValues } from 'Common/FormValuesTypes';
 import { loginSchema } from 'Common/Validations';
-import { FormWrapper } from 'Components/UI-KIT';
-import { Button, Input } from 'Components/UI-KIT/Custom';
-import { getFormError, scrollToFirstError } from 'Components/UI-KIT/FormWrapper';
+import { FormWrapper } from 'ui-kit/src';
+import { Button, Input } from 'ui-kit/src/Custom';
+import { getFormError, scrollToFirstError } from 'ui-kit/src/FormWrapper';
 import { FormikProps } from 'formik';
 import React from 'react';
 import styled from 'styled-components';
-import { ITheme } from 'Theme';
+import { ITheme } from 'ui-kit/src/Theme';
 
 const Wrapper = styled.form`
 	display: flex;

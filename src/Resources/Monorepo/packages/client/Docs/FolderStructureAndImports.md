@@ -26,8 +26,8 @@ The basic project folder structure is:
 -   -   **Common**: common files and folders like validations, models, utils,
         common consts, pollyfills and more.
 -   -   **Components**: containes the app more small components that contain
-        state and stateless components from the @bar/ui-kit folder.
--   -   -   **@bar/ui-kit**: containes stateless components that uses small
+        state and stateless components from the ui-kit folder.
+-   -   -   **ui-kit**: containes stateless components that uses small
             singular components form the Custom folder.
 -   -   -   -   **Custom**: containes small singular stateless components like
                 Button, Inputs, Text, Headline and more.

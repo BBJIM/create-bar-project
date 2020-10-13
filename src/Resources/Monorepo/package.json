@@ -1,5 +1,5 @@
 {
-	"name": "root",
+	"name": "workspace",
 	"private": true,
 	"workspaces": [
 		"packages/*"
@@ -12,7 +12,7 @@
 		"server-build": "npm run-script build --prefix packages/server",
 		"server-serve": "npm run-script serve --prefix packages/server",
 		"storybook": "start-storybook -p 6006 -s public",
-		"bootstrap": "lerna bootstrap",
+		"setup": "npx lerna bootstrap",
 		"lint": "eslint packages/**/*.{ts,tsx} --quiet --fix"
 	},
 	"devDependencies": {

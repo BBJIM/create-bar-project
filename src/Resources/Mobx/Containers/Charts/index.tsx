@@ -1,4 +1,4 @@
-import { PieChart } from 'Components/UI-KIT/Custom';
+import { PieChart } from 'ui-kit/src/Custom';
 import React from 'react';
 import styled from 'styled-components';
 

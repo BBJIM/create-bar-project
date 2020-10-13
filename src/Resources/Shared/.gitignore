@@ -7,8 +7,6 @@
 build/
 dist/
 
-*.log*
-
 # stroybook
 /stroybook-static
 

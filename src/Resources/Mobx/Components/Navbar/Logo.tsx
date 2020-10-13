@@ -1,5 +1,5 @@
 import { ROUTES } from 'Common/RoutesNames';
-import { Img, Link } from 'Components/UI-KIT/Custom';
+import { Img, Link } from 'ui-kit/src/Custom';
 import React from 'react';
 import styled from 'styled-components';
 

@@ -2,15 +2,15 @@ import { directions } from 'Common/GeneralConsts';
 import { MODAL_STORE, UI_STORE } from 'Common/StoreNames';
 import { isNullOrUndefiend } from 'Common/Utils';
 import { Footer, Navbar } from 'Components';
-import { LoadingScreen, Modal } from 'Components/UI-KIT';
+import { LoadingScreen, Modal } from 'ui-kit/src';
 import GlobalFonts from 'Fonts';
 import { ModalStore, UiStore } from 'Logic/Stores';
 import { inject, observer } from 'mobx-react';
 import React from 'react';
 import { Swipeable } from 'react-swipeable';
 import styled, { ThemeProvider } from 'styled-components';
-import { defaultTheme, ITheme } from 'Theme';
-import GlobalStyles from 'Theme/GlobalStyles';
+import { defaultTheme, ITheme } from 'ui-kit/src/Theme';
+import GlobalStyles from 'ui-kit/src/Theme/GlobalStyles';
 
 const SwipeableWrapper = styled(Swipeable)``;
 

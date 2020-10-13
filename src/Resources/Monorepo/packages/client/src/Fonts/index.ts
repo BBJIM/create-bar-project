@@ -5,7 +5,7 @@ import RobotoBoldTTF from 'Fonts/RobotoBold.ttf';
 import RobotoBoldWOFF from 'Fonts/RobotoBold.woff';
 import RobotoBoldWOFF2 from 'Fonts/RobotoBold.woff2';
 import { createGlobalStyle, css } from 'styled-components';
-import { typography } from '@bar/ui-kit/src/Theme/GlobalStyles';
+import { typography } from 'ui-kit/src/Theme/GlobalStyles';
 
 const fontGlobalCSS = css`
 	@font-face {

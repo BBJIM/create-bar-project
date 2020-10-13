@@ -1,8 +1,8 @@
-import { Desktop, Mobile } from 'Components/UI-KIT/Custom/Responsive';
+import { Desktop, Mobile } from 'ui-kit/src/Custom/Responsive';
 import React from 'react';
 import { animated } from 'react-spring';
 import styled from 'styled-components';
-import { ITheme } from 'Theme';
+import { ITheme } from 'ui-kit/src/Theme';
 import BurgerMenuIcon from './BurgerMenuIcon';
 import CollapseMenu from './CollapseMenu';
 import Logo from './Logo';
