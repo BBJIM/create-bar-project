@@ -40,9 +40,6 @@ export const mediaSizes = {
 };
 
 const globalCSS = css`
-	html {
-		/* direction: rtl; */
-	}
 	body {
 		margin: 0;
 		padding: 0;

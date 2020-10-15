@@ -17,9 +17,10 @@ const LabelCSS = css`
 	color: ${({ theme, error, disabled }: InputStyledProps) =>
 		disabled ? theme.colors.disabled : error ? theme.colors.inputError : theme.colors.inputText};
 	font-size: ${({ theme, fontSize }: InputStyledProps) => theme.typography.texts.sizes[fontSize]};
-	position: relative;
+	position: absolute;
 	bottom: 25px;
-	right: 125px;
+	/* right: 125px; */
+	left: 20px;
 `;
 
 const RangeInput = ({ ...props }: InputProps) => {

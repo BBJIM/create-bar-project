@@ -24,6 +24,9 @@ const CollapseWrapper = styled(animated.div)`
 
 const CollapseMenu = ({ onClick, isOpen }: { onClick: () => any; isOpen?: boolean }) => {
 	const direction = window.getComputedStyle(document.body).direction;
+	// if you are using a RTL website there could be a problem here at the start of the application
+	// you can change it to default settings or find nother solution this happends because the
+	// deafult direction is LTR
 	const style = useSpring({
 		transform: isOpen ? `translateX(0)` : `translateX(${direction === directions.ltr ? '-100%' : '100%'})`,
 	});
