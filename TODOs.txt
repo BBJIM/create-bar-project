@@ -1,4 +1,2 @@
-fix pacakge json creation
 finish missing resources
-
-update all resources
+fix pacakge json creation
