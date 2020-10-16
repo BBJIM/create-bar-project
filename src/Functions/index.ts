@@ -87,7 +87,7 @@ export const normalStructure = async (projectName: string) => {
 
 export const webpackStructure = async (projectName: string) => {
 	try {
-		await copyFolders(`${resources}/Normal React`, `${root}/${projectName}`, 'webpackStructure - normalReact');
+		await copyFolders(`${resources}/Webpack`, `${root}/${projectName}`, 'webpackStructure - normalReact');
 	} catch (err) {
 		throw new Error(`webpackStructure - ${err.message || err}`);
 	}
