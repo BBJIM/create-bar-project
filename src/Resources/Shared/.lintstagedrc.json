@@ -1,3 +1,3 @@
 {
-	"./**/*.{js,jsx,ts,tsx,json,md}": ["prettier --write", "yarn lint"]
+	"./**/*.{js,jsx,ts,tsx,md}": ["prettier --write", "yarn lint"]
 }

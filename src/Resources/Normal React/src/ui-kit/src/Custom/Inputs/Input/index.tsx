@@ -1,26 +1,31 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { FlattenInterpolation, ThemedStyledProps } from 'styled-components';
 import { AllInputWrapperCSS, InputComponentCSS, InputErrorCSS, InputLabelCSS, InputWrapperCSS } from './InputCss';
 import { inputAttrFunc, InputProps, InputStyledProps } from './InputTypes';
 
 const Wrapper = styled.div.attrs(inputAttrFunc)`
-	${({ allInputWrapperCSS }: InputStyledProps) => allInputWrapperCSS};
+	${({ allInputWrapperCSS }: InputStyledProps): FlattenInterpolation<ThemedStyledProps<InputStyledProps, any>> =>
+		allInputWrapperCSS};
 `;
 
 const InputWrapper = styled.div.attrs(inputAttrFunc)`
-	${({ inputWrapperCSS }: InputStyledProps) => inputWrapperCSS};
+	${({ inputWrapperCSS }: InputStyledProps): FlattenInterpolation<ThemedStyledProps<InputStyledProps, any>> =>
+		inputWrapperCSS};
 `;
 
 const InputComponent = styled.input.attrs(inputAttrFunc)`
-	${({ inputComponentCSS }: InputStyledProps) => inputComponentCSS};
+	${({ inputComponentCSS }: InputStyledProps): FlattenInterpolation<ThemedStyledProps<InputStyledProps, any>> =>
+		inputComponentCSS};
 `;
 
 const Label = styled.label.attrs(inputAttrFunc)`
-	${({ inputLabelCSS }: InputStyledProps) => inputLabelCSS};
+	${({ inputLabelCSS }: InputStyledProps): FlattenInterpolation<ThemedStyledProps<InputStyledProps, any>> =>
+		inputLabelCSS};
 `;
 
 const Error = styled.label.attrs(inputAttrFunc)`
-	${({ inputErrorCSS }: InputStyledProps) => inputErrorCSS};
+	${({ inputErrorCSS }: InputStyledProps): FlattenInterpolation<ThemedStyledProps<InputStyledProps, any>> =>
+		inputErrorCSS};
 `;
 
 const Input = ({
@@ -45,7 +50,7 @@ const Input = ({
 	inputLabelCSS = InputLabelCSS,
 	inputErrorCSS = InputErrorCSS,
 	...rest
-}: InputProps) => {
+}: InputProps): JSX.Element => {
 	return (
 		<Wrapper allInputWrapperCSS={allInputWrapperCSS} backgroundColor={backgroundColor} {...rest}>
 			<InputWrapper inputWrapperCSS={inputWrapperCSS} {...rest}>

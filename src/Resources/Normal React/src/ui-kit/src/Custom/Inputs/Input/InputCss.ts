@@ -13,19 +13,19 @@ export const InputWrapperCSS = css`
 `;
 
 export const InputLabelUpCSS = css`
-	color: ${({ theme, labelColor, error }: InputStyledProps) =>
+	color: ${({ theme, labelColor, error }: InputStyledProps): string =>
 		error ? theme.colors.inputError : theme.colors[labelColor]};
 	bottom: 27px;
 	left: 12px;
-	font-size: ${({ theme }: InputStyledProps) => theme.typography.texts.sizes.small};
+	font-size: ${({ theme }: InputStyledProps): string => theme.typography.texts.sizes.small};
 `;
 
 export const OnlyInputComponentCSS = css`
-	font-size: ${({ theme, fontSize }: InputStyledProps) => theme.typography.texts.sizes[fontSize]};
-	font-weight: ${({ theme, weight }: InputStyledProps) => theme.typography.fontWeights[weight]};
-	color: ${({ theme, textColor }: InputStyledProps) => theme.colors[textColor]};
-	background-color: ${({ theme, backgroundColor }: InputStyledProps) => theme.colors[backgroundColor]};
-	border: ${({ theme, error }: InputStyledProps) =>
+	font-size: ${({ theme, fontSize }: InputStyledProps): string => theme.typography.texts.sizes[fontSize]};
+	font-weight: ${({ theme, weight }: InputStyledProps): string => theme.typography.fontWeights[weight]};
+	color: ${({ theme, textColor }: InputStyledProps): string => theme.colors[textColor]};
+	background-color: ${({ theme, backgroundColor }: InputStyledProps): string => theme.colors[backgroundColor]};
+	border: ${({ theme, error }: InputStyledProps): string =>
 		`1px solid ${error ? theme.colors.inputError : theme.colors.transparent}`};
 	border-radius: 5px;
 	appearance: none;
@@ -37,9 +37,9 @@ export const OnlyInputComponentCSS = css`
 
 	:focus {
 		outline: none;
-		border-bottom: ${({ theme, labelColor, error }: InputStyledProps) =>
+		border-bottom: ${({ theme, labelColor, error }: InputStyledProps): string =>
 			`1px solid ${error ? theme.colors.inputError : theme.colors[labelColor]}`};
-		box-shadow: ${({ theme, labelColor, error }: InputStyledProps) =>
+		box-shadow: ${({ theme, labelColor, error }: InputStyledProps): string =>
 			`0 1px 0 0 ${error ? theme.colors.inputError : theme.colors[labelColor]}`};
 	}
 
@@ -77,16 +77,17 @@ export const InputLabelCSS = css`
 	position: absolute;
 	bottom: 11px;
 	left: 12px;
-	font-size: ${({ theme, fontSize }: InputStyledProps) => theme.typography.texts.sizes[fontSize]};
-	color: ${({ theme, error }: InputStyledProps) => (error ? theme.colors.inputError : theme.colors.inputText)};
-	font-weight: ${({ theme }: InputStyledProps) => theme.typography.fontWeights.normal};
+	font-size: ${({ theme, fontSize }: InputStyledProps): string => theme.typography.texts.sizes[fontSize]};
+	color: ${({ theme, error }: InputStyledProps): string =>
+		error ? theme.colors.inputError : theme.colors.inputText};
+	font-weight: ${({ theme }: InputStyledProps): string => theme.typography.fontWeights.normal};
 	transition: all 0.15s ease;
 	pointer-events: none;
-	opacity: ${({ disabled }: InputStyledProps) => (disabled ? 0.1 : 1)};
+	opacity: ${({ disabled }: InputStyledProps): number => (disabled ? 0.1 : 1)};
 `;
 
 export const InputErrorCSS = css`
-	color: ${({ theme }: InputStyledProps) => theme.colors.inputError};
+	color: ${({ theme }: InputStyledProps): string => theme.colors.inputError};
 	position: relative;
 	top: 4px;
 	left: 12px;

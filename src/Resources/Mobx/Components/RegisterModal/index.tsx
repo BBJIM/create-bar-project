@@ -36,7 +36,7 @@ const initialValues = {
 	birthDate: '',
 };
 
-const RegisterModal = ({ onSubmit }: { onSubmit: (values: RegisterFormValues) => any }) => {
+const RegisterModal = ({ onSubmit }: { onSubmit: (values: RegisterFormValues) => any }): JSX.Element => {
 	return <RegisterModalComponent onSubmit={onSubmit} />;
 };
 
@@ -62,7 +62,7 @@ const RegisterModalComponent = inject(GENERIC_STORE)(
 				handleChange,
 				handleBlur,
 				handleSubmit,
-			}: FormikProps<RegisterFormValues>) => {
+			}: FormikProps<RegisterFormValues>): JSX.Element => {
 				return (
 					<Wrapper onSubmit={handleSubmit}>
 						<Input

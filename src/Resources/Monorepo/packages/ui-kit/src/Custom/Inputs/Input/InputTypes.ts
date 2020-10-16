@@ -1,7 +1,7 @@
 import { Colors, FontWeights, Sizes } from 'Common/Types';
 import { InputHTMLAttributes, SelectHTMLAttributes, TextareaHTMLAttributes } from 'react';
 import { FlattenInterpolation, ThemedStyledProps } from 'styled-components';
-import { ITheme } from 'Theme';
+import { Theme } from 'Theme';
 
 type InputCSSType = FlattenInterpolation<ThemedStyledProps<InputStyledProps, any>>;
 
@@ -28,7 +28,7 @@ export type OptionProps = { value: string; label: string; disabled?: boolean; se
 export type SelectProps = SelectHTMLAttributes<any> & CustomInput & { options: OptionProps[] };
 
 export type InputStyledProps = InputHTMLAttributes<any> & {
-	theme: ITheme;
+	theme: Theme;
 	textColor: Colors;
 	labelColor: Colors;
 	backgroundColor: Colors;

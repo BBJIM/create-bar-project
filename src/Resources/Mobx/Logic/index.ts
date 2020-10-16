@@ -16,7 +16,7 @@ class Stores {
 		this.authStore = new AuthStore(this.genericStore);
 	}
 
-	public getStores() {
+	public getStores(): any {
 		return {
 			[AUTH_STORE]: this.authStore,
 			[UI_STORE]: this.uiStore,

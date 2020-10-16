@@ -15,19 +15,19 @@ export default class GenericStore {
 		});
 	}
 
-	public getModels(modelName: ModelsName) {
+	public getModels(modelName: ModelsName): any {
 		return toJS(this.allBasicModels[modelName]);
 	}
 
 	@action
-	public setModels(modelName: ModelsName, newModels: any[]) {
+	public setModels(modelName: ModelsName, newModels: any[]): void {
 		this.allBasicModels[modelName].replace(newModels);
 	}
 
 	@action
-	public async fetch(modelName: ModelsName, id?: string) {
+	public async fetch(modelName: ModelsName, id?: string): Promise<void> {
 		try {
-			const list = await API.get<any, any[]>(`/${modelName}/${id ? id : ''}`);
+			const list: any[] = await API.get(`/${modelName}/${id ? id : ''}`);
 			this.setModels(modelName, list);
 		} catch (err) {
 			alertMessage.error(err.message, { hideAfter: hideAfterTimeSec });
@@ -35,7 +35,7 @@ export default class GenericStore {
 	}
 
 	@action
-	public async create(modelName: ModelsName, modelData: any) {
+	public async create(modelName: ModelsName, modelData: any): Promise<any> {
 		try {
 			const created: any = await API.post(`/${modelName}`, modelData);
 			this.setModels(modelName, [...this.getModels(modelName), created]);
@@ -46,7 +46,7 @@ export default class GenericStore {
 	}
 
 	@action
-	public async update(modelName: ModelsName, modelData: any) {
+	public async update(modelName: ModelsName, modelData: any): Promise<any> {
 		try {
 			const newModelData = { ...modelData };
 			delete newModelData._id;
@@ -62,7 +62,7 @@ export default class GenericStore {
 	}
 
 	@action
-	public async delete(modelName: ModelsName, ids: string[]) {
+	public async delete(modelName: ModelsName, ids: string[]): Promise<any> {
 		try {
 			const query = `${ids.map((i) => `_id=${i}&`).join('')}`;
 			const deleted: any = await API.delete(`${modelName}?${query}`);

@@ -15,7 +15,7 @@ const ChartWrapper = styled.div`
 	margin: 25px;
 `;
 
-const Charts = () => (
+const Charts = (): JSX.Element => (
 	<Wrapper>
 		<ChartWrapper>
 			<PieChart data={{ Big: 35, Small: 25, Medium: 40 }} />

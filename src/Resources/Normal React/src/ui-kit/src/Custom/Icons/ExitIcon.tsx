@@ -8,7 +8,12 @@ const StyledExitIcon = styled(FaTimesCircle)<IconComponentProps>`
 	${IconCSS}
 `;
 
-const ExitIcon = ({ onClick, backgroundColor = 'darkGray', hoverBackgroundColor = 'primary', ...rest }: IconProps) => {
+const ExitIcon = ({
+	onClick,
+	backgroundColor = 'darkGray',
+	hoverBackgroundColor = 'primary',
+	...rest
+}: IconProps): JSX.Element => {
 	return (
 		<StyledExitIcon
 			backgroundcolor={backgroundColor}

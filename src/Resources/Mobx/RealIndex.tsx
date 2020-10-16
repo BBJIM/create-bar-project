@@ -7,7 +7,7 @@ import ReactDOM from 'react-dom';
 import 'react-loader-spinner/dist/loader/css/react-spinner-loader.css';
 import { Router } from 'react-router-dom';
 
-const Index = () => {
+const Index = (): void => {
 	ReactDOM.render(
 		<Provider {...stores}>
 			<Router history={history}>

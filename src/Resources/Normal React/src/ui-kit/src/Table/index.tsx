@@ -1,7 +1,7 @@
 import React from 'react';
 import { TableOptions, useRowSelect, useTable } from 'react-table';
 import styled, { css } from 'styled-components';
-import { ITheme } from 'ui-kit/src/Theme';
+import { Theme } from 'ui-kit/src/Theme';
 import { Checkbox, Headline } from '../Custom';
 
 // for more info about react-table: https://react-table.tanstack.com/docs/overview
@@ -15,11 +15,11 @@ type Props = TableOptions<any> & {
 
 const TableComponent = styled.table`
 	border-radius: 5px;
-	font-size: ${({ theme }: { theme: ITheme }) => theme.typography.texts.sizes.small};
+	font-size: ${({ theme }: { theme: Theme }): string => theme.typography.texts.sizes.small};
 	border: none;
 	border-collapse: collapse;
 	width: 100%;
-	background-color: ${({ theme }: { theme: ITheme }) => theme.colors.backgorund};
+	background-color: ${({ theme }: { theme: Theme }): string => theme.colors.backgorund};
 	margin: 10px auto;
 `;
 
@@ -32,15 +32,15 @@ const TableRow = styled.tr``;
 const TableHeader = styled.th`
 	text-align: center;
 	padding: 8px;
-	color: ${({ theme }: { theme: ITheme }) => theme.colors.white};
-	background: ${({ theme }: { theme: ITheme }) => theme.colors.lightGreen};
-	border: 1px solid ${({ theme }: { theme: ITheme }) => theme.colors.lightGreen};
+	color: ${({ theme }: { theme: Theme }): string => theme.colors.white};
+	background: ${({ theme }: { theme: Theme }): string => theme.colors.lightGreen};
+	border: 1px solid ${({ theme }: { theme: Theme }): string => theme.colors.lightGreen};
 `;
 
 const TableData = styled.td`
 	text-align: center;
 	padding: 8px;
-	border: 1px solid ${({ theme }: { theme: ITheme }) => theme.colors.lightGreen};
+	border: 1px solid ${({ theme }: { theme: Theme }): string => theme.colors.lightGreen};
 	font-size: 12px;
 `;
 
@@ -54,22 +54,26 @@ const InputAllWrapperCSS = css`
 	margin: auto;
 `;
 
-const RowSelectHeaderCheckbox = ({ getToggleAllRowsSelectedProps }: { getToggleAllRowsSelectedProps: any }) => (
+const RowSelectHeaderCheckbox = ({
+	getToggleAllRowsSelectedProps,
+}: {
+	getToggleAllRowsSelectedProps: any;
+}): JSX.Element => (
 	<Checkbox allInputWrapperCSS={InputAllWrapperCSS} {...getToggleAllRowsSelectedProps()} displayName='Header' />
 );
 
-const RowSelectCellCheckbox = ({ row }: { row: any }) => (
+const RowSelectCellCheckbox = ({ row }: { row: any }): JSX.Element => (
 	<Checkbox
 		allInputWrapperCSS={InputAllWrapperCSS}
 		{...row.getToggleRowSelectedProps()}
-		onDoubleClick={(e) => e.preventDefault()}
+		onDoubleClick={(e): void => e.preventDefault()}
 		displayName='Cell'
 	/>
 );
 
 const rowSelectArr = [
 	useRowSelect,
-	(hooks: any) => {
+	(hooks: any): void => {
 		hooks.visibleColumns.push((tableColumns: any) => [
 			{
 				id: 'selection',
@@ -89,7 +93,7 @@ const Table = ({
 	withCheckbox = true,
 	CheckboxSubmitComponent,
 	...rest
-}: Props) => {
+}: Props): JSX.Element => {
 	const useRowSelectArr = withCheckbox ? rowSelectArr : [];
 
 	const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow, selectedFlatRows } = useTable(
@@ -125,7 +129,7 @@ const Table = ({
 							<TableRow
 								key={rowKey}
 								{...restRowProps}
-								onDoubleClick={() => {
+								onDoubleClick={(): void => {
 									if (onRowDoubleClick) {
 										onRowDoubleClick(row.original);
 									}

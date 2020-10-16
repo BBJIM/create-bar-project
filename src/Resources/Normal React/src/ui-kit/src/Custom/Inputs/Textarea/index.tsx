@@ -39,7 +39,7 @@ const LabelCSS = css`
 	top: 11px;
 `;
 
-const Textarea = (props: TextareaProps) => {
+const Textarea = (props: TextareaProps): JSX.Element => {
 	return (
 		<Input
 			as='textarea'

@@ -2,7 +2,7 @@ import { Colors } from 'Common/Types';
 import React from 'react';
 import Loader from 'react-loader-spinner';
 import styled from 'styled-components';
-import { ITheme } from '../Theme';
+import { Theme } from '../Theme';
 import { zIndex } from '../Theme/GlobalStyles';
 import { Dimmer } from '../Custom';
 
@@ -18,8 +18,8 @@ const Loading = styled(Loader)`
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
-	z-index: ${({ theme }: { theme: ITheme }) => theme.zIndex.loadingZ};
-	fill: ${({ theme, color }: { theme: ITheme; color: Colors }) => theme.colors[color]};
+	z-index: ${({ theme }: { theme: Theme }) => theme.zIndex.loadingZ};
+	fill: ${({ theme, color }: { theme: Theme; color: Colors }) => theme.colors[color]};
 `;
 
 const LoadingDimmer = styled(Dimmer)<{ active?: boolean }>`

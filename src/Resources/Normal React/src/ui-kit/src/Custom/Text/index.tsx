@@ -1,7 +1,7 @@
 import { Colors, FontWeights, Sizes } from 'ui-kit/src/Common/Types';
 import React, { HTMLAttributes } from 'react';
 import styled, { css } from 'styled-components';
-import { ITheme } from 'ui-kit/src/Theme';
+import { Theme } from 'ui-kit/src/Theme';
 
 export type TextProps = HTMLAttributes<any> & {
 	as?: 'p' | 'li' | 'div';
@@ -13,7 +13,7 @@ export type TextProps = HTMLAttributes<any> & {
 };
 
 export type WrapperProps = {
-	theme: ITheme;
+	theme: Theme;
 	textColor: Colors;
 	backgroundColor: Colors;
 	size: Sizes;
@@ -22,14 +22,14 @@ export type WrapperProps = {
 };
 
 export const ColorCSS = css`
-	color: ${({ theme, textColor }: WrapperProps) => theme.colors[textColor]};
-	background-color: ${({ theme, backgroundColor }: WrapperProps) => theme.colors[backgroundColor]};
+	color: ${({ theme, textColor }: WrapperProps): string => theme.colors[textColor]};
+	background-color: ${({ theme, backgroundColor }: WrapperProps): string => theme.colors[backgroundColor]};
 `;
 
 const Wrapper = styled.p`
-	font-size: ${({ theme, size }: WrapperProps) => theme.typography.texts.sizes[size]};
-	font-weight: ${({ theme, weight }: WrapperProps) => theme.typography.fontWeights[weight]};
-	text-align: ${({ alignCenter }: WrapperProps) => (alignCenter ? 'center' : 'start')};
+	font-size: ${({ theme, size }: WrapperProps): string => theme.typography.texts.sizes[size]};
+	font-weight: ${({ theme, weight }: WrapperProps): string => theme.typography.fontWeights[weight]};
+	text-align: ${({ alignCenter }: WrapperProps): string => (alignCenter ? 'center' : 'start')};
 	${ColorCSS}
 `;
 
@@ -43,7 +43,7 @@ const Text = ({
 	alignCenter = false,
 	title,
 	...rest
-}: TextProps) => {
+}: TextProps): JSX.Element => {
 	return (
 		<Wrapper
 			as={as}

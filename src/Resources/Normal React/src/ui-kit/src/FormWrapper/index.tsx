@@ -14,7 +14,7 @@ type Props = {
  * Use this in submit buttons in forms if you want the website to scroll
  * to the first input with error
  */
-export const scrollToFirstError = () => {
+export const scrollToFirstError = (): void => {
 	let firstrealItem: HTMLElement;
 	setTimeout(() => {
 		const errors = document.getElementsByName('active-error');
@@ -32,14 +32,18 @@ export const scrollToFirstError = () => {
 	}, 200);
 };
 
-export const getFormError = (errors: FormikErrors<any>, touched: FormikTouched<any>, id: string) => {
+export const getFormError = (
+	errors: FormikErrors<any>,
+	touched: FormikTouched<any>,
+	id: string,
+): string | undefined => {
 	if (errors[id] && touched[id]) {
 		return errors[id] as string;
 	}
 };
 
 // if you think the form doesnt work, you might have forgotten to add an appropriate validation schema
-const FormWrapper = ({ children, initialValues, validationSchema, onSubmit }: Props) => {
+const FormWrapper = ({ children, initialValues, validationSchema, onSubmit }: Props): JSX.Element => {
 	return (
 		<Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={onSubmit}>
 			{/* 'children' = The form that will be wrapped */}

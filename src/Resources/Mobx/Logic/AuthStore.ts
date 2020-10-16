@@ -17,12 +17,12 @@ export default class AuthStore {
 	}
 
 	@computed
-	public get getCurrentUser() {
+	public get getCurrentUser(): User | undefined {
 		return this.currentUser;
 	}
 
 	@action
-	public async logIn(loginData: LoginFormValues) {
+	public async logIn(loginData: LoginFormValues): Promise<void> {
 		try {
 			const { token, ...rest } = (await API.post('/auth/login', loginData)) as any;
 			saveToken(token);
@@ -35,14 +35,14 @@ export default class AuthStore {
 	}
 
 	@action
-	public logout() {
+	public logout(): void {
 		this.currentUser = undefined;
 		removeToken();
 		alertMessage.success(alertStrings.logOutSuccess, { hideAfter: hideAfterTimeSec });
 	}
 
 	@action
-	public async register(registerData: RegisterFormValues) {
+	public async register(registerData: RegisterFormValues): Promise<void> {
 		try {
 			const { token, ...rest } = (await API.post('/auth/register', registerData)) as any;
 			saveToken(token);
@@ -55,7 +55,7 @@ export default class AuthStore {
 	}
 
 	@action
-	public async fetchCurrentUser() {
+	public async fetchCurrentUser(): Promise<User | undefined> {
 		this.currentUser = await API.post('/auth/login');
 		return this.currentUser;
 	}

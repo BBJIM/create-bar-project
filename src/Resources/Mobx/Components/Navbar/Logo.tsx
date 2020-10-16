@@ -28,7 +28,7 @@ const Wrapper = styled.div`
 
 type Props = { onClick?: () => any; link?: boolean };
 
-const Logo = ({ onClick, link = true, ...rest }: Props) => {
+const Logo = ({ onClick, link = true, ...rest }: Props): JSX.Element => {
 	return link ? (
 		<Link path={ROUTES.HOME.path} onClick={onClick} {...rest}>
 			<Wrapper>

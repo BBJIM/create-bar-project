@@ -26,7 +26,7 @@ const StyledButton = styled(Button)`
 	margin: 15px auto 0;
 `;
 
-const HomePage = () => <HomePageComponent />;
+const HomePage = (): JSX.Element => <HomePageComponent />;
 
 type Props = { modalStore?: ModalStore; authStore?: AuthStore; uiStore?: UiStore };
 
@@ -37,11 +37,11 @@ const HomePageComponent = inject(
 )(
 	observer(({ modalStore, authStore, uiStore }: Props) => {
 		const isLoggedIn = authStore?.getCurrentUser;
-		const ModalBody = () => {
+		const ModalBody = (): JSX.Element => {
 			return (
 				<Wrapper>
 					<LoginModal
-						onSubmit={async (values) => {
+						onSubmit={async (values): Promise<void> => {
 							uiStore?.blockUI();
 							await authStore?.logIn(values);
 							modalStore?.closeModal();
@@ -49,11 +49,11 @@ const HomePageComponent = inject(
 						}}
 					/>
 					<StyledButton
-						onClick={() =>
+						onClick={(): void =>
 							modalStore?.openModal({
 								component: (
 									<RegisterModal
-										onSubmit={async (values) => {
+										onSubmit={async (values): Promise<void> => {
 											uiStore?.blockUI();
 											await authStore?.register(values);
 											modalStore?.closeModal();
@@ -75,7 +75,7 @@ const HomePageComponent = inject(
 			<Wrapper>
 				<Text alignCenter>THIS IS THE HOMEPAGE</Text>
 				<StyledButton
-					onClick={() => {
+					onClick={(): void => {
 						if (isLoggedIn) {
 							authStore?.logout();
 						} else {

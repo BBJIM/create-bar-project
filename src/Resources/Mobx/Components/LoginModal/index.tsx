@@ -6,13 +6,13 @@ import { getFormError, scrollToFirstError } from 'ui-kit/src/FormWrapper';
 import { FormikProps } from 'formik';
 import React from 'react';
 import styled from 'styled-components';
-import { ITheme } from 'ui-kit/src/Theme';
+import { Theme } from 'ui-kit/src/Theme';
 
 const Wrapper = styled.form`
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	@media (min-width: ${({ theme }: { theme: ITheme }) => theme.mediaSizes.desktopMinSize}) {
+	@media (min-width: ${({ theme }: { theme: Theme }): string => theme.mediaSizes.desktopMinSize}) {
 		width: 80%;
 		height: 80%;
 		margin: 50px auto;
@@ -29,14 +29,6 @@ const initialValues = {
 	password: '',
 };
 
-const LoginModal = ({ onSubmit }: { onSubmit: (values: LoginFormValues) => any }) => {
-	return (
-		<FormWrapper initialValues={initialValues} validationSchema={loginSchema} onSubmit={onSubmit}>
-			{FormComponent}
-		</FormWrapper>
-	);
-};
-
 const FormComponent = ({
 	values,
 	touched,
@@ -44,7 +36,7 @@ const FormComponent = ({
 	handleChange,
 	handleBlur,
 	handleSubmit,
-}: FormikProps<LoginFormValues>) => {
+}: FormikProps<LoginFormValues>): JSX.Element => {
 	return (
 		<Wrapper onSubmit={handleSubmit}>
 			<Input
@@ -70,6 +62,14 @@ const FormComponent = ({
 				Login
 			</SubmitButton>
 		</Wrapper>
+	);
+};
+
+const LoginModal = ({ onSubmit }: { onSubmit: (values: LoginFormValues) => any }): JSX.Element => {
+	return (
+		<FormWrapper initialValues={initialValues} validationSchema={loginSchema} onSubmit={onSubmit}>
+			{FormComponent}
+		</FormWrapper>
 	);
 };
 

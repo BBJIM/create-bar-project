@@ -1,4 +1,4 @@
-const checkNullOrUndefined = (value: any) => {
+const checkNullOrUndefined = (value: any): boolean => {
 	return value !== undefined && value !== null;
 };
 

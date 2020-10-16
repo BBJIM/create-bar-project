@@ -34,7 +34,7 @@ type Props = {
 	initialData?: RoleFormValues;
 };
 
-const RoleModal = ({ initialData = { name: '' } }: Props) => {
+const RoleModal = ({ initialData = { name: '' } }: Props): JSX.Element => {
 	const isUpdate = initialData.name !== '';
 	return <RoleModalComponent initialData={initialData} isUpdate={isUpdate} />;
 };
@@ -53,7 +53,7 @@ const RoleModalComponent = inject(
 			handleChange,
 			handleBlur,
 			handleSubmit,
-		}: FormikProps<RoleFormValues>) => {
+		}: FormikProps<RoleFormValues>): JSX.Element => {
 			return (
 				<Wrapper onSubmit={handleSubmit}>
 					<Input
@@ -71,7 +71,7 @@ const RoleModalComponent = inject(
 			);
 		};
 
-		const onSubmit = async (values: RoleFormValues) => {
+		const onSubmit = async (values: RoleFormValues): Promise<void> => {
 			uiStore?.blockUI();
 			if (isUpdate) {
 				await genericStore?.update('Role', values);

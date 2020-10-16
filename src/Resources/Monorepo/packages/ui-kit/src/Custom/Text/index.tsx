@@ -1,7 +1,7 @@
 import { Colors, FontWeights, Sizes } from 'Common/Types';
 import React, { HTMLAttributes } from 'react';
 import styled, { css } from 'styled-components';
-import { ITheme } from 'Theme';
+import { Theme } from 'Theme';
 
 export type TextProps = HTMLAttributes<any> & {
 	as?: 'p' | 'li' | 'div';
@@ -13,7 +13,7 @@ export type TextProps = HTMLAttributes<any> & {
 };
 
 export type WrapperProps = {
-	theme: ITheme;
+	theme: Theme;
 	textColor: Colors;
 	backgroundColor: Colors;
 	size: Sizes;

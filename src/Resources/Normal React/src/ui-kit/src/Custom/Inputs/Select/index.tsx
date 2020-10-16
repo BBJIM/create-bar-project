@@ -7,7 +7,7 @@ const Option = styled.option``;
 
 // IF YOU WANT TO HAVE A NICE UI SELECT MAKE YOUR OWN - default select is not great
 
-const Select = ({ options, ...rest }: SelectProps) => {
+const Select = ({ options, ...rest }: SelectProps): JSX.Element => {
 	return (
 		<Input as='select' {...rest}>
 			{options.map(({ value: optionValue, label, ...restProps }: OptionProps) => {

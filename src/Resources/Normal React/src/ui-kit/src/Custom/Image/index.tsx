@@ -28,10 +28,10 @@ const Img = ({
 	placeholder,
 	format = 'png',
 	...rest
-}: Props) => {
+}: Props): JSX.Element => {
 	const path = `${process.env.PUBLIC_URL}/${src}`;
 
-	const NextGenImage = ({ img }: { img: any }) => (
+	const NextGenImage = ({ img }: { img: any }): JSX.Element => (
 		<Picture>
 			<source type='image/webp' srcSet={`${path}.webp`} />
 			<source type='image/jp2' srcSet={`${path}.jp2`} />
@@ -40,7 +40,7 @@ const Img = ({
 		</Picture>
 	);
 
-	const LazyLoadedImage = () => (
+	const LazyLoadedImage = (): JSX.Element => (
 		<LazyLoadImage
 			src={`${path}.${format}`}
 			alt={alt}
@@ -48,11 +48,12 @@ const Img = ({
 			width={width}
 			threshold={threshold}
 			effect={effect}
+			placeholder={placeholder}
 			{...rest}
 		/>
 	);
 
-	const Image = () => (
+	const Image = (): JSX.Element => (
 		<img src={`${path}.${format}`} alt={alt} onClick={onClick} {...rest}>
 			{children}
 		</img>

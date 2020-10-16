@@ -6,7 +6,7 @@ const API = axios.create({
 	responseType: 'json',
 });
 
-const addTokenToHeader = (config: AxiosRequestConfig) => {
+const addTokenToHeader = (config: AxiosRequestConfig): AxiosRequestConfig => {
 	const token = getToken();
 	if (token) {
 		config.headers = { Authorization: `Bearer ${token}` };
@@ -14,14 +14,14 @@ const addTokenToHeader = (config: AxiosRequestConfig) => {
 	return config;
 };
 
-const extractResponseData = (response: AxiosResponse<any>) => {
+const extractResponseData = (response: AxiosResponse): any => {
 	if (response.data) {
 		return response.data;
 	}
 	return response;
 };
 
-const extractResponseError = (error: any) => {
+const extractResponseError = (error: { response: { data: { error: string } } }): never => {
 	const errorMessage = error?.response?.data;
 	if (errorMessage) {
 		throw new Error(errorMessage?.error);

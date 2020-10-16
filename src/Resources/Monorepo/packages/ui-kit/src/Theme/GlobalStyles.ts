@@ -1,5 +1,5 @@
 import { createGlobalStyle, css } from 'styled-components';
-import { ITheme } from 'Theme';
+import { Theme } from 'Theme';
 
 export const typography = {
 	headers: {
@@ -49,8 +49,8 @@ const globalCSS = css`
 		font-family: 'Roboto', Arial, Helvetica, sans-serif;
 		font-size: ${typography.texts.sizes.medium};
 		font-style: normal;
-		color: ${({ theme }: { theme: ITheme }) => theme.colors.text};
-		background-color: ${({ theme }: { theme: ITheme }) => theme.colors.backgorund};
+		color: ${({ theme }: { theme: Theme }) => theme.colors.text};
+		background-color: ${({ theme }: { theme: Theme }) => theme.colors.backgorund};
 	}
 
 	#root {

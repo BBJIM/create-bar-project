@@ -8,7 +8,12 @@ const StyledBackIcon = styled(FaChevronCircleLeft)<IconComponentProps>`
 	${IconCSS}
 `;
 
-const BackIcon = ({ onClick, backgroundColor = 'darkGray', hoverBackgroundColor = 'primary', ...rest }: IconProps) => {
+const BackIcon = ({
+	onClick,
+	backgroundColor = 'darkGray',
+	hoverBackgroundColor = 'primary',
+	...rest
+}: IconProps): JSX.Element => {
 	return (
 		<StyledBackIcon
 			backgroundcolor={backgroundColor}

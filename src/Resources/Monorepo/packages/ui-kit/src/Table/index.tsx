@@ -1,7 +1,7 @@
 import React from 'react';
 import { TableOptions, useRowSelect, useTable } from 'react-table';
 import styled, { css } from 'styled-components';
-import { ITheme } from 'Theme';
+import { Theme } from 'Theme';
 import { Checkbox, Headline } from '../Custom';
 
 // for more info about react-table: https://react-table.tanstack.com/docs/overview
@@ -15,11 +15,11 @@ type Props = TableOptions<any> & {
 
 const TableComponent = styled.table`
 	border-radius: 5px;
-	font-size: ${({ theme }: { theme: ITheme }) => theme.typography.texts.sizes.small};
+	font-size: ${({ theme }: { theme: Theme }) => theme.typography.texts.sizes.small};
 	border: none;
 	border-collapse: collapse;
 	width: 100%;
-	background-color: ${({ theme }: { theme: ITheme }) => theme.colors.backgorund};
+	background-color: ${({ theme }: { theme: Theme }) => theme.colors.backgorund};
 	margin: 10px auto;
 `;
 
@@ -32,15 +32,15 @@ const TableRow = styled.tr``;
 const TableHeader = styled.th`
 	text-align: center;
 	padding: 8px;
-	color: ${({ theme }: { theme: ITheme }) => theme.colors.white};
-	background: ${({ theme }: { theme: ITheme }) => theme.colors.lightGreen};
-	border: 1px solid ${({ theme }: { theme: ITheme }) => theme.colors.lightGreen};
+	color: ${({ theme }: { theme: Theme }) => theme.colors.white};
+	background: ${({ theme }: { theme: Theme }) => theme.colors.lightGreen};
+	border: 1px solid ${({ theme }: { theme: Theme }) => theme.colors.lightGreen};
 `;
 
 const TableData = styled.td`
 	text-align: center;
 	padding: 8px;
-	border: 1px solid ${({ theme }: { theme: ITheme }) => theme.colors.lightGreen};
+	border: 1px solid ${({ theme }: { theme: Theme }) => theme.colors.lightGreen};
 	font-size: 12px;
 `;
 

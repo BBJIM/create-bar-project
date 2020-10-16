@@ -1,4 +1,4 @@
-import { defaultColors, IColors, oppositeThemeColor } from './colors';
+import { defaultColors, Colors, oppositeThemeColor } from './colors';
 import { mediaSizes, modal, navbar, typography, zIndex } from './GlobalStyles';
 
 type Typography = typeof typography;
@@ -7,9 +7,9 @@ type Navbar = typeof navbar;
 type Modal = typeof modal;
 type ZIndex = typeof zIndex;
 
-export interface ITheme {
+export interface Theme {
 	name: string;
-	colors: IColors;
+	colors: Colors;
 	typography: Typography;
 	mediaSizes: MediaSizes;
 	navbar: Navbar;
@@ -25,13 +25,13 @@ const staticTheme = {
 	zIndex,
 };
 
-export const defaultTheme: ITheme = {
+export const defaultTheme: Theme = {
 	name: 'defaultTheme',
 	colors: defaultColors,
 	...staticTheme,
 };
 
-export const oppositeTheme: ITheme = {
+export const oppositeTheme: Theme = {
 	name: 'oppositeTheme',
 	colors: oppositeThemeColor,
 	...staticTheme,

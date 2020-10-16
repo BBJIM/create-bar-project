@@ -1,5 +1,5 @@
 import { createGlobalStyle, css } from 'styled-components';
-import { ITheme } from 'ui-kit/src/Theme';
+import { Theme } from 'ui-kit/src/Theme';
 
 export const typography = {
 	headers: {
@@ -8,7 +8,7 @@ export const typography = {
 	texts: {
 		sizes: { xLarge: '30px', large: '24px', medium: '18px', small: '13px', xSmall: '10px' },
 	},
-	fontWeights: { light: 300, normal: 'normal', bold: 'bold' },
+	fontWeights: { light: '300', normal: 'normal', bold: 'bold' },
 };
 
 export const zIndex = {
@@ -46,8 +46,8 @@ const globalCSS = css`
 		font-family: 'Roboto', Arial, Helvetica, sans-serif;
 		font-size: ${typography.texts.sizes.medium};
 		font-style: normal;
-		color: ${({ theme }: { theme: ITheme }) => theme.colors.text};
-		background-color: ${({ theme }: { theme: ITheme }) => theme.colors.backgorund};
+		color: ${({ theme }: { theme: Theme }): string => theme.colors.text};
+		background-color: ${({ theme }: { theme: Theme }): string => theme.colors.backgorund};
 	}
 
 	#root {

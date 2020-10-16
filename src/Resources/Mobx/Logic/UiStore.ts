@@ -1,7 +1,7 @@
 import { themeKey, themes } from 'ui-kit/src/Common/Themes';
 import { setStorageItem } from 'Common/Utils/Storage';
 import { action, computed, observable } from 'mobx';
-import { defaultTheme, ITheme } from 'ui-kit/src/Theme';
+import { defaultTheme, Theme } from 'ui-kit/src/Theme';
 
 export default class UiStore {
 	@observable
@@ -11,40 +11,40 @@ export default class UiStore {
 	private sidebarOpen = false;
 
 	@observable
-	private currentTheme: ITheme = defaultTheme;
+	private currentTheme: Theme = defaultTheme;
 
 	@computed
-	public get getBlockedUi() {
+	public get getBlockedUi(): boolean {
 		return this.blocked;
 	}
 
 	@computed
-	public get getSideBarOpen() {
+	public get getSideBarOpen(): boolean {
 		return this.sidebarOpen;
 	}
 
 	@computed
-	public get theme() {
+	public get theme(): Theme {
 		return this.currentTheme;
 	}
 
 	@action
-	public blockUI() {
+	public blockUI(): void {
 		this.blocked = true;
 	}
 
 	@action
-	public unBlockUI() {
+	public unBlockUI(): void {
 		this.blocked = false;
 	}
 
 	@action
-	public setSidebarOpen(value: boolean) {
+	public setSidebarOpen(value: boolean): void {
 		this.sidebarOpen = value;
 	}
 
 	@action
-	public setThemeByName(themeName: themeKey) {
+	public setThemeByName(themeName: themeKey): void {
 		this.currentTheme = themes[themeName];
 		setStorageItem('theme', themeName);
 	}

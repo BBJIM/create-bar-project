@@ -1,11 +1,11 @@
 import { Dimmer, ExitIcon, BackIcon, Headline } from '../Custom';
 import React from 'react';
 import styled, { css } from 'styled-components';
-import { ITheme } from '../Theme';
+import { Theme } from '../Theme';
 import { zIndex } from '../Theme/GlobalStyles';
 
 type ComponentProps = {
-	theme: ITheme;
+	theme: Theme;
 	active?: boolean;
 };
 
@@ -32,7 +32,7 @@ const Wrapper = styled.div<ComponentProps>`
 `;
 
 const HeaderWrapper = styled.div`
-	border-bottom: 1px solid ${({ theme }: { theme: ITheme }) => theme.colors.gray};
+	border-bottom: 1px solid ${({ theme }: { theme: Theme }) => theme.colors.gray};
 	padding-bottom: 10px;
 `;
 

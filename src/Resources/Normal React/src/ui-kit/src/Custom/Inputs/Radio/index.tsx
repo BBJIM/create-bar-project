@@ -10,12 +10,12 @@ const InputAllWrapperCSS = css`
 
 const InputCSS = css`
 	margin-left: 12px;
-	width: ${({ theme, fontSize }: InputStyledProps) => theme.typography.texts.sizes[fontSize]};
-	height: ${({ theme, fontSize }: InputStyledProps) => theme.typography.texts.sizes[fontSize]};
+	width: ${({ theme, fontSize }: InputStyledProps): string => theme.typography.texts.sizes[fontSize]};
+	height: ${({ theme, fontSize }: InputStyledProps): string => theme.typography.texts.sizes[fontSize]};
 `;
 
 const LabelCSS = css`
-	color: ${({ theme, labelColor, error, checked, disabled }: InputStyledProps) =>
+	color: ${({ theme, labelColor, error, checked, disabled }: InputStyledProps): string =>
 		disabled
 			? theme.colors.disabled
 			: error
@@ -23,13 +23,13 @@ const LabelCSS = css`
 			: checked
 			? theme.colors[labelColor]
 			: theme.colors.inputText};
-	font-size: ${({ theme, fontSize }: InputStyledProps) => theme.typography.texts.sizes[fontSize]};
+	font-size: ${({ theme, fontSize }: InputStyledProps): string => theme.typography.texts.sizes[fontSize]};
 	position: relative;
 	bottom: 2px;
 	left: 5px;
 `;
 
-const Radio = ({ ...props }: InputProps) => {
+const Radio = ({ ...props }: InputProps): JSX.Element => {
 	return (
 		<Input
 			type='radio'

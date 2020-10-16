@@ -1,6 +1,6 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
-import { ITheme } from 'ui-kit/src/Theme';
+import { Theme } from 'ui-kit/src/Theme';
 
 type Props = { onClick: () => any; isOpen?: boolean };
 
@@ -34,11 +34,11 @@ const OpenCSS = css`
 `;
 
 const LinesWrapper = styled.div<{ open?: boolean }>`
-	${({ open }) => open && OpenCSS};
+	${({ open }): any => open && OpenCSS};
 `;
 
 const LineSpan = styled.span`
-	background: ${({ theme }: { theme: ITheme }) => theme.colors.navbarLinkHighlight};
+	background: ${({ theme }: { theme: Theme }): string => theme.colors.navbarLinkHighlight};
 	display: block;
 	position: relative;
 	width: 40px;
@@ -47,7 +47,7 @@ const LineSpan = styled.span`
 	transition: all ease-in-out 0.1s;
 `;
 
-const Burgermenu = ({ onClick, isOpen, ...rest }: Props) => {
+const Burgermenu = ({ onClick, isOpen, ...rest }: Props): JSX.Element => {
 	return (
 		<Wrapper onClick={onClick} {...rest}>
 			<LinesWrapper open={isOpen}>

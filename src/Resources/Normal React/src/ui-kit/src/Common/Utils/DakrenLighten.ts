@@ -1,4 +1,4 @@
-const pad = (num: string, totalChars: number) => {
+const pad = (num: string, totalChars: number): string => {
 	while (num.length < totalChars) {
 		num = '0' + num;
 	}
@@ -6,7 +6,7 @@ const pad = (num: string, totalChars: number) => {
 };
 
 // Ratio is between 0 and 1
-const changeColor = (color: string, ratio: number, darker: boolean) => {
+const changeColor = (color: string, ratio: number, darker: boolean): string => {
 	// Trim trailing/leading whitespace
 	color = color.replace(/^\s*|\s*$/, '');
 
@@ -70,13 +70,13 @@ const changeColor = (color: string, ratio: number, darker: boolean) => {
 		  ].join('');
 };
 
-export const lighterColor = (color?: string, ratio?: number) => {
+export const lighterColor = (color: string, ratio?: number): string => {
 	if (color && ratio) {
 		return changeColor(color, ratio, false);
 	}
 	return color;
 };
-export const darkerColor = (color: string, ratio?: number) => {
+export const darkerColor = (color: string, ratio?: number): string => {
 	if (color && ratio) {
 		return changeColor(color, ratio, true);
 	}

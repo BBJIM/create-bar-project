@@ -14,16 +14,16 @@ const InputCSS = css`
 `;
 
 const LabelCSS = css`
-	color: ${({ theme, error, disabled }: InputStyledProps) =>
+	color: ${({ theme, error, disabled }: InputStyledProps): string =>
 		disabled ? theme.colors.disabled : error ? theme.colors.inputError : theme.colors.inputText};
-	font-size: ${({ theme, fontSize }: InputStyledProps) => theme.typography.texts.sizes[fontSize]};
+	font-size: ${({ theme, fontSize }: InputStyledProps): string => theme.typography.texts.sizes[fontSize]};
 	position: absolute;
 	bottom: 25px;
 	/* right: 125px; */
 	left: 20px;
 `;
 
-const RangeInput = ({ ...props }: InputProps) => {
+const RangeInput = ({ ...props }: InputProps): JSX.Element => {
 	return (
 		<Input
 			type='range'

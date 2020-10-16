@@ -9,21 +9,21 @@ import { inject, observer } from 'mobx-react';
 import React from 'react';
 import { Swipeable } from 'react-swipeable';
 import styled, { ThemeProvider } from 'styled-components';
-import { defaultTheme, ITheme } from 'ui-kit/src/Theme';
+import { defaultTheme, Theme } from 'ui-kit/src/Theme';
 import GlobalStyles from 'ui-kit/src/Theme/GlobalStyles';
 
 const SwipeableWrapper = styled(Swipeable)``;
 
 const NavbarFiller = styled.div`
 	width: 100%;
-	height: ${({ theme }: { theme: ITheme }) => theme.navbar.height};
+	height: ${({ theme }: { theme: Theme }): string => theme.navbar.height};
 `;
 
 const ChildrenWrapper = styled.div`
 	min-height: 100vh;
 `;
 
-const Layout = ({ children }: { children?: any }) => <LayoutComponent>{children}</LayoutComponent>;
+const Layout = ({ children }: { children?: any }): JSX.Element => <LayoutComponent>{children}</LayoutComponent>;
 
 type Props = { children?: any; uiStore?: UiStore; modalStore?: ModalStore };
 
@@ -32,15 +32,15 @@ const LayoutComponent = inject(
 	MODAL_STORE,
 )(
 	observer(({ children, uiStore, modalStore }: Props) => {
-		const openOrCloseSidebar = () => {
+		const openOrCloseSidebar = (): void => {
 			uiStore?.setSidebarOpen(!uiStore?.getSideBarOpen);
 		};
 
 		const direction = window.getComputedStyle(document.body).direction;
-		const swipeLeft = () => {
+		const swipeLeft = (): void => {
 			uiStore?.setSidebarOpen(direction !== directions.ltr);
 		};
-		const swipeRight = () => {
+		const swipeRight = (): void => {
 			uiStore?.setSidebarOpen(direction === directions.ltr);
 		};
 

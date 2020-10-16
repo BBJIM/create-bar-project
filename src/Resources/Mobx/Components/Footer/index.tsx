@@ -2,7 +2,7 @@ import Logo from 'Components/Navbar/Logo';
 import { LazyLoader, Text } from 'ui-kit/src/Custom';
 import React from 'react';
 import styled from 'styled-components';
-import { ITheme } from 'ui-kit/src/Theme';
+import { Theme } from 'ui-kit/src/Theme';
 import FooterLinks from './FooterLinks';
 
 const LazyLoadWrapper = styled.footer`
@@ -13,8 +13,8 @@ const LazyLoadWrapper = styled.footer`
 const Wrapper = styled.div`
 	width: 100%;
 	height: 100%;
-	background: ${({ theme }: { theme: ITheme }) => theme.colors.navbarBackgorund};
-	z-index: ${({ theme }: { theme: ITheme }) => theme.zIndex.navbarZ};
+	background: ${({ theme }: { theme: Theme }): string => theme.colors.navbarBackgorund};
+	z-index: ${({ theme }: { theme: Theme }): number => theme.zIndex.navbarZ};
 	box-shadow: 0 1px 11px rgba(0, 0, 0, 0.75);
 	display: flex;
 	justify-content: space-between;
@@ -36,7 +36,7 @@ const LogoWrapper = styled(Logo)`
 `;
 
 // this is the footer component as well as an example of how to use the lazyloader for normal components
-const Footer = () => {
+const Footer = (): JSX.Element => {
 	return (
 		<LazyLoadWrapper>
 			<LazyLoader threshold={-150}>

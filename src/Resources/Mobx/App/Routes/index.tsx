@@ -4,7 +4,7 @@ import React from 'react';
 import { Route, Switch } from 'react-router';
 import AdminRoute from './AdminRoute';
 
-const Routes = () => {
+const Routes = (): JSX.Element => {
 	return (
 		<Switch>
 			{/* MAYBE DO DYNAMICLY? */}

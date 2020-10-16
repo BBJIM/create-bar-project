@@ -8,7 +8,7 @@ type LinkProps = AnchorHTMLAttributes<any> & {
 
 const Wrapper = styled.div``;
 
-const Link = ({ children, path, onClick, target, ...rest }: LinkProps) => (
+const Link = ({ children, path, onClick, target, ...rest }: LinkProps): JSX.Element => (
 	<Wrapper {...rest}>
 		<HashLink to={path} onClick={onClick} target={target}>
 			{children}

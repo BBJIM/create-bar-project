@@ -18,7 +18,7 @@ const TableButton = styled(Button)`
 
 type Props = { genericStore?: GenericStore; modalStore?: ModalStore; uiStore?: UiStore };
 
-const TablePage = () => {
+const TablePage = (): JSX.Element => {
 	return <TablePageComponent />;
 };
 
@@ -50,16 +50,16 @@ const TablePageComponent = inject(
 					loading={uiStore?.getBlockedUi}
 					columns={columns}
 					data={data}
-					onRowDoubleClick={(rowData) => {
+					onRowDoubleClick={(rowData): void => {
 						modalStore?.openModal({
 							component: <RoleModal initialData={rowData} />,
 							header: 'Update Role',
 						});
 					}}
-					CheckboxSubmitComponent={(idArray) => {
+					CheckboxSubmitComponent={(idArray): JSX.Element => {
 						return (
 							<TableButton
-								onClick={async () => {
+								onClick={async (): Promise<void> => {
 									if (idArray && idArray.length > 0) {
 										uiStore?.blockUI();
 										await genericStore?.delete('Role', idArray);
@@ -73,7 +73,7 @@ const TablePageComponent = inject(
 					}}
 				/>
 				<TableButton
-					onClick={() => {
+					onClick={(): void => {
 						modalStore?.openModal({
 							component: <RoleModal />,
 							header: 'Add Role',

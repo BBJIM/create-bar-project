@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { ITheme } from 'Theme';
+import { Theme } from 'Theme';
 
 type Props = { children?: any; zIndex: number; onClick?: () => any };
 
@@ -12,7 +12,7 @@ const DimmerComponent = styled.div`
 	width: 100%;
 	/* height: 100%; */
 	height: 200%; /** this is for mobile browser default navbar */
-	background: ${({ theme }: { theme: ITheme }) => theme.colors.dimmer};
+	background: ${({ theme }: { theme: Theme }) => theme.colors.dimmer};
 `;
 
 const Dimmer = ({ children, zIndex, onClick, ...rest }: Props) => (

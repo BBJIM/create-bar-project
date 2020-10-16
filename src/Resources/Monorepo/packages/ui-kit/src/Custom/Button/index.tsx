@@ -2,7 +2,7 @@ import { Colors, Sizes } from 'Common/Types';
 import { darkerColor } from 'ui-kit/src/Common/Utils';
 import React, { ButtonHTMLAttributes } from 'react';
 import styled, { css } from 'styled-components';
-import { ITheme } from 'Theme';
+import { Theme } from 'Theme';
 import Link from '../Link';
 
 export type ButtonComponentProps = ButtonHTMLAttributes<any> & {
@@ -15,7 +15,7 @@ export type ButtonComponentProps = ButtonHTMLAttributes<any> & {
 };
 
 type ButtonStyledComponentProps = {
-	theme: ITheme;
+	theme: Theme;
 	textColor: Colors;
 	backgroundColor: Colors;
 	borderColor: Colors;
@@ -72,7 +72,7 @@ const LinkButtonComponent = styled(Link)<ButtonStyledComponentProps>`
 
 const ChildrenWrapper = styled.div`
 	padding: 12px 7px;
-	@media (min-width: ${({ theme }: { theme: ITheme }) => theme.mediaSizes.desktopMinSize}) {
+	@media (min-width: ${({ theme }: { theme: Theme }) => theme.mediaSizes.desktopMinSize}) {
 		padding: 12px 20px;
 	}
 `;

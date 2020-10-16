@@ -5,7 +5,7 @@ import FormWrapper, { getFormError, scrollToFirstError } from 'ui-kit/src/FormWr
 import { FormikProps } from 'formik';
 import React from 'react';
 import styled from 'styled-components';
-import { ITheme } from 'ui-kit/src/Theme';
+import { Theme } from 'ui-kit/src/Theme';
 
 const Wrapper = styled.form`
 	min-width: 300px;
@@ -16,7 +16,7 @@ const Wrapper = styled.form`
 	padding: 30px;
 	box-shadow: 0 15px 25px rgba(0, 0, 0, 0.6);
 	border-radius: 10px;
-	background: ${({ theme }: { theme: ITheme }) => theme.colors.white};
+	background: ${({ theme }: { theme: Theme }): string => theme.colors.white};
 `;
 
 const SubmitButton = styled(Button)`
@@ -42,16 +42,8 @@ const initialValues = {
 	range: 0,
 };
 
-const onSubmit = (values: GenericFormValues) => {
+const onSubmit = (values: GenericFormValues): void => {
 	console.log(values);
-};
-
-const Form = () => {
-	return (
-		<FormWrapper initialValues={initialValues} validationSchema={simpleFormSchema} onSubmit={onSubmit}>
-			{FormComponent}
-		</FormWrapper>
-	);
 };
 
 const FormComponent = ({
@@ -62,7 +54,7 @@ const FormComponent = ({
 	handleBlur,
 	handleSubmit,
 	setFieldValue,
-}: FormikProps<GenericFormValues>) => {
+}: FormikProps<GenericFormValues>): JSX.Element => {
 	return (
 		<Wrapper onSubmit={handleSubmit}>
 			<Input
@@ -96,7 +88,7 @@ const FormComponent = ({
 				type='file'
 				multiple
 				placeholder='File'
-				onChange={(event) => {
+				onChange={(event): void => {
 					setFieldValue('file', event.currentTarget.files[0]);
 				}}
 				onBlur={handleBlur}
@@ -107,7 +99,7 @@ const FormComponent = ({
 				type='file'
 				multiple
 				placeholder='Multi Files'
-				onChange={(event) => {
+				onChange={(event): void => {
 					setFieldValue('files', event.currentTarget.files);
 				}}
 				onBlur={handleBlur}
@@ -215,6 +207,14 @@ const FormComponent = ({
 			</SubmitButton>
 			<P>Look at console after submit</P>
 		</Wrapper>
+	);
+};
+
+const Form = (): JSX.Element => {
+	return (
+		<FormWrapper initialValues={initialValues} validationSchema={simpleFormSchema} onSubmit={onSubmit}>
+			{FormComponent}
+		</FormWrapper>
 	);
 };
 

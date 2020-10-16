@@ -1,6 +1,6 @@
 import { action, computed, IObservableArray, observable } from 'mobx';
 
-interface IModalItem {
+interface ModalItem {
 	component?: any;
 	header?: string;
 	titleComponent?: any;
@@ -12,31 +12,31 @@ export default class ModalStore {
 	private open = false;
 
 	@observable
-	private modalStack: IObservableArray<IModalItem> = observable([]);
+	private modalStack: IObservableArray<ModalItem> = observable([]);
 
 	@computed
-	public get isOpen() {
+	public get isOpen(): boolean {
 		return this.open;
 	}
 
 	@computed
-	public get lastModalItem() {
+	public get lastModalItem(): ModalItem {
 		return this.modalStack[this.modalStack.length - 1];
 	}
 
 	@computed
-	public get length() {
+	public get length(): number {
 		return this.modalStack.length;
 	}
 
 	@action
-	public openModal(modalItem: IModalItem) {
+	public openModal(modalItem: ModalItem): void {
 		this.open = true;
 		this.modalStack.push(modalItem);
 	}
 
 	@action
-	public closeModal = () => {
+	public closeModal = (): void => {
 		const onCloseAction = this.lastModalItem && this.lastModalItem.onCloseAction;
 		if (onCloseAction) {
 			onCloseAction();
@@ -46,7 +46,7 @@ export default class ModalStore {
 	};
 
 	@action
-	public popModal = () => {
+	public popModal = (): void => {
 		this.modalStack.pop();
 	};
 }

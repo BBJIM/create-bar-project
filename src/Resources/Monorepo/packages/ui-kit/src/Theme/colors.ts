@@ -12,7 +12,7 @@ const LIGHT_GREEN = '#4fc3a1';
 const DARK_GRAY = '#726d6d';
 const TRANSPARENT = 'transparent';
 
-export interface IColors {
+export interface Colors {
 	primary: string;
 	secondary: string;
 	white: string;
@@ -58,7 +58,7 @@ export const staticColors = {
 	submit: darkerColor(PRIMARY, 0.1),
 };
 
-export const defaultColors: IColors = {
+export const defaultColors: Colors = {
 	text: BLACK,
 	backgorund: WHITE,
 	disabled: '#f0f0f0',
@@ -70,7 +70,7 @@ export const defaultColors: IColors = {
 	...staticColors,
 };
 
-export const oppositeThemeColor: IColors = {
+export const oppositeThemeColor: Colors = {
 	text: WHITE,
 	backgorund: '#1b1919',
 	disabled: '#f0f0f0',

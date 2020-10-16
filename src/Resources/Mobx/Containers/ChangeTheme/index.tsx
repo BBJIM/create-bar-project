@@ -27,7 +27,7 @@ const Header = styled(Headline)`
 	width: fit-content;
 `;
 
-const ChangeTheme = () => <ChangeThemeComponent />;
+const ChangeTheme = (): JSX.Element => <ChangeThemeComponent />;
 
 const ChangeThemeComponent = inject(UI_STORE)(
 	observer(({ uiStore }: { uiStore?: UiStore }) => {
@@ -38,7 +38,7 @@ const ChangeThemeComponent = inject(UI_STORE)(
 					{themeKeysArr.map((theme: themeKey) => (
 						<ThemeButton
 							key={theme}
-							onClick={() => uiStore?.setThemeByName(theme)}
+							onClick={(): void => uiStore?.setThemeByName(theme)}
 							backgroundColor='yellow'
 							round
 						>

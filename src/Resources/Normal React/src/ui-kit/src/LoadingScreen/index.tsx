@@ -2,7 +2,7 @@ import { Colors } from 'ui-kit/src/Common/Types';
 import React from 'react';
 import Loader from 'react-loader-spinner';
 import styled from 'styled-components';
-import { ITheme } from 'ui-kit/src/Theme';
+import { Theme } from 'ui-kit/src/Theme';
 import { zIndex } from 'ui-kit/src/Theme/GlobalStyles';
 import { Dimmer } from '../Custom';
 
@@ -18,17 +18,17 @@ const Loading = styled(Loader)`
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
-	z-index: ${({ theme }: { theme: ITheme }) => theme.zIndex.loadingZ};
-	fill: ${({ theme, color }: { theme: ITheme; color: Colors }) => theme.colors[color]};
+	z-index: ${({ theme }: { theme: Theme }): number => theme.zIndex.loadingZ};
+	fill: ${({ theme, color }: { theme: Theme; color: Colors }): string => theme.colors[color]};
 `;
 
 const LoadingDimmer = styled(Dimmer)<{ active?: boolean }>`
 	transition: all 0.2s;
-	opacity: ${({ active }: { active?: boolean }) => (active ? '1' : '0')};
-	visibility: ${({ active }: { active?: boolean }) => (active ? 'visible' : 'hidden')};
+	opacity: ${({ active }: { active?: boolean }): string => (active ? '1' : '0')};
+	visibility: ${({ active }: { active?: boolean }): string => (active ? 'visible' : 'hidden')};
 `;
 
-const LoadingScreen = ({ active, height = 100, width = 100, color = 'primary' }: Props) => {
+const LoadingScreen = ({ active, height = 100, width = 100, color = 'primary' }: Props): JSX.Element => {
 	return (
 		<>
 			<LoadingDimmer active={active} zIndex={zIndex.loadingDimmerZ} />

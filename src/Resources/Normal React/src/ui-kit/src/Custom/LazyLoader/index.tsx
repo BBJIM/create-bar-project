@@ -7,7 +7,7 @@ type Props = LazyLoadComponentProps & {
 	placeholder?: any;
 };
 
-const LazyLoader = ({ children, threshold = 300, placeholder = <Placeholder />, ...rest }: Props) => {
+const LazyLoader = ({ children, threshold = 300, placeholder = <Placeholder />, ...rest }: Props): JSX.Element => {
 	return (
 		<LazyLoadComponent threshold={threshold} placeholder={placeholder} {...rest}>
 			{children}

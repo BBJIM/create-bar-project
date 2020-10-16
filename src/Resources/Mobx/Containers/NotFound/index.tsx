@@ -22,7 +22,7 @@ const CenteredButton = styled(Button)`
 	margin: auto;
 `;
 
-const NotFound = () => (
+const NotFound = (): JSX.Element => (
 	<Wrapper>
 		<Header size='xLarge' weight='bold'>
 			404
