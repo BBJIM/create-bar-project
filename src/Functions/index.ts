@@ -79,18 +79,35 @@ export const apollo = async (projectName: string) => {
 
 export const normalStructure = async (projectName: string) => {
 	try {
-		await copyFolders(`${resources}/Normal React`, `${root}/${projectName}`, 'normalReact');
+		await copyFolders(`${resources}/Normal React`, `${root}/${projectName}`, 'normalStructure - normalReact');
 	} catch (err) {
 		throw new Error(`normalStructure - ${err.message || err}`);
 	}
 };
 
-export const withServer = async (projectName: string) => {
+export const webpackStructure = async (projectName: string) => {
+	try {
+		await copyFolders(`${resources}/Normal React`, `${root}/${projectName}`, 'webpackStructure - normalReact');
+	} catch (err) {
+		throw new Error(`webpackStructure - ${err.message || err}`);
+	}
+};
+
+export const normalWithServer = async (projectName: string) => {
 	try {
 		await normalStructure(projectName);
-		await copyFolders(`${resources}/Server`, `${root}/${projectName}-server`, 'withServer');
+		await copyFolders(`${resources}/Server`, `${root}/${projectName}-server`, 'normalWithServer - withServer');
 	} catch (err) {
-		throw new Error(`withServer - ${err.message || err}`);
+		throw new Error(`normalWithServer - ${err.message || err}`);
+	}
+};
+
+export const webpackWithServer = async (projectName: string) => {
+	try {
+		await webpackStructure(projectName);
+		await copyFolders(`${resources}/Server`, `${root}/${projectName}-server`, 'webpackWithServer - withServer');
+	} catch (err) {
+		throw new Error(`webpackWithServer - ${err.message || err}`);
 	}
 };
 

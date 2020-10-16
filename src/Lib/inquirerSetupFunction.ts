@@ -1,5 +1,15 @@
-import { APOLLO, MOBX, MONOREPO, NEXT_JS, NORAML_REACT, NORMAL_AND_SERVER, NORMAL_STRUCTURE } from '../Common';
 import inquirer from 'inquirer';
+import {
+	APOLLO,
+	MOBX,
+	MONOREPO,
+	NEXT_JS,
+	NORAML_REACT,
+	NORMAL_AND_SERVER,
+	NORMAL_STRUCTURE,
+	WEBPACK_AND_SERVER,
+	WEBPACK_STRUCTURE,
+} from '../Common';
 
 const inquirerFunction = {
 	projectName: () => {
@@ -39,7 +49,7 @@ const inquirerFunction = {
 				type: 'list',
 				name: 'structure',
 				message: 'Select the project structure:',
-				choices: [NORMAL_STRUCTURE, NORMAL_AND_SERVER, MONOREPO],
+				choices: [NORMAL_STRUCTURE, WEBPACK_STRUCTURE, NORMAL_AND_SERVER, WEBPACK_AND_SERVER, MONOREPO],
 				default: 0,
 			},
 		];
