@@ -44,7 +44,7 @@ const deleteFolder = async (source: string, callingFunctionName: string) => {
 	}
 };
 
-const sharedFolders = async (projectName: string, commonFolderName: string) => {
+const copyProjectCommonFolders = async (projectName: string, commonFolderName: string) => {
 	try {
 		copyFolders(`${resources}/Clients/Common/${commonFolderName}`, `${root}/${projectName}`, 'sharedFolders');
 	} catch (err) {
@@ -52,15 +52,16 @@ const sharedFolders = async (projectName: string, commonFolderName: string) => {
 	}
 };
 
-const fixCRAMobx = (projectName: string) => {
-	// 'ui-kit font.d.ts Common=> src'
-};
-
-const fixProjectFolders = async (projectName: string, projectType: string) => {
+const fixProjectFolders = async (projectName: string) => {
 	// fixing
 	await copyFolders(
 		`${root}/${projectName}/src-${projectKeys.base}`,
 		`${root}/${projectName}/src`,
+		'fixProjectFolders',
+	);
+	await copyFolders(
+		`${root}/${projectName}/src-Common-${projectKeys.base}`,
+		`${root}/${projectName}/src/Common`,
 		'fixProjectFolders',
 	);
 	await copyFolders(
@@ -78,6 +79,7 @@ const fixProjectFolders = async (projectName: string, projectType: string) => {
 
 	// deleting extra
 	await deleteFolder(`${root}/${projectName}/src-${projectKeys.base}`, 'delete');
+	await deleteFolder(`${root}/${projectName}/src-Common-${projectKeys.base}`, 'delete');
 	await deleteFolder(`${root}/${projectName}/src-${projectKeys.state}`, 'delete');
 	await deleteFolder(`${root}/${projectName}/src-App-${projectKeys.state}`, 'delete');
 	await deleteFolder(`${root}/${projectName}/Shared-src`, 'delete');
@@ -90,7 +92,7 @@ const getSpecificProjectResources = () => {
 
 export const normalReact = async (projectName: string) => {
 	try {
-		await sharedFolders(projectName, 'CRA');
+		await copyProjectCommonFolders(projectName, 'CRA');
 		projectKeys.base = reactKey;
 	} catch (err) {
 		throw new Error(`normalReact - ${err.message || err}`);
@@ -99,7 +101,7 @@ export const normalReact = async (projectName: string) => {
 
 export const nextJs = async (projectName: string) => {
 	try {
-		await sharedFolders(projectName, 'Next');
+		await copyProjectCommonFolders(projectName, 'Next');
 		projectKeys.base = nextKey;
 	} catch (err) {
 		throw new Error(`nextJs - ${err.message || err}`);
@@ -108,7 +110,7 @@ export const nextJs = async (projectName: string) => {
 
 export const mobx = async (projectName: string) => {
 	try {
-		await sharedFolders(projectName, 'Mobx');
+		await copyProjectCommonFolders(projectName, 'Mobx');
 		projectKeys.state = mobxKey;
 	} catch (err) {
 		throw new Error(`mobx - ${err.message || err}`);
@@ -117,7 +119,7 @@ export const mobx = async (projectName: string) => {
 
 export const apollo = async (projectName: string) => {
 	try {
-		await sharedFolders(projectName, 'Apollo');
+		await copyProjectCommonFolders(projectName, 'Apollo');
 		projectKeys.state = apolloKey;
 	} catch (err) {
 		throw new Error(`apollo - ${err.message || err}`);
@@ -133,7 +135,7 @@ export const normalStructure = async (projectName: string) => {
 			`${root}/${projectName}`,
 			`normalStructure - ${specificFolder}`,
 		);
-		await fixProjectFolders(projectName, specificFolder);
+		await fixProjectFolders(projectName);
 	} catch (err) {
 		throw new Error(`normalStructure - ${err.message || err}`);
 	}
