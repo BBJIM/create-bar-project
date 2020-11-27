@@ -1,0 +1,33 @@
+{
+	"name": "webpack-apollo",
+	"version": "1.0.0",
+	"license": "MIT",
+	"private": true,
+	"scripts": {
+		"start": "cross-env NODE_ENV=development webpack serve",
+		"build": "cross-env NODE_ENV=production webpack  --progress",
+		"serve": "node scripts/serve.js",
+		"lint": "eslint src/**/*.{js,jsx,ts,tsx} --quiet --fix",
+		"storybook": "start-storybook -p 6006 -s assets",
+		"build-storybook": "build-storybook -s assets"
+	},
+	"dependencies": {
+		
+	},
+	"devDependencies": {
+		
+	},
+	"browserslist": {
+		"production": [
+			">0.2%",
+			"not dead",
+			"not op_mini all"
+		],
+		"development": [
+			"ie 11",
+			"last 1 chrome version",
+			"last 1 firefox version",
+			"last 1 safari version"
+		]
+	}
+}

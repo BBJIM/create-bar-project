@@ -1,4 +1,4 @@
-fix scripts and missing resources
+finish webpack + servers
 fix readme file creation
 fix pacakge json creation
 fix monorepo
