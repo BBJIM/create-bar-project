@@ -1,14 +1,4 @@
-import {
-	apollo,
-	mobx,
-	monorepo,
-	nextJs,
-	normalReact,
-	normalStructure,
-	normalWithServer,
-	webpackStructure,
-	webpackWithServer,
-} from '../Functions';
+import { apollo, mobx, nextJs, normalReact } from '../Functions';
 
 export const NORAML_REACT = 'normal react';
 export const NEXT_JS = 'next.js';
@@ -23,11 +13,11 @@ export const APOLLO = 'apollo with graphQL';
 export const functions = {
 	[NORAML_REACT]: normalReact,
 	[NEXT_JS]: nextJs,
-	[NORMAL_STRUCTURE]: normalStructure,
-	[WEBPACK_STRUCTURE]: webpackStructure,
-	[NORMAL_AND_SERVER]: normalWithServer,
-	[WEBPACK_AND_SERVER]: webpackWithServer,
-	[MONOREPO]: monorepo,
+	// [NORMAL_STRUCTURE]: normalStructure,
+	// [WEBPACK_STRUCTURE]: webpackStructure,
+	// [NORMAL_AND_SERVER]: normalWithServer,
+	// [WEBPACK_AND_SERVER]: webpackWithServer,
+	// [MONOREPO]: monorepo,
 	[MOBX]: mobx,
 	[APOLLO]: apollo,
 };
