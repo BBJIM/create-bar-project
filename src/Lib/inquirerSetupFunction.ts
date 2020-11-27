@@ -49,7 +49,8 @@ const inquirerFunctions = {
 				type: 'list',
 				name: 'structure',
 				message: 'Select the project structure:',
-				choices: [NORMAL_STRUCTURE, WEBPACK_STRUCTURE, NORMAL_AND_SERVER, WEBPACK_AND_SERVER, MONOREPO],
+				// choices: [NORMAL_STRUCTURE, WEBPACK_STRUCTURE, NORMAL_AND_SERVER, WEBPACK_AND_SERVER, MONOREPO],
+				choices: [NORMAL_STRUCTURE, NORMAL_AND_SERVER],
 				default: 0,
 			},
 		];
