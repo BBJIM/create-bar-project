@@ -1,0 +1,15 @@
+{
+	"compilerOptions": {
+		"baseUrl": "src",
+		"esModuleInterop": true,
+		"module": "CommonJS",
+		"moduleResolution": "node",
+		"outDir": "dist",
+		"paths": {},
+		"resolveJsonModule": true,
+		"target": "es6"
+	},
+	"exclude": [".vscode", "node_modules"],
+	"include": ["src/**/*.ts"],
+	"lib": ["es2015"]
+}

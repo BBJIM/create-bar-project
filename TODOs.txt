@@ -1,2 +1,6 @@
-finish missing resources
+finish clients
+finish servers
+fix scripts
+fix readme file creation
 fix pacakge json creation
+fix monorepo
