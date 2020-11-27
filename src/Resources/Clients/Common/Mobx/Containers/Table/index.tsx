@@ -1,11 +1,12 @@
+import { RoleFormValues } from 'Common/FormValuesTypes';
 import { GENERIC_STORE, MODAL_STORE, UI_STORE } from 'Common/StoreNames';
 import { RoleModal } from 'Components';
-import { Table } from 'ui-kit/src';
-import { Button } from 'ui-kit/src/Custom';
 import { GenericStore, ModalStore, UiStore } from 'Logic/Stores';
 import { inject, observer } from 'mobx-react';
 import React, { useMemo } from 'react';
 import styled from 'styled-components';
+import { Table } from 'ui-kit/src';
+import { Button } from 'ui-kit/src/Custom';
 
 const Wrapper = styled.div`
 	display: flex;
@@ -50,13 +51,13 @@ const TablePageComponent = inject(
 					loading={uiStore?.getBlockedUi}
 					columns={columns}
 					data={data}
-					onRowDoubleClick={(rowData): void => {
+					onRowDoubleClick={(rowData: RoleFormValues): void => {
 						modalStore?.openModal({
 							component: <RoleModal initialData={rowData} />,
 							header: 'Update Role',
 						});
 					}}
-					CheckboxSubmitComponent={(idArray): JSX.Element => {
+					CheckboxSubmitComponent={(idArray: string[]): JSX.Element => {
 						return (
 							<TableButton
 								onClick={async (): Promise<void> => {

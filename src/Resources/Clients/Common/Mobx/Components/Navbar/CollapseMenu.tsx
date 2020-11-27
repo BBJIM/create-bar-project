@@ -1,8 +1,9 @@
 import { directions } from 'Common/GeneralConsts';
-import { Dimmer } from 'ui-kit/src/Custom';
+import { getDirection } from 'Common/Utils';
 import React from 'react';
 import { animated, useSpring } from 'react-spring';
 import styled from 'styled-components';
+import { Dimmer } from 'ui-kit/src/Custom';
 import { Theme } from 'ui-kit/src/Theme';
 import { zIndex } from 'ui-kit/src/Theme/GlobalStyles';
 import NavLinks from './NavLinks';
@@ -23,7 +24,7 @@ const CollapseWrapper = styled(animated.div)`
 `;
 
 const CollapseMenu = ({ onClick, isOpen }: { onClick: () => any; isOpen?: boolean }): JSX.Element => {
-	const direction = window.getComputedStyle(document.body).direction;
+	const direction = getDirection();
 	// if you are using a RTL website there could be a problem here at the start of the application
 	// you can change it to default settings or find nother solution this happends because the
 	// deafult direction is LTR

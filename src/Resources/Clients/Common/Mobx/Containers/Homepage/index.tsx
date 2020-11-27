@@ -1,10 +1,10 @@
 import { AUTH_STORE, MODAL_STORE, UI_STORE } from 'Common/StoreNames';
 import { LoginModal, RegisterModal } from 'Components';
-import { Button, Headline, Text } from 'ui-kit/src/Custom';
 import { AuthStore, ModalStore, UiStore } from 'Logic/Stores';
 import { inject, observer } from 'mobx-react';
 import React from 'react';
 import styled from 'styled-components';
+import { Button, Headline, Text } from 'ui-kit/src/Custom';
 
 const Wrapper = styled.div`
 	padding: 10px 25px 0;

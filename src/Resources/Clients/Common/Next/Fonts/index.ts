@@ -20,4 +20,5 @@ const fontGlobalCSS = css`
 
 export default createGlobalStyle`
    ${fontGlobalCSS}
+    
 `;

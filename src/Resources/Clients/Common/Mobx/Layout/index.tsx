@@ -1,14 +1,14 @@
 import { directions } from 'Common/GeneralConsts';
 import { MODAL_STORE, UI_STORE } from 'Common/StoreNames';
-import { isNullOrUndefiend } from 'Common/Utils';
+import { getDirection, isNullOrUndefined } from 'Common/Utils';
 import { Footer, Navbar } from 'Components';
-import { LoadingScreen, Modal } from 'ui-kit/src';
 import GlobalFonts from 'Fonts';
 import { ModalStore, UiStore } from 'Logic/Stores';
 import { inject, observer } from 'mobx-react';
 import React from 'react';
 import { Swipeable } from 'react-swipeable';
 import styled, { ThemeProvider } from 'styled-components';
+import { LoadingScreen, Modal } from 'ui-kit/src';
 import { defaultTheme, Theme } from 'ui-kit/src/Theme';
 import GlobalStyles from 'ui-kit/src/Theme/GlobalStyles';
 
@@ -36,7 +36,7 @@ const LayoutComponent = inject(
 			uiStore?.setSidebarOpen(!uiStore?.getSideBarOpen);
 		};
 
-		const direction = window.getComputedStyle(document.body).direction;
+		const direction = getDirection();
 		const swipeLeft = (): void => {
 			uiStore?.setSidebarOpen(direction !== directions.ltr);
 		};
@@ -59,7 +59,7 @@ const LayoutComponent = inject(
 					closeModal={modalStore?.closeModal}
 					component={modalStore?.lastModalItem?.component}
 					header={modalStore?.lastModalItem?.header}
-					isActive={modalStore?.isOpen && isNullOrUndefiend(modalStore?.lastModalItem)}
+					isActive={modalStore?.isOpen && !isNullOrUndefined(modalStore?.lastModalItem)}
 					isBackIconActive={modalStore && modalStore.length > 1}
 					popModal={modalStore?.popModal}
 					titleComponent={modalStore?.lastModalItem?.titleComponent}
