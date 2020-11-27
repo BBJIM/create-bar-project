@@ -52,8 +52,38 @@ const sharedFolders = async (projectName: string, commonFolderName: string) => {
 	}
 };
 
-const fixProjectFolders = (projectType: string) => {
-	console.log('fixProjectFolders', projectType);
+const fixCRAMobx = (projectName: string) => {
+	// 'ui-kit font.d.ts Common=> src'
+};
+
+const fixProjectFolders = async (projectName: string, projectType: string) => {
+	// fixing
+	await copyFolders(
+		`${root}/${projectName}/src-${projectKeys.base}`,
+		`${root}/${projectName}/src`,
+		'fixProjectFolders',
+	);
+	await copyFolders(
+		`${root}/${projectName}/src-${projectKeys.state}`,
+		`${root}/${projectName}/src`,
+		'fixProjectFolders',
+	);
+	await copyFolders(
+		`${root}/${projectName}/src-App-${projectKeys.state}`,
+		`${root}/${projectName}/src/App`,
+		'fixProjectFolders',
+	);
+	await copyFolders(`${root}/${projectName}/ui-kit`, `${root}/${projectName}/src`, 'fixProjectFolders');
+	await copyFolders(`${root}/${projectName}/Shared-src`, `${root}/${projectName}/src`, 'fixProjectFolders');
+	await copyFolders(`${root}/${projectName}/Shared-Common`, `${root}/${projectName}/src/Common`, 'fixProjectFolders');
+
+	// deleting extra
+	await deleteFolder(`${root}/${projectName}/src-${projectKeys.base}`, 'delete');
+	await deleteFolder(`${root}/${projectName}/src-${projectKeys.state}`, 'delete');
+	await deleteFolder(`${root}/${projectName}/src-App-${projectKeys.state}`, 'delete');
+	await deleteFolder(`${root}/${projectName}/ui-kit`, 'delete');
+	await deleteFolder(`${root}/${projectName}/Shared-src`, 'delete');
+	await deleteFolder(`${root}/${projectName}/Shared-Common`, 'delete');
 };
 
 const getSpecificProjectResources = () => {
@@ -99,12 +129,13 @@ export const apollo = async (projectName: string) => {
 export const normalStructure = async (projectName: string) => {
 	try {
 		const specificFolder = getSpecificProjectResources();
+		await copyFolders(`${resources}/clients/Shared`, `${root}/${projectName}`, 'normalStructure - Shared');
 		await copyFolders(
 			`${resources}/clients/${specificFolder}`,
 			`${root}/${projectName}`,
-			'normalStructure - normalReact',
+			`normalStructure - ${specificFolder}`,
 		);
-		fixProjectFolders(specificFolder);
+		await fixProjectFolders(projectName, specificFolder);
 	} catch (err) {
 		throw new Error(`normalStructure - ${err.message || err}`);
 	}
