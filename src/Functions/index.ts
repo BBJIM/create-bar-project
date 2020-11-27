@@ -3,20 +3,19 @@ import ncp from 'ncp';
 import rimraf from 'rimraf';
 import util from 'util';
 
-const uiKit = 'UI-KIT';
 let resources = '';
 const root = process.cwd();
 
 const promiseNcp = util.promisify(ncp);
 const promiseRimraf = util.promisify(rimraf);
 
-export const createFolder = async (name: string) => {
+export const createFolderByName = async (name: string) => {
 	try {
 		resources = __dirname.replace('Functions', 'Resources');
 		await mkdirp(`${root}/${name}`);
 		console.log(`created folder - ${name}`);
 	} catch (err) {
-		throw new Error(`createFolder - ${err.message || err}`);
+		throw new Error(`createFolderByName - ${err.message || err}`);
 	}
 };
 

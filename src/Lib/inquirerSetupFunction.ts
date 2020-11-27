@@ -11,8 +11,8 @@ import {
 	WEBPACK_STRUCTURE,
 } from '../Common';
 
-const inquirerFunction = {
-	projectName: () => {
+const inquirerFunctions = {
+	getValidProjectName: () => {
 		const questions = [
 			{
 				name: 'projectName',
@@ -29,7 +29,7 @@ const inquirerFunction = {
 		];
 		return inquirer.prompt(questions);
 	},
-	projectSetup: () => {
+	setupProjectFolders: () => {
 		const questions = [
 			{
 				type: 'list',
@@ -57,4 +57,4 @@ const inquirerFunction = {
 	},
 };
 
-export default inquirerFunction;
+export default inquirerFunctions;

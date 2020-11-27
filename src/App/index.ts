@@ -2,8 +2,8 @@ import chalk from 'chalk';
 import { functions } from '../Common';
 import { clear } from 'console';
 import figlet from 'figlet';
-import { createFolder } from '../Functions';
-import inquirerFunction from '../Lib/inquirerSetupFunction';
+import { createFolderByName } from '../Functions';
+import inquirerFunctions from '../Lib/inquirerSetupFunction';
 
 clear();
 
@@ -16,9 +16,10 @@ clear();
 console.log(chalk.yellow(figlet.textSync('Bar Base Project', { horizontalLayout: 'full' })));
 const run = async () => {
 	try {
-		const { projectName } = await inquirerFunction.projectName();
-		await createFolder(projectName);
-		const result = await inquirerFunction.projectSetup();
+		const { getValidProjectName, setupProjectFolders } = inquirerFunctions;
+		const { projectName } = await getValidProjectName();
+		await createFolderByName(projectName);
+		const result = await setupProjectFolders();
 		const keys: string[] = Object.values(result);
 		for (const key of keys) {
 			await functions[key](projectName);
