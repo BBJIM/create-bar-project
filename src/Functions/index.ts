@@ -2,6 +2,7 @@ import mkdirp from 'mkdirp';
 import ncp from 'ncp';
 import rimraf from 'rimraf';
 import util from 'util';
+import fs from 'fs';
 
 let resources = '';
 const root = process.cwd();
@@ -29,9 +30,17 @@ export const createFolderByName = async (name: string) => {
 	}
 };
 
+const checkIfFolderExists = (path: string) => {
+	return fs.existsSync(path);
+};
+
 const copyFolders = async (source: string, destination: string, callingFunctionName: string) => {
 	try {
-		return promiseNcp(source, destination, { stopOnErr: true });
+		if (checkIfFolderExists(source)) {
+			return promiseNcp(source, destination, { stopOnErr: true });
+		} else {
+			console.log(`copyFolders - ${callingFunctionName} - folder - ${source}, didnt exist, didnt copy`);
+		}
 	} catch (err) {
 		throw new Error(`copyFolders - ${callingFunctionName} ${err.message || err}`);
 	}
@@ -91,6 +100,16 @@ const getSpecificProjectResources = () => {
 	return Object.values(projectKeys).join('-');
 };
 
+const fixIfWebpack = async (projectName: string) => {
+	if (projectKeys.base === webpackKey) {
+		await copyFolders(
+			`${resources}/clients/React-${projectKeys.state}`,
+			`${root}/${projectName}`,
+			`normalStructure - React-${projectKeys.state}`,
+		);
+	}
+};
+
 export const normalReact = async (projectName: string) => {
 	try {
 		await copyProjectCommonFolders(projectName, 'CRA');
@@ -145,6 +164,7 @@ export const normalStructure = async (projectName: string) => {
 			`${root}/${projectName}`,
 			`normalStructure - ${specificFolder}`,
 		);
+		await fixIfWebpack(projectName);
 		await fixProjectFolders(projectName);
 	} catch (err) {
 		throw new Error(`normalStructure - ${err.message || err}`);
