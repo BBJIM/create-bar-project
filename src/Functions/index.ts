@@ -179,6 +179,13 @@ export const normalWithServer = async (projectName: string) => {
 			`${root}/${projectName}-server`,
 			'normalWithServer - withServer',
 		);
+		await copyFolders(`${resources}/servers/Shared`, `${root}/${projectName}-server`, 'normalWithServer - Shared');
+		await copyFolders(
+			`${root}/${projectName}-server/src-Shared`,
+			`${root}/${projectName}-server/src`,
+			'normalWithServer - Shared',
+		);
+		await deleteFolder(`${root}/${projectName}-server/src-Shared`, 'delete');
 	} catch (err) {
 		throw new Error(`normalWithServer - ${err.message || err}`);
 	}
