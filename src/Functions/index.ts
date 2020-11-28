@@ -3,6 +3,7 @@ import ncp from 'ncp';
 import rimraf from 'rimraf';
 import util from 'util';
 import fs from 'fs';
+import createPackageJson from './createPackageJson';
 
 let resources = '';
 const root = process.cwd();
@@ -117,6 +118,26 @@ const createReadMeFile = async (path: string, projectName: string) => {
 		}
 		console.log(`README was created`);
 	});
+};
+
+const createPackageJsonFile = async (
+	path: string,
+	projectName: string,
+	depsKey: string,
+	devDepsKey: string,
+	scriptsKey: string,
+	browsersListKey?: boolean,
+) => {
+	fs.writeFile(
+		`${path}/package.json`,
+		createPackageJson({ projectName, depsKey, devDepsKey, scriptsKey, browsersListKey }),
+		function (err) {
+			if (err) {
+				return console.log(err);
+			}
+			console.log(`README was created`);
+		},
+	);
 };
 
 export const normalReact = async (projectName: string) => {
