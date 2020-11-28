@@ -1,5 +1,4 @@
-finish webpack apollo
-fix readme file creation
 fix pacakge json creation
+finish webpack apollo
 seprate functions file into multiple files?
 fix monorepo

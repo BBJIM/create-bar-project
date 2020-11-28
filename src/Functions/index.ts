@@ -12,7 +12,7 @@ const nextKey = 'Next';
 const webpackKey = 'Webpack';
 const apolloKey = 'Apollo';
 const mobxKey = 'Mobx';
-const projectKeys = {
+const projectProps = {
 	base: '',
 	state: '',
 };
@@ -65,22 +65,22 @@ const copyProjectCommonFolders = async (projectName: string, commonFolderName: s
 const fixProjectFolders = async (projectName: string) => {
 	// fixing
 	await copyFolders(
-		`${root}/${projectName}/src-${projectKeys.base}`,
+		`${root}/${projectName}/src-${projectProps.base}`,
 		`${root}/${projectName}/src`,
 		'fixProjectFolders',
 	);
 	await copyFolders(
-		`${root}/${projectName}/src-Common-${projectKeys.base}`,
+		`${root}/${projectName}/src-Common-${projectProps.base}`,
 		`${root}/${projectName}/src/Common`,
 		'fixProjectFolders',
 	);
 	await copyFolders(
-		`${root}/${projectName}/src-${projectKeys.state}`,
+		`${root}/${projectName}/src-${projectProps.state}`,
 		`${root}/${projectName}/src`,
 		'fixProjectFolders',
 	);
 	await copyFolders(
-		`${root}/${projectName}/src-App-${projectKeys.state}`,
+		`${root}/${projectName}/src-App-${projectProps.state}`,
 		`${root}/${projectName}/src/App`,
 		'fixProjectFolders',
 	);
@@ -88,32 +88,41 @@ const fixProjectFolders = async (projectName: string) => {
 	await copyFolders(`${root}/${projectName}/Shared-Common`, `${root}/${projectName}/src/Common`, 'fixProjectFolders');
 
 	// deleting extra
-	await deleteFolder(`${root}/${projectName}/src-${projectKeys.base}`, 'delete');
-	await deleteFolder(`${root}/${projectName}/src-Common-${projectKeys.base}`, 'delete');
-	await deleteFolder(`${root}/${projectName}/src-${projectKeys.state}`, 'delete');
-	await deleteFolder(`${root}/${projectName}/src-App-${projectKeys.state}`, 'delete');
+	await deleteFolder(`${root}/${projectName}/src-${projectProps.base}`, 'delete');
+	await deleteFolder(`${root}/${projectName}/src-Common-${projectProps.base}`, 'delete');
+	await deleteFolder(`${root}/${projectName}/src-${projectProps.state}`, 'delete');
+	await deleteFolder(`${root}/${projectName}/src-App-${projectProps.state}`, 'delete');
 	await deleteFolder(`${root}/${projectName}/Shared-src`, 'delete');
 	await deleteFolder(`${root}/${projectName}/Shared-Common`, 'delete');
 };
 
 const getSpecificProjectResources = () => {
-	return Object.values(projectKeys).join('-');
+	return Object.values(projectProps).join('-');
 };
 
 const fixIfWebpack = async (projectName: string) => {
-	if (projectKeys.base === webpackKey) {
+	if (projectProps.base === webpackKey) {
 		await copyFolders(
-			`${resources}/clients/React-${projectKeys.state}`,
+			`${resources}/clients/React-${projectProps.state}`,
 			`${root}/${projectName}`,
-			`normalStructure - React-${projectKeys.state}`,
+			`normalStructure - React-${projectProps.state}`,
 		);
 	}
+};
+
+const createReadMeFile = async (path: string, projectName: string) => {
+	fs.writeFile(`${path}/README.md`, `#${projectName}`, function (err) {
+		if (err) {
+			return console.log(err);
+		}
+		console.log(`README was created`);
+	});
 };
 
 export const normalReact = async (projectName: string) => {
 	try {
 		await copyProjectCommonFolders(projectName, 'CRA');
-		projectKeys.base = reactKey;
+		projectProps.base = reactKey;
 	} catch (err) {
 		throw new Error(`normalReact - ${err.message || err}`);
 	}
@@ -122,7 +131,7 @@ export const normalReact = async (projectName: string) => {
 export const nextJs = async (projectName: string) => {
 	try {
 		await copyProjectCommonFolders(projectName, 'Next');
-		projectKeys.base = nextKey;
+		projectProps.base = nextKey;
 	} catch (err) {
 		throw new Error(`nextJs - ${err.message || err}`);
 	}
@@ -131,7 +140,7 @@ export const nextJs = async (projectName: string) => {
 export const webpack = async (projectName: string) => {
 	try {
 		await copyProjectCommonFolders(projectName, 'Webpack');
-		projectKeys.base = webpackKey;
+		projectProps.base = webpackKey;
 	} catch (err) {
 		throw new Error(`webpack - ${err.message || err}`);
 	}
@@ -140,7 +149,7 @@ export const webpack = async (projectName: string) => {
 export const mobx = async (projectName: string) => {
 	try {
 		await copyProjectCommonFolders(projectName, 'Mobx');
-		projectKeys.state = mobxKey;
+		projectProps.state = mobxKey;
 	} catch (err) {
 		throw new Error(`mobx - ${err.message || err}`);
 	}
@@ -149,7 +158,7 @@ export const mobx = async (projectName: string) => {
 export const apollo = async (projectName: string) => {
 	try {
 		await copyProjectCommonFolders(projectName, 'Apollo');
-		projectKeys.state = apolloKey;
+		projectProps.state = apolloKey;
 	} catch (err) {
 		throw new Error(`apollo - ${err.message || err}`);
 	}
@@ -166,6 +175,7 @@ export const normalStructure = async (projectName: string) => {
 			`normalStructure - ${specificFolder}`,
 		);
 		await fixProjectFolders(projectName);
+		await createReadMeFile(`${root}/${projectName}`, projectName);
 	} catch (err) {
 		throw new Error(`normalStructure - ${err.message || err}`);
 	}
@@ -175,7 +185,7 @@ export const normalWithServer = async (projectName: string) => {
 	try {
 		await normalStructure(projectName);
 		await copyFolders(
-			`${resources}/servers/${projectKeys.state}-Server`,
+			`${resources}/servers/${projectProps.state}-Server`,
 			`${root}/${projectName}-server`,
 			'normalWithServer - withServer',
 		);
@@ -186,6 +196,7 @@ export const normalWithServer = async (projectName: string) => {
 			'normalWithServer - Shared',
 		);
 		await deleteFolder(`${root}/${projectName}-server/src-Shared`, 'delete');
+		await createReadMeFile(`${root}/${projectName}-server`, `${projectName}-server`);
 	} catch (err) {
 		throw new Error(`normalWithServer - ${err.message || err}`);
 	}
