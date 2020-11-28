@@ -111,7 +111,7 @@ const fixIfWebpack = async (projectName: string) => {
 };
 
 const createReadMeFile = async (path: string, projectName: string) => {
-	fs.writeFile(`${path}/README.md`, `#${projectName}`, function (err) {
+	fs.writeFile(`${path}/README.md`, `# ${projectName}`, function (err) {
 		if (err) {
 			return console.log(err);
 		}
