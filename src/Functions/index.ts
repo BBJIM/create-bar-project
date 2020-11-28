@@ -159,12 +159,12 @@ export const normalStructure = async (projectName: string) => {
 	try {
 		const specificFolder = getSpecificProjectResources();
 		await copyFolders(`${resources}/clients/Shared`, `${root}/${projectName}`, 'normalStructure - Shared');
+		await fixIfWebpack(projectName);
 		await copyFolders(
 			`${resources}/clients/${specificFolder}`,
 			`${root}/${projectName}`,
 			`normalStructure - ${specificFolder}`,
 		);
-		await fixIfWebpack(projectName);
 		await fixProjectFolders(projectName);
 	} catch (err) {
 		throw new Error(`normalStructure - ${err.message || err}`);
