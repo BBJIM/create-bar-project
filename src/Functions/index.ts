@@ -8,6 +8,7 @@ const root = process.cwd();
 
 const reactKey = 'React';
 const nextKey = 'Next';
+const webpackKey = 'Webpack';
 const apolloKey = 'Apollo';
 const mobxKey = 'Mobx';
 const projectKeys = {
@@ -108,6 +109,15 @@ export const nextJs = async (projectName: string) => {
 	}
 };
 
+export const webpack = async (projectName: string) => {
+	try {
+		await copyProjectCommonFolders(projectName, 'Webpack');
+		projectKeys.base = webpackKey;
+	} catch (err) {
+		throw new Error(`webpack - ${err.message || err}`);
+	}
+};
+
 export const mobx = async (projectName: string) => {
 	try {
 		await copyProjectCommonFolders(projectName, 'Mobx');
@@ -141,14 +151,6 @@ export const normalStructure = async (projectName: string) => {
 	}
 };
 
-export const webpackStructure = async (projectName: string) => {
-	try {
-		// await copyFolders(`${resources}/clients/Webpack`, `${root}/${projectName}`, 'webpackStructure - normalReact');
-	} catch (err) {
-		throw new Error(`webpackStructure - ${err.message || err}`);
-	}
-};
-
 export const normalWithServer = async (projectName: string) => {
 	try {
 		await normalStructure(projectName);
@@ -159,15 +161,6 @@ export const normalWithServer = async (projectName: string) => {
 		);
 	} catch (err) {
 		throw new Error(`normalWithServer - ${err.message || err}`);
-	}
-};
-
-export const webpackWithServer = async (projectName: string) => {
-	try {
-		// await webpackStructure(projectName);
-		// await copyFolders(`${resources}/Server`, `${root}/${projectName}-server`, 'webpackWithServer - withServer');
-	} catch (err) {
-		throw new Error(`webpackWithServer - ${err.message || err}`);
 	}
 };
 

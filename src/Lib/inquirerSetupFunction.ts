@@ -1,15 +1,5 @@
 import inquirer from 'inquirer';
-import {
-	APOLLO,
-	MOBX,
-	MONOREPO,
-	NEXT_JS,
-	NORAML_REACT,
-	NORMAL_AND_SERVER,
-	NORMAL_STRUCTURE,
-	WEBPACK_AND_SERVER,
-	WEBPACK_STRUCTURE,
-} from '../Common';
+import { APOLLO, MOBX, NEXT_JS, NORAML_REACT, NORMAL_AND_SERVER, NORMAL_STRUCTURE, WEBPACK } from '../Common';
 
 const inquirerFunctions = {
 	getValidProjectName: () => {
@@ -35,7 +25,7 @@ const inquirerFunctions = {
 				type: 'list',
 				name: 'framework',
 				message: 'Select the "framework" you want to work with:',
-				choices: [NORAML_REACT, NEXT_JS],
+				choices: [NORAML_REACT, NEXT_JS, WEBPACK],
 				default: 0,
 			},
 			{
@@ -49,7 +39,7 @@ const inquirerFunctions = {
 				type: 'list',
 				name: 'structure',
 				message: 'Select the project structure:',
-				// choices: [NORMAL_STRUCTURE, WEBPACK_STRUCTURE, NORMAL_AND_SERVER, WEBPACK_AND_SERVER, MONOREPO],
+				// choices: [NORMAL_STRUCTURE, NORMAL_AND_SERVER, MONOREPO],
 				choices: [NORMAL_STRUCTURE, NORMAL_AND_SERVER],
 				default: 0,
 			},
