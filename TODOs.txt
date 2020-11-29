@@ -1,5 +1,5 @@
-fix pacakge json creation
-finish webpack apollo
-check axios
+do server package json
+check webpack apollo
+check axios version
 seprate functions file into multiple files?
 fix monorepo
