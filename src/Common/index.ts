@@ -2,9 +2,9 @@ import { apollo, mobx, monorepo, nextJs, normalReact, normalStructure, normalWit
 
 export const NORAML_REACT = 'normal react';
 export const NEXT_JS = 'next.js';
-export const NORMAL_STRUCTURE = 'normal';
+export const NORMAL_STRUCTURE = 'only client';
 export const WEBPACK = 'webpack';
-export const NORMAL_AND_SERVER = 'normal + another server folder project';
+export const NORMAL_AND_SERVER = 'client + another server folder project';
 export const MONOREPO = 'monorepo with the server and the client - not finished completely yet';
 export const MOBX = 'mobx';
 export const APOLLO = 'apollo with graphQL';
