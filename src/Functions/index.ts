@@ -4,7 +4,7 @@ import mkdirp from 'mkdirp';
 import ncp from 'ncp';
 import rimraf from 'rimraf';
 import util from 'util';
-import createPackageJson from './createPackageJson';
+import getPackageJsonData from './GetPackageJsonData';
 
 let resources = '';
 const root = process.cwd();
@@ -107,13 +107,17 @@ const fixIfWebpack = async (projectName: string) => {
 	}
 };
 
-const createReadMeFile = async (path: string, projectName: string) => {
-	fs.writeFile(`${path}/README.md`, `# ${projectName}`, function (err) {
+const writeFile = (path: string, data: string) => {
+	fs.writeFile(path, data, function (err) {
 		if (err) {
 			return console.log(err);
 		}
-		console.log(`README was created`);
+		console.log(`${path} was created`);
 	});
+};
+
+const createReadMeFile = async (path: string, projectName: string) => {
+	writeFile(`${path}/README.md`, `# ${projectName}`);
 };
 
 const createPackageJsonFile = async (
@@ -121,19 +125,9 @@ const createPackageJsonFile = async (
 	projectName: string,
 	baseDepsKey: string,
 	stateDepsKey: string,
-	scriptsKey: string,
 	browsersListKey?: boolean,
 ) => {
-	fs.writeFile(
-		`${path}/package.json`,
-		createPackageJson({ projectName, baseDepsKey, stateDepsKey, scriptsKey, browsersListKey }),
-		function (err) {
-			if (err) {
-				return console.log(err);
-			}
-			console.log(`README was created`);
-		},
-	);
+	writeFile(`${path}/package.json`, getPackageJsonData({ projectName, baseDepsKey, stateDepsKey, browsersListKey }));
 };
 
 export const normalReact = async (projectName: string) => {
@@ -193,6 +187,7 @@ export const normalStructure = async (projectName: string) => {
 		);
 		await fixProjectFolders(projectName);
 		await createReadMeFile(`${root}/${projectName}`, projectName);
+		await createPackageJsonFile(`${root}/${projectName}`, projectName, projectProps.base, projectProps.state, true);
 	} catch (err) {
 		throw new Error(`normalStructure - ${err.message || err}`);
 	}
@@ -214,6 +209,12 @@ export const normalWithServer = async (projectName: string) => {
 		);
 		await deleteFolder(`${root}/${projectName}-server/src-Shared`, 'delete');
 		await createReadMeFile(`${root}/${projectName}-server`, `${projectName}-server`);
+		// await createPackageJsonFile(
+		// 	`${root}/${projectName}-server`,
+		// 	`${projectName}-server`,
+		// 	projectProps.base,
+		// 	projectProps.state,
+		// );
 	} catch (err) {
 		throw new Error(`normalWithServer - ${err.message || err}`);
 	}

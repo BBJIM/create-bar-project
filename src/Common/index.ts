@@ -43,7 +43,7 @@ const commonkDeps = `
 "react-table": "^7.5.2",
 "smoothscroll-polyfill": "^0.4.4",
 "styled-components": "^5.1.1",
-"yup": "^0.29.3"
+"yup": "^0.29.3",
 `;
 
 const webpackDeps = `
@@ -130,33 +130,33 @@ export const stateDependencies = {
 	[mobxKey]: `
 	"axios": "^0.20.0",
 	"mobx": "4.14.1",
-	"mobx-react": "6.1.4",
+	"mobx-react": "6.1.4"
 	`,
 	[apolloKey]: `
 	"@apollo/client": "^3.2.5",
-	"graphql": "^15.4.0",
+	"graphql": "^15.4.0"
 	`,
 };
 
 export const devDependencies = {
 	[reactKey]: `
 	${commonDevDeps}
-	"@babel/core": "^7.11.6",
+	,"@babel/core": "^7.11.6",
 	"@storybook/preset-create-react-app": "^3.1.4",
 	"@types/react-router": "^5.1.7",
     "@types/react-router-dom": "^5.1.5",
-    "@types/react-router-hash-link": "^1.2.1",
+    "@types/react-router-hash-link": "^1.2.1"
 	`,
 	[nextKey]: `
 	${commonDevDeps}
-	"@babel/plugin-proposal-decorators": "^7.12.1",
+	,"@babel/plugin-proposal-decorators": "^7.12.1",
 	"@babel/preset-env": "^7.12.1",
 	"babel-plugin-styled-components": "^1.8.0",
-	"eslint": "^7.11.0",
+	"eslint": "^7.11.0"
 	`,
 	[webpackKey]: `
 	${commonDevDeps}
-	"@babel/core": "^7.11.6",
+	,"@babel/core": "^7.11.6",
     "@babel/plugin-proposal-class-properties": "^7.12.1",
     "@babel/plugin-proposal-decorators": "^7.12.1",
     "@babel/plugin-transform-runtime": "^7.11.5",

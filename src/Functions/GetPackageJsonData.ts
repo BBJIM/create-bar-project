@@ -1,25 +1,23 @@
 import { baseDependencies, browserslistString, devDependencies, scripts, stateDependencies } from 'Common';
 
-const createPackageJson = ({
+const getPackageJsonData = ({
 	projectName,
-	scriptsKey,
 	baseDepsKey,
 	stateDepsKey,
 	browsersListKey,
 }: {
 	projectName: string;
-	scriptsKey: string;
 	baseDepsKey: string;
 	stateDepsKey: string;
 	browsersListKey?: boolean;
 }) => {
 	return `{
-		"name": "${projectName},
+		"name": "${projectName}",
 		"version": "1.0.0",
 		"license": "MIT",
 		"private": true,
 		"scripts": {
-			${scripts[scriptsKey]}
+			${scripts[baseDepsKey]}
 		},
 		"dependencies": {
 			${baseDependencies[baseDepsKey]}
@@ -31,4 +29,4 @@ const createPackageJson = ({
 	}`;
 };
 
-export default createPackageJson;
+export default getPackageJsonData;
