@@ -1,46 +1,16 @@
-const scripts = {
-	React: ``,
-	Next: ``,
-	Webpack: ``,
-};
-
-const dependencies = {
-	React: ``,
-	Next: ``,
-	Webpack: ``,
-};
-
-const devDependencies = {
-	React: ``,
-	Next: ``,
-	Webpack: ``,
-};
-
-const browserslistString = `"browserslist": {
-	"production": [
-		">0.2%",
-		"not dead",
-		"not op_mini all"
-	],
-	"development": [
-		"ie 11",
-		"last 1 chrome version",
-		"last 1 firefox version",
-		"last 1 safari version"
-	]
-}`;
+import { baseDependencies, browserslistString, devDependencies, scripts, stateDependencies } from 'Common';
 
 const createPackageJson = ({
 	projectName,
 	scriptsKey,
-	depsKey,
-	devDepsKey,
+	baseDepsKey,
+	stateDepsKey,
 	browsersListKey,
 }: {
 	projectName: string;
 	scriptsKey: string;
-	depsKey: string;
-	devDepsKey: string;
+	baseDepsKey: string;
+	stateDepsKey: string;
 	browsersListKey?: boolean;
 }) => {
 	return `{
@@ -52,10 +22,11 @@ const createPackageJson = ({
 			${scripts[scriptsKey]}
 		},
 		"dependencies": {
-			${dependencies[depsKey]}
+			${baseDependencies[baseDepsKey]}
+			${stateDependencies[stateDepsKey]}
 		},
 		"devDependencies": {
-			${devDependencies[devDepsKey]}	
+			${devDependencies[baseDepsKey]}	
 		}${browsersListKey ? ',\n' + browserslistString : ''}
 	}`;
 };

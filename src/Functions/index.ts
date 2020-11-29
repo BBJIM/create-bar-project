@@ -1,18 +1,14 @@
+import { apolloKey, mobxKey, nextKey, reactKey, webpackKey } from 'Common';
+import fs from 'fs';
 import mkdirp from 'mkdirp';
 import ncp from 'ncp';
 import rimraf from 'rimraf';
 import util from 'util';
-import fs from 'fs';
 import createPackageJson from './createPackageJson';
 
 let resources = '';
 const root = process.cwd();
 
-const reactKey = 'React';
-const nextKey = 'Next';
-const webpackKey = 'Webpack';
-const apolloKey = 'Apollo';
-const mobxKey = 'Mobx';
 const projectProps = {
 	base: '',
 	state: '',
@@ -123,14 +119,14 @@ const createReadMeFile = async (path: string, projectName: string) => {
 const createPackageJsonFile = async (
 	path: string,
 	projectName: string,
-	depsKey: string,
-	devDepsKey: string,
+	baseDepsKey: string,
+	stateDepsKey: string,
 	scriptsKey: string,
 	browsersListKey?: boolean,
 ) => {
 	fs.writeFile(
 		`${path}/package.json`,
-		createPackageJson({ projectName, depsKey, devDepsKey, scriptsKey, browsersListKey }),
+		createPackageJson({ projectName, baseDepsKey, stateDepsKey, scriptsKey, browsersListKey }),
 		function (err) {
 			if (err) {
 				return console.log(err);
