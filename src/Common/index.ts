@@ -230,3 +230,35 @@ export const serverDependencies = {
 	"graphql-compose-mongoose": "^9.0.0"
 	`,
 };
+
+export const serverGitIgnoreData = `
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+node_modules/
+/.pnp
+.pnp.js
+
+# testing
+/coverage
+
+# config
+Config/
+.env
+
+# production
+build/
+dist/
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# local env files
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+`;

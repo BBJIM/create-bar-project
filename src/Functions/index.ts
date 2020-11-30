@@ -1,4 +1,4 @@
-import { apolloKey, mobxKey, nextKey, reactKey, webpackKey } from '../Common';
+import { apolloKey, mobxKey, nextKey, reactKey, serverGitIgnoreData, webpackKey } from '../Common';
 import { copyFolders, deleteFolder, writeFile } from './FsUtils';
 import { getPackageJsonData, getServerPackageJsonData } from './GetPackageJsonData';
 
@@ -72,6 +72,10 @@ const fixIfWebpack = async (projectName: string) => {
 
 const createReadMeFile = async (path: string, projectName: string) => {
 	writeFile(`${path}/README.md`, `# ${projectName}`);
+};
+
+const createServerGitIgnore = async (path: string, projectName: string) => {
+	writeFile(`${path}/.gitignore`, serverGitIgnoreData);
 };
 
 const createPackageJsonFile = async (
@@ -168,6 +172,7 @@ export const normalWithServer = async (projectName: string) => {
 		await deleteFolder(`${root}/${projectName}-server/src-Shared`, 'delete');
 		await createReadMeFile(`${root}/${projectName}-server`, `${projectName}-server`);
 		await createServerPackageJsonFile(`${root}/${projectName}-server`, `${projectName}-server`, projectProps.state);
+		await createServerGitIgnore(`${root}/${projectName}-server`, `${projectName}-server`);
 	} catch (err) {
 		throw new Error(`normalWithServer - ${err.message || err}`);
 	}
