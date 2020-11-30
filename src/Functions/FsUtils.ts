@@ -1,5 +1,5 @@
 import fs from 'fs';
-import { setResources } from 'Functions';
+import { setResources } from '../Functions';
 import mkdirp from 'mkdirp';
 import ncp from 'ncp';
 import rimraf from 'rimraf';

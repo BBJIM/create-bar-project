@@ -5,7 +5,7 @@ import {
 	devDependencies,
 	serverDependencies,
 	stateDependencies,
-} from 'Common';
+} from '../Common';
 
 export const getPackageJsonData = ({
 	projectName,

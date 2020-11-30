@@ -1,4 +1,4 @@
-import { apolloKey, mobxKey, nextKey, reactKey, webpackKey } from 'Common';
+import { apolloKey, mobxKey, nextKey, reactKey, webpackKey } from '../Common';
 import { copyFolders, deleteFolder, writeFile } from './FsUtils';
 import { getPackageJsonData, getServerPackageJsonData } from './GetPackageJsonData';
 
