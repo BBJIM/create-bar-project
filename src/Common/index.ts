@@ -260,5 +260,9 @@ yarn-error.log*
 .env.development.local
 .env.test.local
 .env.production.local
+`;
 
+export const serverEnvData = `
+PORT=3005
+NODE_ENV=development
 `;
