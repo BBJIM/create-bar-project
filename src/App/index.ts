@@ -2,15 +2,14 @@ import chalk from 'chalk';
 import { functions } from '../Common';
 import { clear } from 'console';
 import figlet from 'figlet';
-import { createFolderByName } from '../Functions';
+import { createFolderByName } from '../Functions/FsUtils';
 import inquirerFunctions from '../Lib/inquirerSetupFunction';
 
 clear();
 
 /**
  * if you make a change:
- * need to yarn build, then delete node_modules,update package version
- * and then 'yarn out-bin'. after all that you can use it with cmd again.
+ * need to run `yarn out-bin`, then you can use it with the new version in the cmd.
  */
 
 console.log(chalk.yellow(figlet.textSync('Bar Base Project', { horizontalLayout: 'full' })));

@@ -1,3 +1,2 @@
-seprate functions file into multiple files?
 check webpack apollo
 fix monorepo
