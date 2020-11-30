@@ -4,7 +4,7 @@ import mkdirp from 'mkdirp';
 import ncp from 'ncp';
 import rimraf from 'rimraf';
 import util from 'util';
-import getPackageJsonData from './GetPackageJsonData';
+import { getPackageJsonData, getServerPackageJsonData } from './GetPackageJsonData';
 
 let resources = '';
 const root = process.cwd();
@@ -130,6 +130,10 @@ const createPackageJsonFile = async (
 	writeFile(`${path}/package.json`, getPackageJsonData({ projectName, baseDepsKey, stateDepsKey, browsersListKey }));
 };
 
+const createServerPackageJsonFile = async (path: string, projectName: string, stateDepsKey: string) => {
+	writeFile(`${path}/package.json`, getServerPackageJsonData({ stateDepsKey, projectName }));
+};
+
 export const normalReact = async (projectName: string) => {
 	try {
 		await copyProjectCommonFolders(projectName, 'CRA');
@@ -209,12 +213,7 @@ export const normalWithServer = async (projectName: string) => {
 		);
 		await deleteFolder(`${root}/${projectName}-server/src-Shared`, 'delete');
 		await createReadMeFile(`${root}/${projectName}-server`, `${projectName}-server`);
-		// await createPackageJsonFile(
-		// 	`${root}/${projectName}-server`,
-		// 	`${projectName}-server`,
-		// 	projectProps.base,
-		// 	projectProps.state,
-		// );
+		await createServerPackageJsonFile(`${root}/${projectName}-server`, `${projectName}-server`, projectProps.state);
 	} catch (err) {
 		throw new Error(`normalWithServer - ${err.message || err}`);
 	}

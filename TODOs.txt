@@ -1,5 +1,3 @@
-do server package json
-check webpack apollo
-check axios version
 seprate functions file into multiple files?
+check webpack apollo
 fix monorepo

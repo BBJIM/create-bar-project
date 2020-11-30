@@ -26,7 +26,7 @@ export const webpackKey = 'Webpack';
 export const apolloKey = 'Apollo';
 export const mobxKey = 'Mobx';
 
-const commonkDeps = `
+const commonClientDeps = `
 "chart.js": "^2.9.3",
 "cogo-toast": "^4.2.3",
 "formik": "^2.1.5",
@@ -47,13 +47,13 @@ const commonkDeps = `
 `;
 
 const webpackDeps = `
-	${commonkDeps}
+	${commonClientDeps}
 	"react-router": "^5.2.0",
 	"react-router-dom": "^5.2.0",
 	"react-router-hash-link": "^2.0.0",
 `;
 
-const commonDevDeps = `
+const commonClientDevDeps = `
 "@storybook/addon-essentials": "^6.1.1",
 "@storybook/addon-links": "^6.1.1",
 "@storybook/cli": "^6.1.1",
@@ -84,7 +84,7 @@ const commonDevDeps = `
 "typescript": "^4.1.2"
 `;
 
-export const scripts = {
+export const clientScripts = {
 	[reactKey]: `
 	"start": "cross-env APP_ENV=development BROWSER=none react-scripts start",
 	"build": "cross-env APP_ENV=production react-scripts build",
@@ -118,7 +118,7 @@ export const baseDependencies = {
 		"react-scripts": "^3.4.1",
 	`,
 	[nextKey]: `
-	${commonkDeps}
+	${commonClientDeps}
     "next": "latest",
     "next-cookies": "^2.0.3",
     "react-is": "^16.8.0",
@@ -140,7 +140,7 @@ export const stateDependencies = {
 
 export const devDependencies = {
 	[reactKey]: `
-	${commonDevDeps}
+	${commonClientDevDeps}
 	,"@babel/core": "^7.11.6",
 	"@storybook/preset-create-react-app": "^3.1.4",
 	"@types/react-router": "^5.1.7",
@@ -148,14 +148,14 @@ export const devDependencies = {
     "@types/react-router-hash-link": "^1.2.1"
 	`,
 	[nextKey]: `
-	${commonDevDeps}
+	${commonClientDevDeps}
 	,"@babel/plugin-proposal-decorators": "^7.12.1",
 	"@babel/preset-env": "^7.12.1",
 	"babel-plugin-styled-components": "^1.8.0",
 	"eslint": "^7.11.0"
 	`,
 	[webpackKey]: `
-	${commonDevDeps}
+	${commonClientDevDeps}
 	,"@babel/core": "^7.11.6",
     "@babel/plugin-proposal-class-properties": "^7.12.1",
     "@babel/plugin-proposal-decorators": "^7.12.1",
@@ -206,3 +206,27 @@ export const browserslistString = `"browserslist": {
 		"last 1 safari version"
 	]
 }`;
+
+const mobxServerDeps = `
+"bcrypt": "^5.0.0",
+"body-parser": "^1.19.0",
+"compression": "^1.7.4",
+"cors": "^2.8.5",
+"express": "^4.17.1",
+"helmet": "^4.1.1",
+"jsonwebtoken": "^8.5.1",
+"mongoose": "^5.10.6"
+`;
+
+export const serverDependencies = {
+	[mobxKey]: `
+		${mobxServerDeps}
+	`,
+	[apolloKey]: `
+	${mobxServerDeps},
+	"apollo-server-express": "^2.18.2",
+	"graphql": "^15.3.0",
+	"graphql-compose": "^7.22.1",
+	"graphql-compose-mongoose": "^9.0.0"
+	`,
+};
