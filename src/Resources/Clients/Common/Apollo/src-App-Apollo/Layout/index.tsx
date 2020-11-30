@@ -1,6 +1,6 @@
 import { useQuery } from '@apollo/client';
 import { directions } from 'Common/GeneralConsts';
-import { getDirection, isNullOrUndefiend } from 'Common/Utils';
+import { getDirection, isNullOrUndefined } from 'Common/Utils';
 import { Footer, Navbar } from 'Components';
 import GlobalFonts from 'Fonts';
 import { closeModal, GET_MODAL_STATE, popFromModalStack } from 'Logic/Modal';
@@ -65,7 +65,7 @@ const LayoutComponent = ({ children }: Props) => {
 				closeModal={closeModal}
 				component={lastModalItem?.component}
 				header={lastModalItem?.header}
-				isActive={modalState && !isNullOrUndefiend(lastModalItem)}
+				isActive={modalState && !isNullOrUndefined(lastModalItem)}
 				isBackIconActive={modalStackState.length > 1}
 				popModal={popFromModalStack}
 				titleComponent={lastModalItem?.titleComponent}
