@@ -28,7 +28,7 @@ const textYup = Yup.string().required(requiredMessage).max(500, textTooLongMessa
 
 const phoneRequiredYup = Yup.string()
 	.required(requiredMessage)
-	.test('phone', phoneMessage, (value) => !value || (/^[0-9]+$/i.test(value) && value.length === 10));
+	.test('phoneNumber', phoneMessage, (value) => !value || (/^[0-9]+$/i.test(value) && value.length === 10));
 
 const filesYup = Yup.mixed()
 	.test('fileSize', fileSizeTooLarge, (value) => {
@@ -86,7 +86,7 @@ export const registerSchema = Yup.object().shape({
 export const simpleFormSchema = Yup.object().shape({
 	name: nameYup,
 	email: emailYup,
-	phone: phoneRequiredYup,
+	phoneNumber: phoneRequiredYup,
 	file: fileYup,
 	files: filesYup,
 	text: textYup,
