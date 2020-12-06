@@ -1,1 +1,1 @@
-# cli-test
+# create-bar-project
