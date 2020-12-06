@@ -1,0 +1,46 @@
+{
+	"parser": "@typescript-eslint/parser",
+	"parserOptions": {
+		"ecmaVersion": 2020,
+		"sourceType": "module",
+		"ecmaFeatures": {
+			"jsx": true
+		}
+	},
+	"settings": {
+		"react": {
+			"version": "detect"
+		}
+	},
+	"extends": [
+		"plugin:react/recommended",
+		"plugin:@typescript-eslint/recommended",
+		"prettier/@typescript-eslint",
+		"plugin:prettier/recommended",
+		"plugin:md/recommended"
+	],
+	"overrides": [
+		{
+			"files": ["*.md"],
+			"parser": "markdown-eslint-parser",
+			"rules": {
+				"prettier/prettier": [
+					"error",
+					// Important to force prettier to use "markdown" parser - otherwise it wouldn't be able to parse *.md files.
+					// You also can configure other options supported by prettier here - "prose-wrap" is
+					// particularly useful for *.md files
+					{ "parser": "markdown" }
+				],
+				"md/remark": ["error", { "parser": "markdown" }]
+			}
+		},
+		{
+			"files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
+			"rules": {
+				"@typescript-eslint/no-explicit-any": "off",
+				"@typescript-eslint/explicit-module-boundary-types": "off",
+				"@typescript-eslint/no-var-requires": "off"
+			}
+		}
+	]
+}

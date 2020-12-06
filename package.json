@@ -1,6 +1,6 @@
 {
 	"name": "create-bar-project",
-	"version": "3.5.0",
+	"version": "3.7.0",
 	"main": "bin/index.js",
 	"repository": "https://github.com/BBJIM/create-bar-project.git",
 	"author": "Bar <baryed55gmail.com>",
@@ -15,8 +15,14 @@
 		"out-bin": "yarn build && npm update -g .",
 		"lint-ts": "eslint src/**/*.{js,jsx,ts,tsx} --quiet --fix"
 	},
+	"files": [
+		"./bin",
+		"./dist",
+		"./node_modules",
+		"README.md"
+	],
 	"bin": {
-		"create-bar-app": "./bin/index.js"
+		"create-bar-project": "./bin/index.js"
 	},
 	"dependencies": {
 		"@types/figlet": "^1.2.0",
