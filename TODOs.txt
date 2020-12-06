@@ -1,3 +1,4 @@
 fix monorepo
 fix storybooks in non CRA projects
+add keywords to package json
 publish in new repo
