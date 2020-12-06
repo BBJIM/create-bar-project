@@ -1,10 +1,11 @@
 {
-	"name": "cli-test",
+	"name": "create-bar-project",
 	"version": "3.5.0",
 	"main": "bin/index.js",
-	"repository": "https://github.com/BBJIM/cli-test.git",
+	"repository": "https://github.com/BBJIM/create-bar-project.git",
 	"author": "Bar <baryed55gmail.com>",
 	"license": "MIT",
+	"private": false,
 	"scripts": {
 		"start": "yarn build && ts-node -r tsconfig-paths/register ./src/App",
 		"copy-resources": "ts-node ./copy-resources.ts",
