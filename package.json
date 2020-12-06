@@ -1,6 +1,6 @@
 {
 	"name": "create-bar-project",
-	"version": "3.9.1",
+	"version": "3.13.0",
 	"main": "bin/index.js",
 	"repository": "https://github.com/BBJIM/create-bar-project.git",
 	"author": "Bar <baryed55gmail.com>",
@@ -16,9 +16,9 @@
 		"lint-ts": "eslint src/**/*.{js,jsx,ts,tsx} --quiet --fix"
 	},
 	"files": [
-		"./bin",
-		"./dist",
-		"./node_modules",
+		"bin",
+		"dist",
+		"node_modules",
 		"README.md"
 	],
 	"bin": {
