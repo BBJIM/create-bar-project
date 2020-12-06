@@ -1,1 +1,3 @@
 fix monorepo
+fix storybooks in non CRA projects
+publish in new repo
