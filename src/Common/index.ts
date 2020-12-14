@@ -1,6 +1,6 @@
 import { apollo, mobx, monorepo, nextJs, normalReact, normalStructure, normalWithServer, webpack } from '../Functions';
 
-export const NORAML_REACT = 'normal react';
+export const NORAML_REACT = 'create react app';
 export const NEXT_JS = 'next.js';
 export const NORMAL_STRUCTURE = 'only client';
 export const WEBPACK = 'webpack';
