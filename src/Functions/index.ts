@@ -51,6 +51,11 @@ const fixProjectFolders = async (projectName: string) => {
 	);
 	await copyFolders(`${root}/${projectName}/Shared-src`, `${root}/${projectName}/src`, 'fixProjectFolders');
 	await copyFolders(`${root}/${projectName}/Shared-Common`, `${root}/${projectName}/src/Common`, 'fixProjectFolders');
+	await copyFolders(
+		`${root}/${projectName}/ui-kit-custom`,
+		`${root}/${projectName}/src/ui-kit/src/Custom`,
+		'fixProjectFolders',
+	);
 
 	// deleting extra
 	await deleteFolder(`${root}/${projectName}/src-${projectProps.base}`, 'delete');
@@ -60,6 +65,7 @@ const fixProjectFolders = async (projectName: string) => {
 	await deleteFolder(`${root}/${projectName}/src-App-${projectProps.state}`, 'delete');
 	await deleteFolder(`${root}/${projectName}/Shared-src`, 'delete');
 	await deleteFolder(`${root}/${projectName}/Shared-Common`, 'delete');
+	await deleteFolder(`${root}/${projectName}/ui-kit-custom`, 'delete');
 };
 
 const getSpecificProjectResources = () => {
@@ -157,9 +163,9 @@ export const normalStructure = async (projectName: string) => {
 			`${root}/${projectName}`,
 			`normalStructure - ${specificFolder}`,
 		);
-		await fixProjectFolders(projectName);
 		await createReadMeFile(`${root}/${projectName}`, projectName);
 		await createPackageJsonFile(`${root}/${projectName}`, projectName, projectProps.base, projectProps.state, true);
+		await fixProjectFolders(projectName);
 	} catch (err) {
 		throw new Error(`normalStructure - ${err.message || err}`);
 	}

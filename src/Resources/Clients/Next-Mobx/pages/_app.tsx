@@ -1,12 +1,12 @@
 import AppWrapper from 'App';
 import { MOBX_STORE_KEY } from 'Common/GeneralConsts';
+import { AUTH_STORE } from 'Common/StoreNames';
 import { isBrowser } from 'Common/Utils';
 import initializeStores from 'Logic';
-import { Provider } from 'mobx-react';
-import React from 'react';
-import App, { AppContext, AppInitialProps } from 'next/app';
-import { AUTH_STORE } from 'Common/StoreNames';
 import { AuthStore } from 'Logic/Stores';
+import { Provider } from 'mobx-react';
+import App, { AppContext, AppInitialProps } from 'next/app';
+import React from 'react';
 
 class ProjectApp extends App {
 	public static async getInitialProps(appContext: AppContext) {
