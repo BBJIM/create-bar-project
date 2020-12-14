@@ -13,7 +13,8 @@
 		"serve": "node -r ./tsconfig-paths-bootstrap.js ./dist/App",
 		"out-bin-install": "yarn build && npm install -g .",
 		"out-bin": "yarn build && npm update -g .",
-		"lint-ts": "eslint src/**/*.{js,jsx,ts,tsx} --quiet --fix"
+		"lint-ts": "eslint src/**/*.{js,jsx,ts,tsx} --quiet --fix",
+		"pub": "npm publish --access public"
 	},
 	"files": [
 		"bin",

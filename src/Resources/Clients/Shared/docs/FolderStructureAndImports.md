@@ -5,14 +5,11 @@ The basic project folder structure is:
 -   **.storybook**: a folder created automatically from installing the
     storybook library - you dont really need to edit it unless you know
     what you want to add there like storybook addons.
--   **build**: this folder created when you make a normal react build
--   this is what tou will put in the production server.
+-   **build/dist**: this folder created when you run the build command, this is what you will put in the production server.
 -   **Docs**: md files about most of the things in this project.
--   **node_modules**: the node modules from the libraries you use,
-    dont forget to `yarn` in the production server in the folder of
-    the build.
--   **public**: public files like images and the index.html of
-    the normal react.
+-   **node_modules**: the node modules from the libraries you use.
+-   **public**: public files like images and/or the index.html of
+    the create react app.
 -   **src**: containes the application code.
 -   -   **Api**: the folder containing the API file/module.
 -   -   **App**: the folder containing the highest level of the application.
