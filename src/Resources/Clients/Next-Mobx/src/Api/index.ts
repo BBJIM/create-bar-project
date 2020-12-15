@@ -2,7 +2,7 @@ import axios, { AxiosRequestConfig, AxiosResponse } from 'axios';
 import { getToken } from 'Common/Utils/Cookies';
 
 const API = axios.create({
-	baseURL: process.env.REACT_APP_SERVER_API_URL,
+	baseURL: process.env.NEXT_PUBLIC_SERVER_API_URL,
 	responseType: 'json',
 });
 
