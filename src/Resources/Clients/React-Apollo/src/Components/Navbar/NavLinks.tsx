@@ -1,10 +1,10 @@
 import { ROUTES } from 'Common/RoutesNames';
 import NavLink from 'Components/NavLink';
-import { Link } from 'ui-kit/src/Custom';
 import React from 'react';
+import { useLocation } from 'react-router-dom';
 import styled from 'styled-components';
+import { Link } from 'ui-kit/src/Custom';
 import { Theme } from 'ui-kit/src/Theme';
-import { useRouter } from 'next/router';
 
 const routesArray = Object.values(ROUTES).filter((r) => r !== ROUTES.HOME);
 
@@ -33,7 +33,7 @@ const TextWrapper = styled(NavLink)`
 `;
 
 const NavLinks = ({ onClick }: { onClick?: () => any }): JSX.Element => {
-	const { pathname } = useRouter();
+	const { pathname } = useLocation();
 	return (
 		<>
 			{routesArray.map(({ path, name }: { path: string; name: string }) => {

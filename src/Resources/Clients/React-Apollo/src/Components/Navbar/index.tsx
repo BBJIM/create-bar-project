@@ -28,7 +28,6 @@ const FlexContainer = styled.div`
 
 const NavLinksWrapper = styled.div`
 	margin: auto 0;
-	padding: 0;
 	display: flex;
 	align-items: center;
 	height: 100%;

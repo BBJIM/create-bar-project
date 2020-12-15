@@ -29,11 +29,13 @@ const fixProjectFolders = async (projectName: string) => {
 		`${root}/${projectName}/src`,
 		'fixProjectFolders',
 	);
-	await copyFolders(
-		`${root}/${projectName}/src-Common-${projectProps.base}`,
-		`${root}/${projectName}/src/Common`,
-		'fixProjectFolders',
-	);
+	if (projectProps.state === nextKey) {
+		await copyFolders(
+			`${root}/${projectName}/src-Common-${projectProps.base}`,
+			`${root}/${projectName}/src/Common`,
+			'fixProjectFolders',
+		);
+	}
 	await copyFolders(
 		`${root}/${projectName}/src-Common-Utils`,
 		`${root}/${projectName}/src/Common/Utils`,
@@ -72,6 +74,7 @@ const getSpecificProjectResources = () => {
 	return Object.values(projectProps).join('-');
 };
 
+// TODO: check this again and rename it
 const fixIfWebpack = async (projectName: string) => {
 	if (projectProps.base === webpackKey) {
 		await copyFolders(
@@ -79,6 +82,17 @@ const fixIfWebpack = async (projectName: string) => {
 			`${root}/${projectName}`,
 			`normalStructure - React-${projectProps.state}`,
 		);
+	}
+};
+
+const fixIfApollo = async (projectName: string) => {
+	if (projectProps.state === apolloKey) {
+		await copyFolders(
+			`${root}/${projectName}/src-Apollo-Apollo`,
+			`${root}/${projectName}/src/Apollo`,
+			'fixProjectFolders-Apollo',
+		);
+		await deleteFolder(`${root}/${projectName}/src-Apollo-Apollo`, 'delete-apollo');
 	}
 };
 
@@ -157,12 +171,13 @@ export const normalStructure = async (projectName: string) => {
 	try {
 		const specificFolder = getSpecificProjectResources();
 		await copyFolders(`${resources}/clients/Shared`, `${root}/${projectName}`, 'normalStructure - Shared');
-		await fixIfWebpack(projectName);
 		await copyFolders(
 			`${resources}/clients/${specificFolder}`,
 			`${root}/${projectName}`,
 			`normalStructure - ${specificFolder}`,
 		);
+		await fixIfWebpack(projectName);
+		await fixIfApollo(projectName);
 		await createReadMeFile(`${root}/${projectName}`, projectName);
 		await createPackageJsonFile(`${root}/${projectName}`, projectName, projectProps.base, projectProps.state, true);
 		await fixProjectFolders(projectName);
