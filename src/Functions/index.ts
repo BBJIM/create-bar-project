@@ -29,12 +29,20 @@ const fixProjectFolders = async (projectName: string) => {
 		`${root}/${projectName}/src`,
 		'fixProjectFolders',
 	);
-	if (projectProps.state === nextKey) {
+	if (projectProps.base === nextKey) {
 		await copyFolders(
 			`${root}/${projectName}/src-Common-${projectProps.base}`,
 			`${root}/${projectName}/src/Common`,
 			'fixProjectFolders',
 		);
+	}
+	if (projectProps.state === mobxKey) {
+		await copyFolders(
+			`${root}/${projectName}/react-mobx-index`,
+			`${root}/${projectName}/src/Logic`,
+			'fixProjectFolders',
+		);
+		await deleteFolder(`${root}/${projectName}/react-mobx-index`, 'delete');
 	}
 	await copyFolders(
 		`${root}/${projectName}/src-Common-Utils`,
