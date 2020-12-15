@@ -4,7 +4,7 @@ import { LoginFormValues, RegisterFormValues } from 'Common/FormValuesTypes';
 import { User } from 'Common/Models';
 import { removeToken, saveToken } from 'Common/Utils/Cookies';
 import { action, computed, observable } from 'mobx';
-import { GenericStore } from './Stores';
+import { GenericStore } from '../../Common/Mobx/src-Mobx/Logic/Stores';
 
 export default class AuthStore {
 	@observable
