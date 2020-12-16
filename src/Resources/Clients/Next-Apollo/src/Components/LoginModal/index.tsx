@@ -1,18 +1,18 @@
 import { LoginFormValues } from 'Common/FormValuesTypes';
+import { getMinDesktopSize } from 'Common/Utils';
 import { loginSchema } from 'Common/Validations';
-import { FormWrapper } from 'ui-kit/src';
-import { Button, Input } from 'ui-kit/src/Custom';
-import { getFormError, scrollToFirstError } from 'ui-kit/src/FormWrapper';
 import { FormikProps } from 'formik';
 import React from 'react';
 import styled from 'styled-components';
-import { Theme } from 'ui-kit/src/Theme';
+import { FormWrapper } from 'ui-kit/src';
+import { Button, Input } from 'ui-kit/src/Custom';
+import { getFormError, scrollToFirstError } from 'ui-kit/src/FormWrapper';
 
 const Wrapper = styled.form`
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	@media (min-width: ${({ theme }: { theme: Theme }): string => theme.mediaSizes.desktopMinSize}) {
+	@media (min-width: ${getMinDesktopSize}) {
 		width: 80%;
 		height: 80%;
 		margin: 50px auto;

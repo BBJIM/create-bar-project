@@ -1,7 +1,8 @@
-import { Colors, Sizes } from 'ui-kit/src/Common/Types';
-import { darkerColor } from 'ui-kit/src/Common/Utils';
+import { getMinDesktopSize } from 'Common/Utils';
 import React, { ButtonHTMLAttributes } from 'react';
 import styled, { css } from 'styled-components';
+import { Colors, Sizes } from 'ui-kit/src/Common/Types';
+import { darkerColor } from 'ui-kit/src/Common/Utils';
 import { Theme } from 'ui-kit/src/Theme';
 import Link from '../Link';
 
@@ -73,7 +74,7 @@ const LinkButtonComponent = styled(Link)<ButtonStyledComponentProps>`
 
 const ChildrenWrapper = styled.div`
 	padding: 12px 7px;
-	@media (min-width: ${({ theme }: { theme: Theme }): string => theme.mediaSizes.desktopMinSize}) {
+	@media (min-width: ${getMinDesktopSize}) {
 		padding: 12px 20px;
 	}
 `;

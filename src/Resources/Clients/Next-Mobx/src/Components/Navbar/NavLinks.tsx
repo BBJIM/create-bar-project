@@ -1,10 +1,11 @@
 import { ROUTES } from 'Common/RoutesNames';
+import { getMaxMobileSize, getMinDesktopSize } from 'Common/Utils';
 import NavLink from 'Components/NavLink';
-import { Link } from 'ui-kit/src/Custom';
+import { useRouter } from 'next/router';
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from 'ui-kit/src/Custom';
 import { Theme } from 'ui-kit/src/Theme';
-import { useRouter } from 'next/router';
 
 const routesArray = Object.values(ROUTES).filter((r) => r !== ROUTES.HOME);
 
@@ -12,7 +13,7 @@ const Wrapper = styled.div`
 	width: 90px;
 	min-width: fit-content;
 	margin-bottom: 15px;
-	@media (min-width: ${({ theme }: { theme: Theme }): string => theme.mediaSizes.desktopMinSize}) {
+	@media (min-width: ${getMinDesktopSize}) {
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -24,7 +25,7 @@ const Wrapper = styled.div`
 `;
 
 const TextWrapper = styled(NavLink)`
-	@media (max-width: ${({ theme }: { theme: Theme }): string => theme.mediaSizes.mobileMaxSize}) {
+	@media (max-width: ${getMaxMobileSize}) {
 		color: ${({ theme, selected }: { theme: Theme; selected: boolean }): string =>
 			selected ? theme.colors.navbarLinkHighlight : theme.colors.navbarLink};
 		border-color: ${({ theme, selected }: { theme: Theme; selected: boolean }): string =>

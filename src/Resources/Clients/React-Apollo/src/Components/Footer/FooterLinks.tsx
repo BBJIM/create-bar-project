@@ -1,9 +1,9 @@
 import { ROUTES } from 'Common/RoutesNames';
+import { getMinDesktopSize } from 'Common/Utils';
 import NavLink from 'Components/NavLink';
-import { Link } from 'ui-kit/src/Custom';
 import React from 'react';
 import styled from 'styled-components';
-import { Theme } from 'ui-kit/src/Theme';
+import { Link } from 'ui-kit/src/Custom';
 
 const routesArray = Object.values(ROUTES).filter((r) => r !== ROUTES.HOME);
 
@@ -11,7 +11,7 @@ const Wrapper = styled.div`
 	width: fit-content;
 	height: 40px;
 	margin-bottom: 15px;
-	@media (min-width: ${({ theme }: { theme: Theme }): string => theme.mediaSizes.desktopMinSize}) {
+	@media (min-width: ${getMinDesktopSize}) {
 		display: flex;
 		align-items: center;
 		margin-bottom: 0;
