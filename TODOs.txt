@@ -1,4 +1,3 @@
-fix docs
 change link to components
 fix polyfills so all projects would work on explorer
 react-dom.development.js:67 Warning: Text content did not match. Server: "Logout" Client: "Login"
