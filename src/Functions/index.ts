@@ -45,11 +45,6 @@ const fixProjectFolders = async (projectName: string) => {
 		await deleteFolder(`${root}/${projectName}/react-mobx-index`, 'delete');
 	}
 	await copyFolders(
-		`${root}/${projectName}/src-Common-Utils`,
-		`${root}/${projectName}/src/Common/Utils`,
-		'fixProjectFolders',
-	);
-	await copyFolders(
 		`${root}/${projectName}/src-${projectProps.state}`,
 		`${root}/${projectName}/src`,
 		'fixProjectFolders',
@@ -62,6 +57,11 @@ const fixProjectFolders = async (projectName: string) => {
 	await copyFolders(`${root}/${projectName}/Shared-src`, `${root}/${projectName}/src`, 'fixProjectFolders');
 	await copyFolders(`${root}/${projectName}/Shared-Common`, `${root}/${projectName}/src/Common`, 'fixProjectFolders');
 	await copyFolders(
+		`${root}/${projectName}/src-Common-Utils`,
+		`${root}/${projectName}/src/Common/Utils`,
+		'fixProjectFolders',
+	);
+	await copyFolders(
 		`${root}/${projectName}/ui-kit-custom`,
 		`${root}/${projectName}/src/ui-kit/src/Custom`,
 		'fixProjectFolders',
@@ -70,12 +70,12 @@ const fixProjectFolders = async (projectName: string) => {
 	// deleting extra
 	await deleteFolder(`${root}/${projectName}/src-${projectProps.base}`, 'delete');
 	await deleteFolder(`${root}/${projectName}/src-Common-${projectProps.base}`, 'delete');
-	await deleteFolder(`${root}/${projectName}/src-Common-Utils`, 'delete');
 	await deleteFolder(`${root}/${projectName}/src-${projectProps.state}`, 'delete');
 	await deleteFolder(`${root}/${projectName}/src-App-${projectProps.state}`, 'delete');
 	await deleteFolder(`${root}/${projectName}/Shared-src`, 'delete');
 	await deleteFolder(`${root}/${projectName}/Shared-Common`, 'delete');
 	await deleteFolder(`${root}/${projectName}/ui-kit-custom`, 'delete');
+	await deleteFolder(`${root}/${projectName}/src-Common-Utils`, 'delete');
 };
 
 const getSpecificProjectResources = () => {

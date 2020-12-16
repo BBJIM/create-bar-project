@@ -1,3 +1,5 @@
+change link to components
+delete other todos
 fix docs
 react-dom.development.js:67 Warning: Text content did not match. Server: "Logout" Client: "Login"
 fix monorepo

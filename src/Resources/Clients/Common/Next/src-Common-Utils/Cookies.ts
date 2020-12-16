@@ -1,6 +1,6 @@
 import { CookieAttributes, get, remove, set } from 'js-cookie';
 import { NextPageContext } from 'next';
-import { isBrowser } from './NextjsProcessUtils';
+import { isBrowser } from './IsBrowser';
 import nextCookies from 'next-cookies';
 
 enum CookiesKeys {

@@ -1,5 +1,5 @@
 import { AUTH_STORE, GENERIC_STORE, MODAL_STORE, UI_STORE } from 'Common/StoreNames';
-import { AuthStore, GenericStore, ModalStore, UiStore } from '../../Common/Mobx/src-Mobx/Logic/Stores';
+import { AuthStore, GenericStore, ModalStore, UiStore } from 'Logic/Stores';
 
 class Stores {
 	private authStore: AuthStore;

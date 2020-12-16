@@ -1,5 +1,5 @@
 import { directions } from 'Common/GeneralConsts';
-import { isBrowser } from './NextjsProcessUtils';
+import { isBrowser } from './IsBrowser';
 
 const getDirection = (): string => {
 	if (isBrowser()) {
