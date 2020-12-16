@@ -1,7 +1,7 @@
-change link to components
-delete other todos
 fix docs
 react-dom.development.js:67 Warning: Text content did not match. Server: "Logout" Client: "Login"
+delete other todos
+change link to components
 fix monorepo
 fix storybooks in non CRA projects
 add keywords to package json
