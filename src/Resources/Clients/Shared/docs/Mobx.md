@@ -2,10 +2,10 @@
 
 This project can use Mobx library for global state(one source of truth)
 management.
-It use version 4, because of ie compatibility. when this project was written a
+It use version 4, because of IE compatibility. when this project was written a
 version 6 came out, consider useing that instead- its kind of the same thing
 only the syntax is different, and maybe behind the scenes it works better.
-for more information, see https:// mobx.js.org/README.html
+for more information, see https://mobx.js.org/README.html
 
 -   Mobx is composed out from stores. store is a class that manage some
     state thats relevant to it, for example the ui store is responsible for

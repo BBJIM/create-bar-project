@@ -1,8 +1,10 @@
 fix docs
+change link to components
+fix polyfills so all projects would work on explorer
 react-dom.development.js:67 Warning: Text content did not match. Server: "Logout" Client: "Login"
 delete other todos
-change link to components
 fix monorepo
 fix storybooks in non CRA projects
 add keywords to package json
+
 publish in new repo
