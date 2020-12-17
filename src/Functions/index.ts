@@ -66,6 +66,11 @@ const fixProjectFolders = async (projectName: string) => {
 		`${root}/${projectName}/src/ui-kit/src/Custom`,
 		'fixProjectFolders',
 	);
+	await copyFolders(
+		`${root}/${projectName}/src-components`,
+		`${root}/${projectName}/src/Components`,
+		'fixProjectFolders',
+	);
 
 	// deleting extra
 	await deleteFolder(`${root}/${projectName}/src-${projectProps.base}`, 'delete');
@@ -76,6 +81,7 @@ const fixProjectFolders = async (projectName: string) => {
 	await deleteFolder(`${root}/${projectName}/Shared-Common`, 'delete');
 	await deleteFolder(`${root}/${projectName}/ui-kit-custom`, 'delete');
 	await deleteFolder(`${root}/${projectName}/src-Common-Utils`, 'delete');
+	await deleteFolder(`${root}/${projectName}/src-components`, 'delete');
 };
 
 const getSpecificProjectResources = () => {
@@ -179,11 +185,13 @@ export const normalStructure = async (projectName: string) => {
 	try {
 		const specificFolder = getSpecificProjectResources();
 		await copyFolders(`${resources}/clients/Shared`, `${root}/${projectName}`, 'normalStructure - Shared');
-		await copyFolders(
-			`${resources}/clients/${specificFolder}`,
-			`${root}/${projectName}`,
-			`normalStructure - ${specificFolder}`,
-		);
+		if (projectProps.base !== webpackKey) {
+			await copyFolders(
+				`${resources}/clients/${specificFolder}`,
+				`${root}/${projectName}`,
+				`normalStructure - ${specificFolder}`,
+			);
+		}
 		await fixIfWebpack(projectName);
 		await fixIfApollo(projectName);
 		await createReadMeFile(`${root}/${projectName}`, projectName);
