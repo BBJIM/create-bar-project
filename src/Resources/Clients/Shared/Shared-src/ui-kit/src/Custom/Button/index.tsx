@@ -1,8 +1,7 @@
-import { getMinDesktopSize } from 'Common/Utils';
 import React, { ButtonHTMLAttributes } from 'react';
 import styled, { css } from 'styled-components';
 import { Colors, Sizes } from 'ui-kit/src/Common/Types';
-import { darkerColor } from 'ui-kit/src/Common/Utils';
+import { darkerColor, getMinDesktopSize } from 'ui-kit/src/Common/Utils';
 import { Theme } from 'ui-kit/src/Theme';
 
 export type ButtonComponentProps = ButtonHTMLAttributes<any> & {

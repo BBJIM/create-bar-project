@@ -1,10 +1,10 @@
 import { LoginFormValues } from 'Common/FormValuesTypes';
-import { getMinDesktopSize } from 'Common/Utils';
 import { loginSchema } from 'Common/Validations';
 import { FormikProps } from 'formik';
 import React from 'react';
 import styled from 'styled-components';
 import { FormWrapper } from 'ui-kit/src';
+import { getMinDesktopSize } from 'ui-kit/src/Common/Utils';
 import { Button, Input } from 'ui-kit/src/Custom';
 import { getFormError, scrollToFirstError } from 'ui-kit/src/FormWrapper';
 

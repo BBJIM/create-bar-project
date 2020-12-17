@@ -1,9 +1,9 @@
 import { ROUTES } from 'Common/RoutesNames';
-import { getMinDesktopSize } from 'Common/Utils';
 import { Link } from 'Components';
 import NavLink from 'Components/NavLink';
 import React from 'react';
 import styled from 'styled-components';
+import { getMinDesktopSize } from 'ui-kit/src/Common/Utils';
 
 const routesArray = Object.values(ROUTES).filter((r) => r !== ROUTES.HOME);
 
