@@ -62,11 +62,6 @@ const fixProjectFolders = async (projectName: string) => {
 		'fixProjectFolders',
 	);
 	await copyFolders(
-		`${root}/${projectName}/ui-kit-custom`,
-		`${root}/${projectName}/src/ui-kit/src/Custom`,
-		'fixProjectFolders',
-	);
-	await copyFolders(
 		`${root}/${projectName}/src-components`,
 		`${root}/${projectName}/src/Components`,
 		'fixProjectFolders',
@@ -79,7 +74,6 @@ const fixProjectFolders = async (projectName: string) => {
 	await deleteFolder(`${root}/${projectName}/src-App-${projectProps.state}`, 'delete');
 	await deleteFolder(`${root}/${projectName}/Shared-src`, 'delete');
 	await deleteFolder(`${root}/${projectName}/Shared-Common`, 'delete');
-	await deleteFolder(`${root}/${projectName}/ui-kit-custom`, 'delete');
 	await deleteFolder(`${root}/${projectName}/src-Common-Utils`, 'delete');
 	await deleteFolder(`${root}/${projectName}/src-components`, 'delete');
 };
