@@ -1,10 +1,10 @@
 import { ROUTES } from 'Common/RoutesNames';
 import { getMaxMobileSize, getMinDesktopSize } from 'Common/Utils';
+import { Link } from 'Components';
 import NavLink from 'Components/NavLink';
 import { useRouter } from 'next/router';
 import React from 'react';
 import styled from 'styled-components';
-import { Link } from 'ui-kit/src/Custom';
 import { Theme } from 'ui-kit/src/Theme';
 
 const routesArray = Object.values(ROUTES).filter((r) => r !== ROUTES.HOME);

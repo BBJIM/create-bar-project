@@ -1,7 +1,8 @@
 import { ROUTES } from 'Common/RoutesNames';
-import { Img, Link } from 'ui-kit/src/Custom';
+import { Link } from 'Components';
 import React from 'react';
 import styled from 'styled-components';
+import { Img } from 'ui-kit/src/Custom';
 
 const Image = styled(Img)`
 	width: 100%;

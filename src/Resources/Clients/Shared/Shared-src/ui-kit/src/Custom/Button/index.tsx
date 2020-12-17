@@ -4,7 +4,6 @@ import styled, { css } from 'styled-components';
 import { Colors, Sizes } from 'ui-kit/src/Common/Types';
 import { darkerColor } from 'ui-kit/src/Common/Utils';
 import { Theme } from 'ui-kit/src/Theme';
-import Link from '../Link';
 
 export type ButtonComponentProps = ButtonHTMLAttributes<any> & {
 	textColor?: Colors;
@@ -12,10 +11,9 @@ export type ButtonComponentProps = ButtonHTMLAttributes<any> & {
 	borderColor?: Colors;
 	size?: Sizes;
 	round?: boolean;
-	path?: string;
 };
 
-type ButtonStyledComponentProps = {
+export type ButtonStyledComponentProps = {
 	theme: Theme;
 	textColor: Colors;
 	backgroundColor: Colors;
@@ -25,7 +23,7 @@ type ButtonStyledComponentProps = {
 	disabled?: boolean;
 };
 
-const ButtonStyle = css`
+export const ButtonStyle = css`
 	font-size: ${({ theme, size }: ButtonStyledComponentProps): string => theme.typography.texts.sizes[size]};
 	color: ${({ theme, textColor }: ButtonStyledComponentProps): string => theme.colors[textColor]};
 	background-color: ${({ theme, backgroundColor }: ButtonStyledComponentProps): string =>
@@ -67,12 +65,7 @@ const ButtonComponent = styled.button<ButtonStyledComponentProps>`
 	${ButtonStyle}
 `;
 
-const LinkButtonComponent = styled(Link)<ButtonStyledComponentProps>`
-	${ButtonStyle}
-	width: fit-content;
-`;
-
-const ChildrenWrapper = styled.div`
+export const ButtonChildrenWrapper = styled.div`
 	padding: 12px 7px;
 	@media (min-width: ${getMinDesktopSize}) {
 		padding: 12px 20px;
@@ -89,25 +82,10 @@ const Button = ({
 	size = 'medium',
 	round = false,
 	disabled = false,
-	path,
 	...rest
 }: ButtonComponentProps): JSX.Element => {
 	const realBorderColor = borderColor ? borderColor : backgroundColor;
-	return path ? (
-		<LinkButtonComponent
-			path={path}
-			onClick={onClick}
-			textColor={textColor}
-			backgroundColor={backgroundColor}
-			borderColor={realBorderColor}
-			size={size}
-			round={round}
-			disabled={disabled}
-			{...rest}
-		>
-			<ChildrenWrapper>{children}</ChildrenWrapper>
-		</LinkButtonComponent>
-	) : (
+	return (
 		<ButtonComponent
 			onClick={onClick}
 			type={type}
@@ -119,7 +97,7 @@ const Button = ({
 			disabled={disabled}
 			{...rest}
 		>
-			<ChildrenWrapper>{children}</ChildrenWrapper>
+			<ButtonChildrenWrapper>{children}</ButtonChildrenWrapper>
 		</ButtonComponent>
 	);
 };

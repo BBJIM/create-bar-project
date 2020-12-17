@@ -1,7 +1,8 @@
 import { ROUTES } from 'Common/RoutesNames';
-import { Button, Headline, Text } from 'ui-kit/src/Custom';
+import { ButtonLink } from 'Components';
 import React from 'react';
 import styled from 'styled-components';
+import { Headline, Text } from 'ui-kit/src/Custom';
 
 const Wrapper = styled.div`
 	text-align: center;
@@ -18,7 +19,7 @@ const StyledText = styled(Text)`
 	text-align: center;
 `;
 
-const CenteredButton = styled(Button)`
+const CenteredButton = styled(ButtonLink)`
 	margin: auto;
 `;
 
