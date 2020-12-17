@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useState } from 'react';
+import { bindEvent } from 'ui-kit/src/Common/Utils';
 import { mediaSizes } from 'ui-kit/src/Theme/GlobalStyles';
 
 const useMediaQuery = ({ width, min }: { width: number; min?: boolean }) => {
@@ -14,7 +15,8 @@ const useMediaQuery = ({ width, min }: { width: number; min?: boolean }) => {
 
 	useEffect(() => {
 		const media = window.matchMedia(`(${min ? 'min' : 'max'}-width: ${width}px)`);
-		media.addEventListener('change', updateTarget);
+
+		bindEvent(media, 'change', updateTarget);
 
 		// Check on mount (callback is not called until a change occurs)
 		if (media.matches) {
