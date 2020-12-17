@@ -1,5 +1,6 @@
-fix polyfills so all projects would work on explorer
-react-dom.development.js:67 Warning: Text content did not match. Server: "Logout" Client: "Login"
+finish IE
+check IE css fixes
+check react-dom.development.js:67 Warning: Text content did not match. Server: "Logout" Client: "Login"
 delete other todos
 add tests?
 fix monorepo
