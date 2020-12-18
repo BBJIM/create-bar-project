@@ -119,7 +119,7 @@ export const baseDependencies = {
 	`,
 	[nextKey]: `
 	${commonClientDeps}
-    "next": "latest",
+    "next": "10.0.3",
     "next-cookies": "^2.0.3",
     "react-is": "^16.8.0",
 	`,

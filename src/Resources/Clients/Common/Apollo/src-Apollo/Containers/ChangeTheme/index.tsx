@@ -23,6 +23,9 @@ const ThemeButton = styled(Button)`
 const Header = styled(Headline)`
 	margin: 20px auto 0;
 	width: fit-content;
+	@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+		display: table;
+	}
 `;
 
 const ChangeTheme = () => {

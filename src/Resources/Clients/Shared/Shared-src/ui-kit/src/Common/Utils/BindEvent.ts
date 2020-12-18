@@ -1,4 +1,4 @@
-const bindEvent = (el: any, eventName: string, eventHandler: Function) => {
+const bindEvent = (el: any, eventName: string, eventHandler: (e: any) => void) => {
 	if (el.addEventListener) {
 		el.addEventListener(eventName, eventHandler, false);
 	} else if (el.attachEvent) {

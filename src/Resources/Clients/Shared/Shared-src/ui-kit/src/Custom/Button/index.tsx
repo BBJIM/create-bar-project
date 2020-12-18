@@ -58,6 +58,10 @@ export const ButtonStyle = css`
 	:focus {
 		outline: none;
 	}
+
+	@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+		width: 185px;
+	}
 `;
 
 const ButtonComponent = styled.button<ButtonStyledComponentProps>`

@@ -21,6 +21,9 @@ const LabelCSS = css`
 	bottom: 25px;
 	/* right: 125px; */
 	left: 20px;
+	@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+		display: table;
+	}
 `;
 
 const RangeInput = ({ ...props }: InputProps): JSX.Element => {
