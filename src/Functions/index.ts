@@ -82,7 +82,6 @@ const getSpecificProjectResources = () => {
 	return Object.values(projectProps).join('-');
 };
 
-// TODO: check this again and rename it
 const fixIfWebpack = async (projectName: string) => {
 	if (projectProps.base === webpackKey) {
 		await copyFolders(
