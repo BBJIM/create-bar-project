@@ -1,11 +1,20 @@
 {
 	"name": "create-bar-project",
-	"version": "5.0.3",
+	"version": "5.0.4",
 	"main": "bin/index.js",
 	"repository": "https://github.com/BBJIM/create-bar-project.git",
 	"author": "Bar <baryed55gmail.com>",
 	"license": "MIT",
 	"private": false,
+	"keywords": [
+		"base-project",
+		"react",
+		"create-react-app",
+		"next.js",
+		"webpack",
+		"mobx",
+		"apollo"
+	],
 	"scripts": {
 		"start": "yarn build && ts-node -r tsconfig-paths/register ./src/App",
 		"copy-resources": "ts-node ./copy-resources.ts",
