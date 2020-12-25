@@ -1,6 +1,18 @@
 # create-bar-project
 
-install this package globally and then run 'create-bar-project' on your cmd
+This module helps create a base for web application projects.
+
+It includes:
+
+-   create-react-app
+-   next.js
+-   webpack
+-   mobx
+-   apollo
+-   ui-kit and examples for the projects
+-   storybook (currently only in CRA projects)
+
+Install this package globally and then run 'create-bar-project' on your cmd
 
 coming soon:
 
