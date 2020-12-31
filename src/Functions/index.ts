@@ -1,4 +1,13 @@
-import { apolloKey, mobxKey, nextKey, reactKey, serverEnvData, serverGitIgnoreData, webpackKey } from '../Common';
+import {
+	apolloKey,
+	clientGitIgnoreData,
+	mobxKey,
+	nextKey,
+	reactKey,
+	serverEnvData,
+	serverGitIgnoreData,
+	webpackKey,
+} from '../Common';
 import { copyFolders, deleteFolder, writeFile } from './FsUtils';
 import { getPackageJsonData, getServerPackageJsonData } from './GetPackageJsonData';
 
@@ -107,6 +116,10 @@ const createReadMeFile = async (path: string, projectName: string) => {
 	writeFile(`${path}/README.md`, `# ${projectName}`);
 };
 
+const createClientGitIgnore = async (path: string) => {
+	writeFile(`${path}/.gitignore`, clientGitIgnoreData);
+};
+
 const createServerGitIgnore = async (path: string) => {
 	writeFile(`${path}/.gitignore`, serverGitIgnoreData);
 };
@@ -188,6 +201,7 @@ export const normalStructure = async (projectName: string) => {
 		await fixIfWebpack(projectName);
 		await fixIfApollo(projectName);
 		await createReadMeFile(`${root}/${projectName}`, projectName);
+		await createClientGitIgnore(`${root}/${projectName}`);
 		await createPackageJsonFile(`${root}/${projectName}`, projectName, projectProps.base, projectProps.state, true);
 		await fixProjectFolders(projectName);
 	} catch (err) {

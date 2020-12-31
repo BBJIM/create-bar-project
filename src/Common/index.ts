@@ -207,6 +207,40 @@ export const browserslistString = `"browserslist": {
 	]
 }`;
 
+export const clientGitIgnoreData = `
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+node_modules/
+/.pnp
+.pnp.js
+
+# testing
+/coverage
+
+# next.js
+/.next/
+/out/
+
+# production
+build/
+dist/
+
+# stroybook
+stroybook-static/
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# local env files
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+`;
+
 const mobxServerDeps = `
 "bcrypt": "^5.0.0",
 "body-parser": "^1.19.0",
