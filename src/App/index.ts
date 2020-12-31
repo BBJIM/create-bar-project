@@ -4,15 +4,12 @@ import { clear } from 'console';
 import figlet from 'figlet';
 import { createFolderByName } from '../Functions/FsUtils';
 import inquirerFunctions from '../Lib/inquirerSetupFunction';
+import pjson from '../../package.json';
 
 clear();
 
-/**
- * if you make a change:
- * need to run `yarn out-bin`, then you can use it with the new version in the cmd.
- */
-
 console.log(chalk.yellow(figlet.textSync('Bar Base Project', { horizontalLayout: 'full' })));
+console.log(`version - ${pjson.version}\n`);
 const run = async () => {
 	try {
 		const { getValidProjectName, setupProjectFolders } = inquirerFunctions;

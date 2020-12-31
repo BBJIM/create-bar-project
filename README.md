@@ -12,7 +12,7 @@ It includes:
 -   ui-kit and examples for the projects
 -   storybook (currently only in CRA projects)
 
-Install this package globally and then run 'create-bar-project' on your cmd
+Install this package globally `npm install -g create-bar-project` and then run 'create-bar-project' on your cmd
 
 coming soon:
 
