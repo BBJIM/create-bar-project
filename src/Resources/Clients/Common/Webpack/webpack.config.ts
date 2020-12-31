@@ -41,7 +41,7 @@ const dotenvPlugin = new Dotenv({
 	silent: true,
 });
 
-const tsPathsResolvePlugin = new TsconfigPathsPlugin({});
+const tsPathsResolvePlugin: any = new TsconfigPathsPlugin({});
 
 const config: webpack.Configuration = {
 	mode: isDevelopment ? 'development' : 'production',
