@@ -8,7 +8,6 @@ import inquirerFunctions from '../Lib/inquirerSetupFunction';
 clear();
 
 console.log(chalk.yellow(figlet.textSync('Bar Base Project', { horizontalLayout: 'full' })));
-console.log(`version - ${process.env.npm_package_version}\n`);
 
 const run = async () => {
 	try {
