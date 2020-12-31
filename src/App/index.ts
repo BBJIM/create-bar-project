@@ -4,12 +4,12 @@ import { clear } from 'console';
 import figlet from 'figlet';
 import { createFolderByName } from '../Functions/FsUtils';
 import inquirerFunctions from '../Lib/inquirerSetupFunction';
-import pjson from '../../package.json';
 
 clear();
 
 console.log(chalk.yellow(figlet.textSync('Bar Base Project', { horizontalLayout: 'full' })));
-console.log(`version - ${pjson.version}\n`);
+console.log(`version - ${process.env.npm_package_version}\n`);
+
 const run = async () => {
 	try {
 		const { getValidProjectName, setupProjectFolders } = inquirerFunctions;
