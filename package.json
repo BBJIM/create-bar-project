@@ -1,6 +1,6 @@
 {
 	"name": "create-bar-project",
-	"version": "5.2.1",
+	"version": "5.2.2",
 	"main": "bin/index.js",
 	"repository": "https://github.com/BBJIM/create-bar-project.git",
 	"author": "Bar <baryed55gmail.com>",
