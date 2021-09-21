@@ -128,7 +128,7 @@ export const baseDependencies = {
 
 export const stateDependencies = {
 	[mobxKey]: `
-	"axios": "^0.20.0",
+	"axios": "^0.21.2",
 	"mobx": "4.14.1",
 	"mobx-react": "6.1.4"
 	`,
