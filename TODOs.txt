@@ -1,3 +1,5 @@
+add .editorconfig file
+all TODOs from my phone
 finish IE
 check react-dom.development.js:67 Warning: Text content did not match. Server: "Logout" Client: "Login"
 delete other todos
